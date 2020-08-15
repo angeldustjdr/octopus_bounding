@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/title_screen.png" type="Texture" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Titre.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+outline_size = 5
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 31
+outline_size = 3
+font_data = ExtResource( 2 )
+
+[node name="Titre" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="title_screen" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="TitleLabel" type="Label" parent="."]
+margin_left = 509.706
+margin_top = 95.8647
+margin_right = 1080.71
+margin_bottom = 217.865
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Octopus Bonding"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubTitleLabel" type="Label" parent="."]
+margin_left = 870.502
+margin_top = 185.569
+margin_right = 1125.5
+margin_bottom = 267.569
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Mafia is a family"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubTitleLabel2" type="Label" parent="."]
+margin_left = 509.706
+margin_top = 538.52
+margin_right = 881.706
+margin_bottom = 620.52
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Press any button to start"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

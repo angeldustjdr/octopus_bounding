@@ -348,4 +348,5 @@ color = Color( 0, 0, 0, 0.439216 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="timeout" from="TimerIgnore" to="." method="_on_TimerIgnore_timeout"]
 [connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]

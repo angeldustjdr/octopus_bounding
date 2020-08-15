@@ -14,6 +14,8 @@ var isWin = 1
 
 var speed = -400
 
+signal ignoreTimeOut(mission_id)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Set NPC socket
@@ -49,3 +51,5 @@ func _on_TimerMission_timeout():
 	else:
 		isWin = 1
 
+func _on_TimerIgnore_timeout():
+	emit_signal("ignoreTimeOut",self)

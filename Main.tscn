@@ -39,12 +39,13 @@ __meta__ = {
 [node name="NPCArea" type="ColorRect" parent="."]
 anchor_right = 0.125
 anchor_bottom = 1.0
-margin_top = -4.0
+margin_top = 1.07288e-06
 margin_right = -16.0
-margin_bottom = -4.0
+margin_bottom = 1.07288e-06
 mouse_filter = 2
 color = Color( 1, 1, 1, 0.470588 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -227,7 +228,7 @@ margin_left = 176.0
 margin_top = 136.0
 margin_right = 1248.0
 margin_bottom = 688.0
-color = Color( 1, 1, 1, 0.713726 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -3,13 +3,14 @@ extends Node
 var rand = randomize()
 var missionAccepted = false
 var initialX_textureRect
+var npcList = []
 
 export var nb_npc = 1
 export var outcomeMoney = [0,0]
 export var outcomeReputation = [0,0]
 export var outcomeCompromised = [0,0]
 export var missionType = "?"
-var isWin = false
+var isWin = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,4 +32,17 @@ func _process(delta):
 	else:
 		$TimeLabel.text = str($TimerMission.time_left)
 		$TimeLabel/TextureRect.rect_size.x = initialX_textureRect * $TimerMission.time_left/$TimerMission.wait_time
+
+func _on_TimerMission_timeout():
+	var successChance = 50
+	for npc in npcList:
+		if npc.NPC_type == "You" or npc.NPC_type == missionType:
+			successChance += 30 / npcList.size()
+		else:
+			successChance -= 20 / npcList.size()
+	var roll = rand.randf_range(0, 100.0)
+	if roll<=successChance:
+		isWin = 0
+	else:
+		isWin = 1
 

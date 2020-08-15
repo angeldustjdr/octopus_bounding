@@ -1,3 +1,175 @@
-[gd_scene format=2]
+[gd_scene load_steps=7 format=2]
 
-[node name="Main" type="Node2D"]
+[ext_resource path="res://Assets/icons/handcuffs.png" type="Texture" id=1]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/icons/coins.png" type="Texture" id=3]
+[ext_resource path="res://Assets/background.png" type="Texture" id=4]
+[ext_resource path="res://Assets/icons/shaking-hands.png" type="Texture" id=5]
+[ext_resource path="res://Main.gd" type="Script" id=6]
+
+[node name="Main" type="Node"]
+script = ExtResource( 6 )
+
+[node name="MissionArea" type="TextureRect" parent="."]
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -72.0
+margin_bottom = 1.07288e-06
+mouse_filter = 2
+texture = ExtResource( 4 )
+
+[node name="NPCArea" type="ColorRect" parent="."]
+anchor_right = 0.125
+anchor_bottom = 1.0
+margin_right = -16.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0.470588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameArea" type="ColorRect" parent="."]
+anchor_left = 0.109
+anchor_right = 0.109
+margin_left = 4.47999
+margin_right = 1144.48
+margin_bottom = 720.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreArea" type="ColorRect" parent="GameArea"]
+margin_right = 924.0
+margin_bottom = 104.0
+mouse_filter = 2
+color = Color( 0.356863, 0.352941, 0.352941, 0.694118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Money" type="ColorRect" parent="GameArea/ScoreArea"]
+anchor_left = 0.017
+anchor_top = 0.154
+anchor_right = 0.017
+anchor_bottom = 0.154
+margin_left = 0.427999
+margin_top = -0.0160015
+margin_right = 284.428
+margin_bottom = 71.984
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="GameArea/ScoreArea/Money"]
+margin_right = 64.0
+margin_bottom = 64.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Money_label" type="Label" parent="GameArea/ScoreArea/Money"]
+anchor_left = 0.156
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 34.76
+
+[node name="Reputation" type="ColorRect" parent="GameArea/ScoreArea"]
+anchor_left = 0.348
+anchor_top = 0.154
+anchor_right = 0.348
+anchor_bottom = 0.154
+margin_left = -5.55202
+margin_top = -0.0160015
+margin_right = 286.448
+margin_bottom = 71.984
+rect_pivot_offset = Vector2( 256, 16 )
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="GameArea/ScoreArea/Reputation"]
+margin_right = 64.0
+margin_bottom = 64.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="Reputation_label" type="Label" parent="GameArea/ScoreArea/Reputation"]
+anchor_left = 0.156
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 34.072
+margin_right = -3.05176e-05
+
+[node name="Compromised" type="ColorRect" parent="GameArea/ScoreArea"]
+anchor_left = 0.678
+anchor_top = 0.154
+anchor_right = 0.678
+anchor_bottom = 0.154
+margin_left = -2.47203
+margin_top = -0.0160015
+margin_right = 277.528
+margin_bottom = 71.984
+rect_pivot_offset = Vector2( 256, 16 )
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="GameArea/ScoreArea/Compromised"]
+margin_right = 64.0
+margin_bottom = 64.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Compromised_label" type="Label" parent="GameArea/ScoreArea/Compromised"]
+anchor_left = 0.156
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 34.072
+
+[node name="TimeArea" type="ColorRect" parent="GameArea"]
+anchor_left = 0.812
+anchor_right = 0.812
+margin_left = -1.67997
+margin_right = 210.32
+margin_bottom = 104.0
+mouse_filter = 2
+color = Color( 0.807843, 0.615686, 0.615686, 0.486275 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 72 )
+
+[node name="Character2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 168 )
+
+[node name="Character3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 264 )
+
+[node name="Character4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 360 )
+
+[node name="Character5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 456 )
+
+[node name="Character6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 552 )
+
+[node name="Character7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 648 )

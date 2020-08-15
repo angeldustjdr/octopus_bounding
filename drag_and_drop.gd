@@ -1,10 +1,14 @@
 extends KinematicBody2D
 
+export var NPC_name = "?"
+export var NPC_type = "?"
+
 export var initial_position = Vector2(0, 0)
 var dragging = false
 
 func _ready():
 	initial_position = position
+	$NPC_info.text = NPC_name+" ("+NPC_type+")"
 	
 func _process(_delta):
 	if dragging:

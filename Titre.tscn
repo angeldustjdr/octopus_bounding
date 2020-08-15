@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/title_screen.png" type="Texture" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Titre.gd" type="Script" id=3]
+[ext_resource path="res://SceneTranstion.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -56,9 +57,11 @@ margin_right = 881.706
 margin_bottom = 620.52
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "Press any button to start"
+text = "Press any key to start"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SceneTranstion" parent="." instance=ExtResource( 4 )]

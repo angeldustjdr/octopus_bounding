@@ -12,3 +12,11 @@ func _ready():
 func _process(delta):
 	time += delta
 	$SubTitleLabel2.modulate.a = abs(sin(time))
+
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed:
+			var _anim_player = $SceneTranstion/AnimationPlayer
+			_anim_player.play("fade")
+			yield(_anim_player, "animation_finished")
+			get_tree().change_scene("res://Pre-main.tscn")

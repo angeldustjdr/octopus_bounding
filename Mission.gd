@@ -1,4 +1,4 @@
-extends Node
+extends RigidBody2D
 
 var rand = randomize()
 var missionAccepted = false
@@ -12,6 +12,8 @@ export var outcomeCompromised = [0,0]
 export var missionType = "?"
 var isWin = 1
 
+var speed = -400
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Set NPC socket
@@ -24,7 +26,8 @@ func _ready():
 	initialX_textureRect = $TimeLabel/TextureRect.rect_size.x 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
+	linear_velocity.x = speed
 #Timer 
 	if missionAccepted==false:
 		$TimeLabel.text = str($TimerIgnore.time_left)

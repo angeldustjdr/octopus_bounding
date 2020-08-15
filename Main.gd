@@ -1,9 +1,15 @@
 extends Node
 
-export var day = 1
-export var money = 0
-export var reputation = 0
-export var compromised = 0
+var day = 1
+var money = 0
+var reputation = 0
+var compromised = 0
+export var mission_velocity = Vector2(-400,0)
+#export var mission_starting_point = Vector2(1280+0.5*268,136+0.5*552)
+var mission_offset = Vector2(-10.009,-83.992)
+var mission_starting_point = Vector2(1280,136)
+var nb_current_mission = 0
+var missions = []
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,6 +18,7 @@ export var compromised = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_GUI()
+	$MissionTimer.start()
 
 func update_GUI():
 	get_node("GameArea/TimeArea/TimeLabel").text = "Day " + str(day)
@@ -21,3 +28,24 @@ func update_GUI():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(_delta):
+
+func instance_new_mission():
+	var number = randi() % 5 + 1
+	var Mission = load("res://Missions/random0"+str(number)+".tscn")
+	var mission = Mission.instance()
+	mission.position.x = mission_starting_point.x + mission_offset.x
+	mission.position.y = mission_starting_point.y + mission_offset.y
+	#mission.linear_velocity.x = -400
+	add_child(mission)
+	missions.append(mission)
+	print(missions)
+
+func _on_MissionTimer_timeout():
+	if(nb_current_mission < 4):
+		instance_new_mission()
+		nb_current_mission += 1
+	else:
+		missions[0].free()
+		missions.remove(0)
+		print(missions)
+		nb_current_mission -= 1

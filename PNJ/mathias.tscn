@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/portraits/mathias.png" type="Texture" id=1]
+[ext_resource path="res://PNJ/marcus.tscn" type="PackedScene" id=2]
+[ext_resource path="res://drag_and_drop.gd" type="Script" id=3]
+
+[node name="Character" instance=ExtResource( 2 )]
+input_pickable = true
+script = ExtResource( 3 )
+NPC_name = "Mathias"
+NPC_type = "brawl"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 2.1371e-06, 3.52426e-06 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )

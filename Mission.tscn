@@ -71,7 +71,6 @@ margin_right = 256.0
 margin_bottom = 192.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Type"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -183,7 +182,6 @@ margin_bottom = 424.0
 rect_pivot_offset = Vector2( -216, -56 )
 color = Color( 1, 0, 0, 0.196078 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -266,11 +264,11 @@ margin_right = 248.0
 margin_bottom = 512.0
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="NPC1" type="TextureRect" parent="ColorRect"]
+visible = false
 margin_right = 64.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 128, 64 )
@@ -281,6 +279,7 @@ __meta__ = {
 }
 
 [node name="NPC2" type="TextureRect" parent="ColorRect"]
+visible = false
 margin_left = 72.0
 margin_right = 136.0
 margin_bottom = 64.0
@@ -292,6 +291,7 @@ __meta__ = {
 }
 
 [node name="NPC3" type="TextureRect" parent="ColorRect"]
+visible = false
 margin_left = 144.0
 margin_right = 208.0
 margin_bottom = 64.0
@@ -303,10 +303,12 @@ __meta__ = {
 }
 
 [node name="TimerIgnore" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 10.0
+one_shot = true
 
 [node name="TimerMission" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 40.0
@@ -325,7 +327,18 @@ margin_top = 560.0
 margin_right = 256.0
 margin_bottom = 600.0
 custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="ColorRect" parent="TimeLabel"]
+margin_left = -9.0
+margin_right = 158.0
+margin_bottom = 40.0
+color = Color( 0, 0, 0, 0.439216 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]

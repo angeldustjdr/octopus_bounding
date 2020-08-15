@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/random22.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+outcomeMoney = [ 0, 0 ]
+outcomeReputation = [ 30, -30 ]
+outcomeCompromised = [ 0, 0 ]
+
+[node name="Title_label" parent="." index="2"]
+text = "Punishment"
+
+[node name="Text_label" parent="." index="4"]
+text = "Sometime, you need to be harsh. Better punish early than loose control."
+
+[node name="Money_label" parent="Lose" index="1"]
+text = "0"
+
+[node name="Reputation_label" parent="Lose" index="3"]
+text = "---"
+
+[node name="Compromise_label" parent="Lose" index="5"]
+text = "0"

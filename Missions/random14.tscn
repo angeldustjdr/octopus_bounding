@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Missions/random13.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Missions/corruption.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 2 )
+
+[node name="Mission" instance=ExtResource( 1 )]
+nb_npc = 2
+outcomeCompromised = [ 0, 10 ]
+missionType = "Wit"
+
+[node name="Title_label" parent="." index="2"]
+text = "Money laundry"
+
+[node name="Text_label" parent="." index="4"]
+text = "This casino is the perfect place to wash our dirty money."
+script = ExtResource( 3 )
+
+[node name="Money_label" parent="Won" index="1"]
+margin_left = 64.0
+margin_right = 96.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 24, 8 )
+custom_fonts/font = SubResource( 5 )
+align = 1
+valign = 1
+
+[node name="Reputation_label" parent="Won" index="3"]
+margin_left = 128.0
+margin_right = 160.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 24, 8 )
+custom_fonts/font = SubResource( 5 )
+align = 1
+valign = 1
+
+[node name="Money_label" parent="Lose" index="1"]
+margin_left = 64.0
+margin_right = 96.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 24, 8 )
+custom_fonts/font = SubResource( 7 )
+align = 1
+valign = 1
+
+[node name="Reputation_label" parent="Lose" index="3"]
+margin_left = 128.0
+margin_right = 160.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 24, 8 )
+custom_fonts/font = SubResource( 7 )
+align = 1
+valign = 1

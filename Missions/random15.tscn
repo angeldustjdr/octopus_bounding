@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Missions/random14.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 2 )
+
+[node name="Mission" instance=ExtResource( 1 )]
+outcomeMoney = [ 0, 0 ]
+outcomeReputation = [ 20, -20 ]
+
+[node name="Title_label" parent="." index="2"]
+text = "Dark diplomacy"
+
+[node name="Text_label" parent="." index="4"]
+margin_top = 209.26
+margin_bottom = 313.26
+text = "Sometime, you need to compromise. Only for this time, we will make a deal with the police."
+
+[node name="Money_label" parent="Won" index="1"]
+text = "°"
+
+[node name="Reputation_label" parent="Won" index="3"]
+text = "++"
+
+[node name="Compromise_label" parent="Won" index="5"]
+margin_left = 192.0
+margin_right = 224.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 24, 8 )
+custom_fonts/font = SubResource( 6 )
+align = 1
+valign = 1
+
+[node name="Lose" parent="." index="6"]
+margin_top = 392.0
+color = Color( 1, 0, 0, 0.196078 )
+
+[node name="Reputation_label" parent="Lose" index="3"]
+text = "--"
+
+[node name="Cross" parent="Lose" index="6"]
+margin_left = 0.0
+margin_right = 24.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )

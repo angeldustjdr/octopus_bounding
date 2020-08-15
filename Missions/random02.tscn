@@ -1,25 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Mission.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Missions/extorsion.gd" type="Script" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
-outcomeMoney = [ 10, 0 ]
-outcomeReputation = [ 0, -10 ]
+outcomeReputation = [ 10, -10 ]
 outcomeCompromised = [ 0, 10 ]
-missionType = "Brawl"
 
 [node name="Title_label" parent="." index="2"]
-text = "Extortion"
+text = "Beat them up"
 
 [node name="Text_label" parent="." index="4"]
-script = ExtResource( 2 )
+text = "These punks won't get away from my territory. I have to make them leave !"
 
 [node name="Money_label" parent="Won" index="1"]
-text = "+"
+text = "0"
 
 [node name="Reputation_label" parent="Won" index="3"]
-text = "0"
+text = "+"
 
 [node name="Compromise_label" parent="Won" index="5"]
 text = "0"

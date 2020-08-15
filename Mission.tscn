@@ -303,7 +303,8 @@ __meta__ = {
 }
 
 [node name="TimerIgnore" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 10.0
+one_shot = true
 
 [node name="TimerMission" type="Timer" parent="."]
 wait_time = 3.0
@@ -325,7 +326,17 @@ margin_top = 560.0
 margin_right = 256.0
 margin_bottom = 600.0
 custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="ColorRect" parent="TimeLabel"]
+margin_left = -9.0
+margin_right = 158.0
+margin_bottom = 40.0
+color = Color( 0, 0, 0, 0.439216 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

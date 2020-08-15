@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Unheard_Music_Concepts_-_02_-_The_Other_Side_of_Darkness.ogg-2cee5040576f158f492c5936efcccb9f.oggstr"
+
+[deps]
+
+source_file="res://Assets/music/Unheard_Music_Concepts_-_02_-_The_Other_Side_of_Darkness.ogg"
+dest_files=[ "res://.import/Unheard_Music_Concepts_-_02_-_The_Other_Side_of_Darkness.ogg-2cee5040576f158f492c5936efcccb9f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

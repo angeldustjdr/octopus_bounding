@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/tuto4.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nb_npc = 2
+missionType = "Brawl"
+
+[node name="Title_label" parent="." index="2"]
+text = "Don't go alone"
+
+[node name="Text_label" parent="." index="4"]
+text = "Some missions need more people. Your best friend Mathias can help !"

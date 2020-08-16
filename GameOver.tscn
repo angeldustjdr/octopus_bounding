@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/gameover.png" type="Texture" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
@@ -35,6 +35,10 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 49
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
 font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Node2D"]
@@ -74,6 +78,18 @@ margin_right = 688.0
 margin_bottom = 604.794
 custom_fonts/font = SubResource( 5 )
 text = "xxxxxxx"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credit" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 604.794
+margin_right = 544.0
+margin_bottom = 673.794
+custom_fonts/font = SubResource( 6 )
+text = "Game made for the Godot Wild Jam #24
+by Jodie, Vost and angeldust"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/collision.ogg-0debc3d46cc42d08b0dadd3bd42246e0.oggstr"
+
+[deps]
+
+source_file="res://Assets/music/collision.ogg"
+dest_files=[ "res://.import/collision.ogg-0debc3d46cc42d08b0dadd3bd42246e0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -11,6 +11,7 @@ export var outcomeReputation = [0,0]
 export var outcomeCompromised = [0,0]
 export var missionType = "?"
 var isWin = 1
+export var failable = true
 
 var speed = -400
 
@@ -43,17 +44,20 @@ func _process(_delta):
 		$TimeLabel/TextureRect.rect_size.x = initialX_textureRect * $TimerMission.time_left/$TimerMission.wait_time
 
 func _on_TimerMission_timeout():
-	var successChance = 50
-	for npc in npcList:
-		if npc.NPC_type == "You" or npc.NPC_type == missionType:
-			successChance += 30 / npcList.size()
+	if failable:
+		var successChance = 50
+		for npc in npcList:
+			if npc.NPC_type == "You" or npc.NPC_type == missionType:
+				successChance += 30 / npcList.size()
+			else:
+				successChance -= 20 / npcList.size()
+		var roll = randf()*100.0
+		if roll<=successChance:
+			isWin = 0
 		else:
-			successChance -= 20 / npcList.size()
-	var roll = randf()*100.0
-	if roll<=successChance:
-		isWin = 0
+			isWin = 1
 	else:
-		isWin = 1
+		isWin = 0
 	emit_signal("missionTimeOut", self)
 
 func _on_TimerIgnore_timeout():

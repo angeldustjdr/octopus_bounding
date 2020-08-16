@@ -27,6 +27,9 @@ signal mouse_button_released
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var _anim_player = $SceneTranstion/AnimationPlayer
+	_anim_player.play_backwards("fade")
+	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("alison")
 	load_NPC("erica")
@@ -166,5 +169,15 @@ func anminateOutcome(value,myString):
 				$GameArea/animationUpdate.play("compromisedUpdate")
 
 func check_gameover():
-	if (money < 0 or reputation < 0 or compromised > 100):
-		print("GAME_OVER") #A FAIRE...
+	if (money < -100):
+		gameover()
+	elif (reputation < 0):
+		gameover()
+	elif (compromised > 100):
+		gameover()
+
+func gameover():
+	var _anim_player = $SceneTranstion/AnimationPlayer
+	_anim_player.play("fade")
+	yield(_anim_player, "animation_finished")
+	get_tree().change_scene("res://Gameover.tscn")

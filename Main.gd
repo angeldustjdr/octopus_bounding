@@ -4,7 +4,7 @@ var day = 1
 
 #SCORE
 var money = 0
-var reputation = 100000
+var reputation = 0
 var compromised = 0
 
 #MISSION
@@ -26,9 +26,6 @@ signal mouse_button_released
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var _anim_player = $SceneTranstion/AnimationPlayer
-	_anim_player.play_backwards("fade")
-	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("alison")
 	$MissionTimer.start()
@@ -67,7 +64,6 @@ func _on_MissionIgnore_timeout(mission):
 	var index = missions.find(mission)
 	reputation -= (levels[index]+1)*ignore_reputation_decrease_factor
 	update_GUI()
-	check_gameover()
 	missions.remove(index)
 	levels.remove(index)
 	mission.delete_on_ignoreTimeOut()
@@ -137,18 +133,5 @@ func update_score(money_incr,reput_incr,compro_incr):
 	check_gameover()
 	
 func check_gameover():
-	if (money < -100):
-		print("GAME_OVER_MONEY")
-		game_over()
-	elif (reputation < 0):
-		print("GAME_OVER_REPUTATION")
-		game_over()
-	elif (compromised > 100):
-		print("GAME_OVER_COMPROMISED")
-		game_over()
-
-func game_over():
-	var _anim_player = $SceneTranstion/AnimationPlayer
-	_anim_player.play("fade")
-	yield(_anim_player, "animation_finished")
-	get_tree().change_scene("res://Gameover.tscn")
+	if (money < 0 or reputation < 0 or compromised > 100):
+		print("GAME_OVER") #A FAIRE...

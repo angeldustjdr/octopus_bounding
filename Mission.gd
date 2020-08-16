@@ -30,6 +30,11 @@ func _ready():
 		maxNPC[i].visible = true
 	#Set Mission type label
 	$Type_label.text = "Type: "+missionType
+	match missionType:
+		"Brawl":
+			$Type_label.set("custom_colors/font_color",Color(1,0,0))
+		"Wit":
+			$Type_label.set("custom_colors/font_color",Color(0,0,1))
 	$TimerIgnore.start()
 	initialX_textureRect = $TimeLabel/TextureRect.rect_size.x 
 

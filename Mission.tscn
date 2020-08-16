@@ -93,6 +93,7 @@ margin_right = 256.0
 margin_bottom = 192.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.137255, 0.137255, 0.137255, 0.890196 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

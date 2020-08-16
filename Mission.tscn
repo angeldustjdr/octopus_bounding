@@ -402,3 +402,5 @@ shape = SubResource( 10 )
 [connection signal="area_entered" from="detection_npc" to="." method="_on_detection_npc_area_entered"]
 [connection signal="area_exited" from="detection_npc" to="." method="_on_detection_npc_area_exited"]
 [connection signal="input_event" from="NPCRect/NPC1/collision_NPC1" to="." method="_on_collision_NPC1_input_event"]
+[connection signal="input_event" from="NPCRect/NPC2/collision_NPC2" to="." method="_on_collision_NPC2_input_event"]
+[connection signal="input_event" from="NPCRect/NPC3/collision_NPC3" to="." method="_on_collision_NPC3_input_event"]

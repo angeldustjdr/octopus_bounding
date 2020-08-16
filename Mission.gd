@@ -99,12 +99,31 @@ func makeNPC_pickable():
 func _on_collision_NPC1_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT and event.pressed:
-				match len(npcList):
-					1:
-						unaffect_npc(0)
+				unaffect_npc(0)
+
+func _on_collision_NPC2_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+			if event.button_index == BUTTON_LEFT and event.pressed:
+				unaffect_npc(1)
+
+func _on_collision_NPC3_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+			if event.button_index == BUTTON_LEFT and event.pressed:
+				unaffect_npc(2)
 
 func unaffect_npc(num):
-	var npc = npcList[num]
-	npc.pickable = true
-	get_node("NPCRect/NPC"+str(num+1)).texture = load("res://Assets/icons/person.png")
-	npcList.remove(num)
+	var l = len(npcList)
+	if (num < l):
+		var npc = npcList[num]
+		npc.pickable = true
+		npcList.remove(num)
+		update_npcs()
+		$TimerMission.stop()
+		$TimerIgnore.start()
+		missionAccepted = false
+
+func update_npcs():
+	for i in range(0,len(npcList)):
+		get_node("NPCRect/NPC"+str(i+1)).texture = npcList[i].get_node("Sprite").texture
+	for i in range(len(npcList),nb_npc):
+		get_node("NPCRect/NPC"+str(i+1)).texture = load("res://Assets/icons/person.png")

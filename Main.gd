@@ -19,6 +19,7 @@ var mission_collision_index = []
 #NPC
 var npc_slot_occupied = [false, false, false, false, false, false, false]
 var npcs = []
+var npcs_name = []
 var current_npc = null
 
 var clicked = false
@@ -31,6 +32,9 @@ func _ready():
 	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("alison")
+	load_NPC("erica")
+	load_NPC("thomas")
+	load_NPC("nina")
 	$MissionTimer.start()
 
 func update_GUI():
@@ -59,8 +63,8 @@ func instance_new_mission(level):
 
 func _on_MissionTimer_timeout():
 	if(len(missions) < 4):
-		#var rand_level = randi() % 3
-		var rand_level = 0
+		var rand_level = randi() % 3
+		#var rand_level = 0
 		instance_new_mission(rand_level)
 
 func _on_MissionIgnore_timeout(mission):
@@ -79,6 +83,7 @@ func _on_Mission_timeout(mission):
 	mission.delete_on_missionTimeOut()
 
 func load_NPC(name):
+	npcs_name.append(name)
 	var file_path = "res://PNJ/"+name+".tscn"
 	var Current_character = load(file_path)
 	var npc = Current_character.instance()

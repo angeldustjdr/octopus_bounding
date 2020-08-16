@@ -14,7 +14,7 @@ func _process(delta):
 	$SubTitleLabel2.modulate.a = abs(sin(time))
 
 func _input(event):
-	if event is InputEventKey:
+	if event is InputEventKey or event is InputEventMouseButton:
 		if event.pressed:
 			var _anim_player = $SceneTranstion/AnimationPlayer
 			_anim_player.play("fade")

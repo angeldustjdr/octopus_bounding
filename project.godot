@@ -15,9 +15,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Octopus Bounding"
-run/main_scene="res://Main.tscn"
+config/name="Octopus Bonding"
+run/main_scene="res://Titre.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+MusicPlayer="*res://MusicPlayer.tscn"
+Click="*res://Assets/music/Click.gd"
 
 [display]
 

@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/gameover.png" type="Texture" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GameOver.gd" type="Script" id=3]
+[ext_resource path="res://Assets/feather.png" type="Texture" id=4]
+[ext_resource path="res://SceneTranstion.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.0298507, 1 )
+colors = PoolColorArray( 0.015625, 0.015564, 0.015564, 1, 1, 1, 1, 0.682353 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( 75, -100, 0 )
+initial_velocity = 132.08
+initial_velocity_random = 0.15
+angular_velocity = 27.17
+angular_velocity_random = 0.28
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 11.32
+damping = 22.64
+angle = 54.3
+angle_random = 0.17
+scale_random = 0.51
+color_ramp = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 49
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="gameover" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 40, 404.009 )
+scale = Vector2( 0.1, 0.1 )
+amount = 20
+lifetime = 10.0
+preprocess = 61.01
+speed_scale = 3.0
+process_material = SubResource( 3 )
+texture = ExtResource( 4 )
+
+[node name="gameoverLabel" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 333.936
+margin_right = 471.0
+margin_bottom = 463.936
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reasonLabel" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 449.794
+margin_right = 688.0
+margin_bottom = 604.794
+custom_fonts/font = SubResource( 2 )
+text = "xxxxxxx"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SceneTranstion" parent="." instance=ExtResource( 5 )]

@@ -1,33 +1,39 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Assets/mission.png" type="Texture" id=1]
+[ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
-[ext_resource path="res://Assets/icons/handcuffs.png" type="Texture" id=3]
-[ext_resource path="res://Assets/icons/coins.png" type="Texture" id=4]
-[ext_resource path="res://Assets/icons/shaking-hands.png" type="Texture" id=5]
+[ext_resource path="res://Assets/icons/handcuffs_pixelized_mission.png" type="Texture" id=3]
+[ext_resource path="res://Assets/icons/shaking-hands_pixelized_mission.png" type="Texture" id=4]
+[ext_resource path="res://Assets/icons/money-stack_pixelized_mission.png" type="Texture" id=5]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/icons/person.png" type="Texture" id=7]
-[ext_resource path="res://Assets/icons/sands-of-time.png" type="Texture" id=8]
-[ext_resource path="res://Assets/icons/cancel.png" type="Texture" id=9]
-[ext_resource path="res://Assets/icons/check-mark.png" type="Texture" id=10]
+[ext_resource path="res://Assets/icons/person_pixelized.png" type="Texture" id=7]
+[ext_resource path="res://Assets/icons/sands-of-time_pixelized.png" type="Texture" id=8]
+[ext_resource path="res://Assets/icons/cancel_pixelized.png" type="Texture" id=9]
+[ext_resource path="res://Assets/icons/check-mark_pixelized.png" type="Texture" id=10]
 
-[sub_resource type="PhysicsMaterial" id=3]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 absorbent = true
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 134, 276 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 22
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 22
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 20
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
@@ -36,25 +42,19 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=10]
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=11]
-font_data = ExtResource( 6 )
-
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 32, 32 )
 
 [node name="Mission" type="RigidBody2D"]
 position = Vector2( 82, -78.0339 )
 mass = 0.00102041
-physics_material_override = SubResource( 3 )
+physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 144, 360 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 144, 360 )
@@ -65,7 +65,7 @@ margin_left = 40.0
 margin_top = 112.0
 margin_right = 256.0
 margin_bottom = 144.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Titre"
@@ -79,7 +79,7 @@ margin_left = 40.0
 margin_top = 160.0
 margin_right = 256.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {
@@ -91,7 +91,7 @@ margin_left = 40.0
 margin_top = 208.0
 margin_right = 256.0
 margin_bottom = 312.0
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Random text for the test of the mighty mission etc. \\zq dzq dqzd qzdqzdqzd z zq"
 __meta__ = {
@@ -113,7 +113,7 @@ __meta__ = {
 margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 32.0
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -124,7 +124,7 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 __meta__ = {
@@ -135,7 +135,7 @@ __meta__ = {
 margin_left = 96.0
 margin_right = 128.0
 margin_bottom = 32.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -146,7 +146,7 @@ margin_left = 128.0
 margin_right = 160.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 __meta__ = {
@@ -168,7 +168,7 @@ margin_left = 192.0
 margin_right = 224.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 7 )
 align = 1
 valign = 1
 __meta__ = {
@@ -199,7 +199,7 @@ __meta__ = {
 margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 32.0
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -210,7 +210,7 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 __meta__ = {
@@ -221,7 +221,7 @@ __meta__ = {
 margin_left = 96.0
 margin_right = 128.0
 margin_bottom = 32.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -232,7 +232,7 @@ margin_left = 128.0
 margin_right = 160.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 __meta__ = {
@@ -254,7 +254,7 @@ margin_left = 192.0
 margin_right = 224.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 __meta__ = {
@@ -266,6 +266,9 @@ margin_right = 24.0
 margin_bottom = 24.0
 texture = ExtResource( 9 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TimerIgnore" type="Timer" parent="."]
 wait_time = 10.0
@@ -291,7 +294,7 @@ margin_left = 88.0
 margin_top = 560.0
 margin_right = 256.0
 margin_bottom = 600.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 valign = 1
 __meta__ = {
@@ -311,7 +314,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="detection_npc"]
 position = Vector2( 144, 360 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="NPCRect" type="ColorRect" parent="."]
 margin_left = 40.0
@@ -346,7 +349,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1"]
 position = Vector2( 32, 32.0339 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="NPC2" type="TextureRect" parent="NPCRect"]
 visible = false
@@ -371,7 +374,7 @@ position = Vector2( -72, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2"]
 position = Vector2( 104, 32.0339 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="NPC3" type="TextureRect" parent="NPCRect"]
 visible = false
@@ -396,7 +399,7 @@ position = Vector2( -144, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3"]
 position = Vector2( 176, 32.0339 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 [connection signal="timeout" from="TimerIgnore" to="." method="_on_TimerIgnore_timeout"]
 [connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]
 [connection signal="area_entered" from="detection_npc" to="." method="_on_detection_npc_area_entered"]

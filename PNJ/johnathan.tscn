@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/portraits/johnathan.png" type="Texture" id=1]
+[ext_resource path="res://Assets/portraits/johnathan_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://PNJ/erica.tscn" type="PackedScene" id=2]
 
 [node name="Character" instance=ExtResource( 2 )]

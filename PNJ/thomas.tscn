@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/portraits/thomas.png" type="Texture" id=1]
+[ext_resource path="res://Assets/portraits/thomas_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://PNJ/nina.tscn" type="PackedScene" id=2]
 
 [node name="Character" instance=ExtResource( 2 )]
 NPC_name = "Thomas"
-NPC_type = "Brawl"
 
 [node name="Sprite" parent="." index="0"]
+position = Vector2( 2.1371e-06, 3.52426e-06 )
 texture = ExtResource( 1 )

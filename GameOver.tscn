@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Assets/gameover.png" type="Texture" id=1]
+[ext_resource path="res://Assets/gameover_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://GameOver.gd" type="Script" id=3]
-[ext_resource path="res://Assets/feather.png" type="Texture" id=4]
+[ext_resource path="res://Assets/feather_pixelized.png" type="Texture" id=4]
 [ext_resource path="res://SceneTranstion.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0.0298507, 1 )
-colors = PoolColorArray( 0.015625, 0.015564, 0.015564, 1, 1, 1, 1, 0.682353 )
+offsets = PoolRealArray( 0, 0.0298507, 0.134328 )
+colors = PoolColorArray( 0.0686299, 0.0685721, 0.0685721, 0.982896, 0.015625, 0.015564, 0.015564, 1, 1, 1, 1, 0.682353 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
@@ -16,14 +16,14 @@ gradient = SubResource( 1 )
 [sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
 gravity = Vector3( 75, -100, 0 )
-initial_velocity = 132.08
-initial_velocity_random = 0.15
+initial_velocity = 16.0
+initial_velocity_random = 0.58
 angular_velocity = 27.17
-angular_velocity_random = 0.28
+angular_velocity_random = 0.57
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 radial_accel = 11.32
-damping = 22.64
+damping = 41.86
 angle = 54.3
 angle_random = 0.17
 scale_random = 0.51
@@ -49,12 +49,11 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 40, 404.009 )
-scale = Vector2( 0.1, 0.1 )
-amount = 20
+position = Vector2( 40, 404 )
+amount = 30
 lifetime = 10.0
 preprocess = 61.01
-speed_scale = 3.0
+speed_scale = 1.5
 process_material = SubResource( 3 )
 texture = ExtResource( 4 )
 

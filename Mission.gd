@@ -82,7 +82,7 @@ func affect_npc(npc):
 		if (l <= 2):
 			npc.pickable = false
 			npcList.append(npc)
-			get_node("NPCRect/NPC"+str(l+1)).texture = npc.get_node("Sprite").texture
+			get_node("NPCRect/NPC"+str(l+1)).texture = load("res://Assets/portraits/"+npc.NPC_name.to_lower()+"_pixelized_mission.png")
 			$TimerIgnore.stop()
 			if (l+1 < nb_npc):
 				$TimerIgnore.start()
@@ -133,6 +133,8 @@ func unaffect_npc(num):
 
 func update_npcs():
 	for i in range(0,len(npcList)):
-		get_node("NPCRect/NPC"+str(i+1)).texture = npcList[i].get_node("Sprite").texture
+		#get_node("NPCRect/NPC"+str(i+1)).texture = npcList[i].get_node("Sprite").texture
+		get_node("NPCRect/NPC"+str(i+1)).texture = load("res://Assets/portraits/"+npcList[i].NPC_name.to_lower()+"_pixelized_mission.png")
 	for i in range(len(npcList),nb_npc):
-		get_node("NPCRect/NPC"+str(i+1)).texture = load("res://Assets/icons/person.png")
+		#get_node("NPCRect/NPC"+str(i+1)).texture = load("res://Assets/icons/person.png")
+		get_node("NPCRect/NPC"+str(i+1)).texture = load("res://Assets/icons/person_pixelized.png")

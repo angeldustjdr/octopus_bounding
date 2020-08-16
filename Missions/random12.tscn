@@ -8,9 +8,6 @@ missionType = "Brawl"
 [node name="Title_label" parent="." index="2"]
 text = "Gun shipping"
 
-[node name="Type_label" parent="." index="3"]
-custom_colors/font_outline_modulate = Color( 0.137255, 0.137255, 0.137255, 0.890196 )
-
 [node name="Text_label" parent="." index="4"]
 margin_top = 209.26
 margin_bottom = 313.26

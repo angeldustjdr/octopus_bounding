@@ -3,9 +3,9 @@ extends Node
 var day = 1
 
 #SCORE
-var money = 0
-var reputation = 0
-var compromised = 0
+var money = 100000
+var reputation = 100000
+var compromised = -100000
 
 #MISSION
 var mission_offset = Vector2(-10.009,-83.992)
@@ -50,7 +50,10 @@ func instance_new_mission(level):
 	levels.append(level)
 	var number = randi() % mission_per_level[level] + 1
 	var Mission = load("res://Missions/random"+str(level)+str(number)+".tscn")
+	#var Mission = load("res://Missions/random15.tscn")
+	#var Mission = load("res://Mission.tscn")
 	var mission = Mission.instance()
+	print(mission)
 	mission.position.x = mission_starting_point.x + mission_offset.x
 	mission.position.y = mission_starting_point.y + mission_offset.y
 	$Audio.stream = load("res://Assets/music/mission_enter.ogg")

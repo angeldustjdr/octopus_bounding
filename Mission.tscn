@@ -264,7 +264,7 @@ margin_bottom = 24.0
 texture = ExtResource( 9 )
 expand = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="NPCRect" type="ColorRect" parent="."]
 margin_left = 40.0
 margin_top = 448.0
 margin_right = 248.0
@@ -274,7 +274,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NPC1" type="TextureRect" parent="ColorRect"]
+[node name="NPC1" type="TextureRect" parent="NPCRect"]
 visible = false
 margin_right = 64.0
 margin_bottom = 64.0
@@ -285,7 +285,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NPC2" type="TextureRect" parent="ColorRect"]
+[node name="NPC2" type="TextureRect" parent="NPCRect"]
 visible = false
 margin_left = 72.0
 margin_right = 136.0
@@ -297,7 +297,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NPC3" type="TextureRect" parent="ColorRect"]
+[node name="NPC3" type="TextureRect" parent="NPCRect"]
 visible = false
 margin_left = 144.0
 margin_right = 208.0
@@ -348,5 +348,13 @@ color = Color( 0, 0, 0, 0.439216 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="detection_npc" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detection_npc"]
+position = Vector2( 144, 360 )
+shape = SubResource( 2 )
 [connection signal="timeout" from="TimerIgnore" to="." method="_on_TimerIgnore_timeout"]
 [connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]
+[connection signal="area_entered" from="detection_npc" to="." method="_on_detection_npc_area_entered"]
+[connection signal="area_exited" from="detection_npc" to="." method="_on_detection_npc_area_exited"]

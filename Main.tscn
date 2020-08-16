@@ -36,39 +36,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NPCArea" type="ColorRect" parent="."]
-anchor_right = 0.125
-anchor_bottom = 1.0
-margin_top = -4.0
-margin_right = -16.0
-margin_bottom = -4.0
-mouse_filter = 2
-color = Color( 1, 1, 1, 0.470588 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="node_NPC1" type="Node2D" parent="NPCArea"]
-position = Vector2( 72, 72 )
-
-[node name="node_NPC2" type="Node2D" parent="NPCArea"]
-position = Vector2( 72, 168 )
-
-[node name="node_NPC3" type="Node2D" parent="NPCArea"]
-position = Vector2( 72, 264 )
-
-[node name="node_NPC4" type="Node2D" parent="NPCArea"]
-position = Vector2( 72, 360 )
-
-[node name="node_NPC5" type="Node2D" parent="NPCArea"]
-position = Vector2( 72, 456 )
-
-[node name="node_NPC6" type="Node2D" parent="NPCArea"]
-position = Vector2( 72, 552 )
-
-[node name="node_NPC7" type="Node2D" parent="NPCArea"]
-position = Vector2( 72, 648 )
-
 [node name="GameArea" type="ColorRect" parent="."]
 anchor_left = 0.109
 anchor_right = 0.109
@@ -222,15 +189,49 @@ __meta__ = {
 [node name="MissionTimer" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="MissionRect" type="ColorRect" parent="."]
 margin_left = 176.0
 margin_top = 136.0
 margin_right = 1248.0
 margin_bottom = 688.0
+mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NPCArea" type="ColorRect" parent="."]
+anchor_right = 0.125
+anchor_bottom = 1.0
+margin_top = -4.0
+margin_right = -16.0
+margin_bottom = -4.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0.470588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="node_NPC1" type="Node2D" parent="NPCArea"]
+position = Vector2( 72, 72 )
+
+[node name="node_NPC2" type="Node2D" parent="NPCArea"]
+position = Vector2( 72, 168 )
+
+[node name="node_NPC3" type="Node2D" parent="NPCArea"]
+position = Vector2( 72, 264 )
+
+[node name="node_NPC4" type="Node2D" parent="NPCArea"]
+position = Vector2( 72, 360 )
+
+[node name="node_NPC5" type="Node2D" parent="NPCArea"]
+position = Vector2( 72, 456 )
+
+[node name="node_NPC6" type="Node2D" parent="NPCArea"]
+position = Vector2( 72, 552 )
+
+[node name="node_NPC7" type="Node2D" parent="NPCArea"]
+position = Vector2( 72, 648 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -245,4 +246,5 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 712, 696 )
 shape = SubResource( 4 )
+[connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]

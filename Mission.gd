@@ -81,6 +81,7 @@ func affect_npc(npc):
 	if(l < nb_npc):
 		if (l <= 2):
 			npc.pickable = false
+			npc.get_node("pickableFilter").visible = true
 			npcList.append(npc)
 			get_node("NPCRect/NPC"+str(l+1)).texture = load("res://Assets/portraits/"+npc.NPC_name.to_lower()+"_pixelized_mission.png")
 			$TimerIgnore.stop()
@@ -104,6 +105,7 @@ func delete_on_missionTimeOut():
 func makeNPC_pickable():
 	for npc in npcList:
 		npc.pickable = true
+		npc.get_node("pickableFilter").visible = false
 
 func _on_collision_NPC1_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
@@ -125,6 +127,7 @@ func unaffect_npc(num):
 	if (num < l):
 		var npc = npcList[num]
 		npc.pickable = true
+		npc.get_node("pickableFilter").visible = false
 		npcList.remove(num)
 		update_npcs()
 		$TimerMission.stop()

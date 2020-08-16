@@ -20,10 +20,13 @@ extents = Vector2( 134, 276 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 22
+outline_size = 2
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -31,12 +34,21 @@ size = 20
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=9]

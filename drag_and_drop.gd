@@ -13,6 +13,13 @@ signal dragged(npc_id)
 func _ready():
 	initial_position = position
 	$NPC_info.text = NPC_name+" ("+NPC_type+")"
+	match NPC_type:
+		"You":
+			$Outline.color=Color(0,0,0,1)
+		"Brawl":
+			$Outline.color=Color(1,0,0,0.5)
+		"Wit":
+			$Outline.color=Color(0,0,1,0.5)
 	
 func _process(_delta):
 	if dragging:
@@ -31,3 +38,11 @@ func _on_Character_input_event(_viewport, event, _shape_idx):
 func go_back_to_initial_position():
 	dragging = false
 	position = initial_position
+
+
+func _on_Character_mouse_entered():
+	$NPC_info.visible=true
+
+
+func _on_Character_mouse_exited():
+	$NPC_info.visible=false

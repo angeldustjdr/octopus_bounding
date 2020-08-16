@@ -50,6 +50,8 @@ func instance_new_mission(level):
 	var mission = Mission.instance()
 	mission.position.x = mission_starting_point.x + mission_offset.x
 	mission.position.y = mission_starting_point.y + mission_offset.y
+	$Audio.stream = load("res://Assets/music/mission_enter.ogg")
+	$Audio.play()
 	$MissionRect.add_child(mission)
 	missions.append(mission)
 	mission.connect("ignoreTimeOut", self, "_on_MissionIgnore_timeout")
@@ -66,14 +68,18 @@ func _on_MissionTimer_timeout():
 
 func _on_MissionIgnore_timeout(mission):
 	var index = missions.find(mission)
-	reputation -= (levels[index]+1)*ignore_reputation_decrease_factor
+	update_score(0,-1*(levels[index]+1)*ignore_reputation_decrease_factor,0)
 	update_GUI()
+	$Audio.stream = load("res://Assets/music/burning.ogg")
+	$Audio.play()
 	missions.remove(index)
 	levels.remove(index)
 	mission.delete_on_ignoreTimeOut()
 
 func _on_Mission_timeout(mission):
 	var index = missions.find(mission)
+	$Audio.stream = load("res://Assets/music/burning.ogg")
+	$Audio.play()
 	missions.remove(index)
 	levels.remove(index)
 	mission.delete_on_missionTimeOut()
@@ -131,12 +137,34 @@ func set_current_npc(npc):
 	current_npc = npc
 
 func update_score(money_incr,reput_incr,compro_incr):
+	anminateOutcome(money_incr,"money")
+	anminateOutcome(reput_incr,"reputation")
+	anminateOutcome(compro_incr,"compromised")
 	money += money_incr
 	reputation += reput_incr
 	compromised += compro_incr
 	update_GUI()
 	check_gameover()
-	
+
+func anminateOutcome(value,myString):
+	var Sign = ""
+	if value>0:
+		Sign="+"
+	if value!=0:
+		match myString:
+			"money":
+				$GameArea/updateMoney.text = Sign+str(value)
+				$GameArea/updateMoney.visible=true
+				$GameArea/animationUpdate.play("moneyUpdate")
+			"reputation":
+				$GameArea/updateReputation.text = Sign+str(value)
+				$GameArea/updateReputation.visible=true
+				$GameArea/animationUpdate.play("reputationUpdate")
+			"compromised":
+				$GameArea/updateCompromised.text = Sign+str(value)
+				$GameArea/updateCompromised.visible=true
+				$GameArea/animationUpdate.play("compromisedUpdate")
+
 func check_gameover():
 	if (money < 0 or reputation < 0 or compromised > 100):
 		print("GAME_OVER") #A FAIRE...

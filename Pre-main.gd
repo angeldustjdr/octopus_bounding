@@ -18,7 +18,7 @@ func _process(delta):
 func _input(event):
 	if (event is InputEventKey or event is InputEventMouseButton) and $myText.percent_visible != 1:
 		$myText.percent_visible = 1
-	if (event is InputEventKey or event is InputEventMouseButton) and myTime > 0.5:
+	if (event is InputEventKey or event is InputEventMouseButton) and myTime > 0.2:
 		var _anim_player = $SceneTranstion/AnimationPlayer
 		_anim_player.play("fade")
 		yield(_anim_player, "animation_finished")

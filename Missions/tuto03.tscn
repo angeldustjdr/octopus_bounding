@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Missions/tuto2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Missions/tuto02.tscn" type="PackedScene" id=1]
+
 
 [node name="Mission" instance=ExtResource( 1 )]
 
@@ -9,3 +10,6 @@ text = "Your third mission"
 
 [node name="Text_label" parent="." index="4"]
 text = "Try to get your money and reputation high. Don't get compromised."
+
+[node name="TimerIgnore" parent="." index="7"]
+wait_time = 9.22337e+18

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Mission.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+missionType = "Tutorial"
+failable = false
+
+[node name="Title_label" parent="." index="2"]
+text = "Your fist mission"
+
+[node name="Text_label" parent="." index="4"]
+text = "This is your first task. Drag and drop a character on the mission to complete it."
+
+[node name="Won" parent="." index="5"]
+visible = false
+
+[node name="Lose" parent="." index="6"]
+visible = false
+
+[node name="TimerIgnore" parent="." index="7"]
+wait_time = 1e+08

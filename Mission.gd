@@ -12,6 +12,7 @@ export var outcomeCompromised = [0,0]
 export var missionType = "?"
 var isWin = 1
 export var failable = true
+export var needJohnathan = false
 
 var speed = -400
 
@@ -38,9 +39,13 @@ func _process(_delta):
 #Timer 
 	if missionAccepted==false:
 		$TimeLabel.text = str($TimerIgnore.time_left)
+		$TimeLabel/TextureRect.color = Color(0, 0, 0, 0.3)
+		$TimeLabel.set("custom_colors/font_color", Color(1,1,1))
 		$TimeLabel/TextureRect.rect_size.x = initialX_textureRect * $TimerIgnore.time_left/$TimerIgnore.wait_time
 	else:
 		$TimeLabel.text = str($TimerMission.time_left)
+		$TimeLabel/TextureRect.color = Color(1, 1, 1, 0.3)
+		$TimeLabel.set("custom_colors/font_color", Color(0,0,0))
 		$TimeLabel/TextureRect.rect_size.x = initialX_textureRect * $TimerMission.time_left/$TimerMission.wait_time
 
 func _on_TimerMission_timeout():

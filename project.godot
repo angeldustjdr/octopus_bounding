@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Octopus Bonding"
+config/name="Octopus Bounding"
 run/main_scene="res://Titre.tscn"
 config/icon="res://icon.png"
 

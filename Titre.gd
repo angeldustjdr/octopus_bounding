@@ -5,7 +5,9 @@ var time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var _anim_player = $SceneTranstion/AnimationPlayer
+	_anim_player.play_backwards("fade")
+	yield(_anim_player, "animation_finished")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

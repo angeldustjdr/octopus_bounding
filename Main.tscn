@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/icons/handcuffs.png" type="Texture" id=1]
 [ext_resource path="res://Assets/background_fullres.png" type="Texture" id=2]
 [ext_resource path="res://Assets/icons/coins.png" type="Texture" id=3]
+[ext_resource path="res://SceneTranstion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/icons/shaking-hands.png" type="Texture" id=5]
 [ext_resource path="res://Main.gd" type="Script" id=6]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=7]
@@ -246,5 +247,7 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 712, 696 )
 shape = SubResource( 4 )
+
+[node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]

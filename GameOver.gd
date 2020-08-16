@@ -2,6 +2,11 @@ extends Node2D
 
 onready var time = 0
 
+func _ready():
+	var _anim_player = $SceneTranstion/AnimationPlayer
+	_anim_player.play_backwards("fade")
+	yield(_anim_player, "animation_finished")
+
 func _process(delta):
 	time += delta
 	$reasonLabel.modulate.a = abs(sin(time))

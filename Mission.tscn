@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/mission.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
@@ -42,8 +42,11 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 6 )
 
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 32, 32 )
+
 [node name="Mission" type="RigidBody2D"]
-position = Vector2( 72, -48 )
+position = Vector2( 82, -78.0339 )
 mass = 0.00102041
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
@@ -264,51 +267,6 @@ margin_bottom = 24.0
 texture = ExtResource( 9 )
 expand = true
 
-[node name="NPCRect" type="ColorRect" parent="."]
-margin_left = 40.0
-margin_top = 448.0
-margin_right = 248.0
-margin_bottom = 512.0
-color = Color( 1, 1, 1, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NPC1" type="TextureRect" parent="NPCRect"]
-visible = false
-margin_right = 64.0
-margin_bottom = 64.0
-rect_pivot_offset = Vector2( 128, 64 )
-texture = ExtResource( 7 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NPC2" type="TextureRect" parent="NPCRect"]
-visible = false
-margin_left = 72.0
-margin_right = 136.0
-margin_bottom = 64.0
-rect_pivot_offset = Vector2( 128, 64 )
-texture = ExtResource( 7 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NPC3" type="TextureRect" parent="NPCRect"]
-visible = false
-margin_left = 144.0
-margin_right = 208.0
-margin_bottom = 64.0
-rect_pivot_offset = Vector2( 128, 64 )
-texture = ExtResource( 7 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="TimerIgnore" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
@@ -354,7 +312,93 @@ __meta__ = {
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="detection_npc"]
 position = Vector2( 144, 360 )
 shape = SubResource( 2 )
+
+[node name="NPCRect" type="ColorRect" parent="."]
+margin_left = 40.0
+margin_top = 448.0
+margin_right = 248.0
+margin_bottom = 512.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NPC1" type="TextureRect" parent="NPCRect"]
+visible = false
+anchor_left = -0.01
+anchor_top = -0.031
+anchor_right = -0.01
+anchor_bottom = -0.031
+margin_left = 8.08
+margin_top = -0.0159999
+margin_right = 72.08
+margin_bottom = 63.984
+rect_pivot_offset = Vector2( 128, 64 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collision_NPC1" type="Area2D" parent="NPCRect/NPC1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1"]
+position = Vector2( 32, 32.0339 )
+shape = SubResource( 10 )
+
+[node name="NPC2" type="TextureRect" parent="NPCRect"]
+visible = false
+anchor_left = -0.01
+anchor_top = -0.031
+anchor_right = -0.01
+anchor_bottom = -0.031
+margin_left = 80.08
+margin_top = -0.0159999
+margin_right = 144.08
+margin_bottom = 63.984
+rect_pivot_offset = Vector2( 128, 64 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collision_NPC2" type="Area2D" parent="NPCRect/NPC2"]
+position = Vector2( -72, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2"]
+position = Vector2( 104, 32.0339 )
+shape = SubResource( 10 )
+
+[node name="NPC3" type="TextureRect" parent="NPCRect"]
+visible = false
+anchor_left = -0.01
+anchor_top = -0.031
+anchor_right = -0.01
+anchor_bottom = -0.031
+margin_left = 152.08
+margin_top = -0.0159999
+margin_right = 216.08
+margin_bottom = 63.984
+rect_pivot_offset = Vector2( 128, 64 )
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="collision_NPC3" type="Area2D" parent="NPCRect/NPC3"]
+position = Vector2( -144, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3"]
+position = Vector2( 176, 32.0339 )
+shape = SubResource( 10 )
 [connection signal="timeout" from="TimerIgnore" to="." method="_on_TimerIgnore_timeout"]
 [connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]
 [connection signal="area_entered" from="detection_npc" to="." method="_on_detection_npc_area_entered"]
 [connection signal="area_exited" from="detection_npc" to="." method="_on_detection_npc_area_exited"]
+[connection signal="input_event" from="NPCRect/NPC1/collision_NPC1" to="." method="_on_collision_NPC1_input_event"]

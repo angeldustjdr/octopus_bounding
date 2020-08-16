@@ -6,12 +6,12 @@
 [ext_resource path="res://Assets/feather.png" type="Texture" id=4]
 [ext_resource path="res://SceneTranstion.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.0298507, 1 )
 colors = PoolColorArray( 0.015625, 0.015564, 0.015564, 1, 1, 1, 1, 0.682353 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
@@ -27,13 +27,13 @@ damping = 22.64
 angle = 54.3
 angle_random = 0.17
 scale_random = 0.51
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 80
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 49
 font_data = ExtResource( 2 )
 
@@ -59,7 +59,7 @@ margin_left = 40.0
 margin_top = 333.936
 margin_right = 471.0
 margin_bottom = 463.936
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Game Over"
 align = 1
 valign = 1
@@ -72,7 +72,7 @@ margin_left = 40.0
 margin_top = 449.794
 margin_right = 688.0
 margin_bottom = 604.794
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "xxxxxxx"
 __meta__ = {
 "_edit_use_anchors_": false

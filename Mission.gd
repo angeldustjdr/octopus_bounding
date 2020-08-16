@@ -95,3 +95,16 @@ func delete_on_missionTimeOut():
 func makeNPC_pickable():
 	for npc in npcList:
 		npc.pickable = true
+
+func _on_collision_NPC1_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+			if event.button_index == BUTTON_LEFT and event.pressed:
+				match len(npcList):
+					1:
+						unaffect_npc(0)
+
+func unaffect_npc(num):
+	var npc = npcList[num]
+	npc.pickable = true
+	get_node("NPCRect/NPC"+str(num+1)).texture = load("res://Assets/icons/person.png")
+	npcList.remove(num)

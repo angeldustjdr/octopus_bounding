@@ -1,11 +1,12 @@
 extends Node
 
 var day = 1
+var time = 0
 
 #SCORE
-var money = 100000
-var reputation = 100000
-var compromised = -100000
+var money = 10000
+var reputation = 300000
+var compromised = -100
 
 #MISSION
 var mission_offset = Vector2(-10.009,-83.992)
@@ -43,8 +44,17 @@ func update_GUI():
 	get_node("GameArea/ScoreArea/Reputation/Reputation_label").text = str(reputation)
 	get_node("GameArea/ScoreArea/Compromised/Compromised_label").text = str(compromised) + "%"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(_delta):
+func _process(delta):
+	time += delta
+	if money < -80:
+		get_node("GameArea/ScoreArea/Money/Money_label").set("custom_colors/font_color",Color(1,0,0))
+		get_node("GameArea/ScoreArea/Money/Money_label").modulate.a=abs(sin(time))
+	if reputation < 20:
+		get_node("GameArea/ScoreArea/Reputation/Reputation_label").set("custom_colors/font_color",Color(1,0,0))
+		get_node("GameArea/ScoreArea/Reputation/Reputation_label").modulate.a=abs(sin(time))
+	if compromised > 80:
+		get_node("GameArea/ScoreArea/Compromised/Compromised_label").set("custom_colors/font_color",Color(1,0,0))
+		get_node("GameArea/ScoreArea/Compromised/Compromised_label").modulate.a=abs(sin(time))
 
 func instance_new_mission(level):
 	levels.append(level)
@@ -86,6 +96,8 @@ func _on_Mission_timeout(mission):
 	var index = missions.find(mission)
 	$Audio.stream = load("res://Assets/music/burning.ogg")
 	$Audio.play()
+	day += 1
+	update_GUI()
 	missions.remove(index)
 	levels.remove(index)
 	mission.delete_on_missionTimeOut()
@@ -157,19 +169,24 @@ func anminateOutcome(value,myString):
 	if value>0:
 		Sign="+"
 	if value!=0:
-		match myString:
-			"money":
-				$GameArea/updateMoney.text = Sign+str(value)
-				$GameArea/updateMoney.visible=true
-				$GameArea/animationUpdate.play("moneyUpdate")
-			"reputation":
-				$GameArea/updateReputation.text = Sign+str(value)
-				$GameArea/updateReputation.visible=true
-				$GameArea/animationUpdate.play("reputationUpdate")
-			"compromised":
-				$GameArea/updateCompromised.text = Sign+str(value)
-				$GameArea/updateCompromised.visible=true
-				$GameArea/animationUpdate.play("compromisedUpdate")
+		if myString=="money":
+			$GameArea/updateMoney.text = Sign+str(value)
+			$GameArea/updateMoney.visible=true
+			$GameArea/animationUpdate.play("moneyUpdate")
+			yield($GameArea/animationUpdate, "animation_finished")
+			$GameArea/updateMoney.visible=false
+		if myString=="reputation":
+			$GameArea/updateReputation.text = Sign+str(value)
+			$GameArea/updateReputation.visible=true
+			$GameArea/animationUpdate.play("reputationUpdate")
+			yield($GameArea/animationUpdate, "animation_finished")
+			$GameArea/updateReputation.visible=false
+		if myString=="compromised":
+			$GameArea/updateCompromised.text = Sign+str(value)
+			$GameArea/updateCompromised.visible=true
+			$GameArea/animationUpdate.play("compromisedUpdate")
+			yield($GameArea/animationUpdate, "animation_finished")
+			$GameArea/updateCompromised.visible=false
 
 func check_gameover():
 	if (money < -100):

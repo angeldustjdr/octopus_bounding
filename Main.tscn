@@ -294,12 +294,10 @@ __meta__ = {
 
 [node name="updateMoney" type="Label" parent="GameArea"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 95.064
 margin_top = 71.2719
 margin_right = 186.064
 margin_bottom = 108.272
-rect_scale = Vector2( 3, 3 )
 custom_fonts/font = SubResource( 3 )
 text = "XXXX"
 __meta__ = {
@@ -308,12 +306,10 @@ __meta__ = {
 
 [node name="updateReputation" type="Label" parent="GameArea"]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 388.0
 margin_top = 71.2719
 margin_right = 460.0
 margin_bottom = 102.272
-rect_scale = Vector2( 3, 3 )
 custom_fonts/font = SubResource( 4 )
 text = "XXXX"
 __meta__ = {
@@ -400,5 +396,5 @@ shape = SubResource( 10 )
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 11 )
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
-[connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
+[connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]

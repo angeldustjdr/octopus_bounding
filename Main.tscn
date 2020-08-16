@@ -395,6 +395,7 @@ shape = SubResource( 10 )
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 11 )
+volume_db = -3.0
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]

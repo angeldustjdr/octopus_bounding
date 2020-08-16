@@ -60,7 +60,7 @@ func _on_TimerMission_timeout():
 			if npc.NPC_type == "You" or npc.NPC_type == missionType:
 				successChance += 30 / npcList.size()
 			else:
-				successChance -= 20 / npcList.size()
+				successChance -= 30 / npcList.size()
 		var roll = randf()*100.0
 		if roll<=successChance:
 			isWin = 0
@@ -104,7 +104,7 @@ func delete_on_ignoreTimeOut():
 
 func delete_on_missionTimeOut():
 	makeNPC_pickable()
-	emit_signal("missionAccomplished",outcomeMoney[isWin],outcomeReputation[isWin],outcomeCompromised[isWin])
+	emit_signal("missionAccomplished",round(outcomeMoney[isWin]*(0.9+randf()*0.2)),round(outcomeReputation[isWin]*(0.9+randf()*0.2)),round(outcomeCompromised[isWin]*(0.9+randf()*0.2)))
 	queue_free()
 	
 func makeNPC_pickable():

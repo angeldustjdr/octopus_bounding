@@ -28,7 +28,7 @@ margin_bottom = 313.26
 text = "Sometime, you need to compromise. Only for this time, we will make a deal with the police."
 
 [node name="Money_label" parent="Won" index="1"]
-text = "°"
+text = "0"
 
 [node name="Reputation_label" parent="Won" index="3"]
 text = "++"

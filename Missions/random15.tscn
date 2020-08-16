@@ -38,3 +38,6 @@ custom_fonts/font = SubResource( 2 )
 
 [node name="Reputation_label" parent="Lose" index="3"]
 text = "--"
+
+[node name="TimerIgnore" parent="." index="7"]
+wait_time = 60.0

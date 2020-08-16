@@ -2,6 +2,7 @@ extends Node
 
 var day = 1
 var time = 0
+var random = randomize()
 
 #SCORE
 var money = 10000
@@ -60,10 +61,8 @@ func instance_new_mission(level):
 	levels.append(level)
 	var number = randi() % mission_per_level[level] + 1
 	var Mission = load("res://Missions/random"+str(level)+str(number)+".tscn")
-	#var Mission = load("res://Missions/random15.tscn")
-	#var Mission = load("res://Mission.tscn")
 	var mission = Mission.instance()
-	print(mission)
+	mission.get_node("TimerIgnore").wait_time *= 1+randf()*0.4
 	mission.position.x = mission_starting_point.x + mission_offset.x
 	mission.position.y = mission_starting_point.y + mission_offset.y
 	$Audio.stream = load("res://Assets/music/mission_enter.ogg")
@@ -147,9 +146,22 @@ func affect_current_npc():
 		if(current_npc != null):
 			#print(current_npc.NPC_name)
 			m.affect_npc(current_npc)
+			for mis in missions:
+				if mis != m and mis.missionAccepted==false:
+					var timeLeft = mis.get_node("TimerIgnore").time_left
+					if timeLeft>10:
+						changeTime(mis,timeLeft)
 		else:
 			print("ERROR MAGGLE")
 	current_npc = null
+
+func changeTime(mis,timeLeft):
+	mis.get_node("TimerIgnore").start(timeLeft-5)
+	mis.get_node("TimerChangeLabel").visible=true
+	var player = mis.get_node("TimerChangeLabel/AnimationPlayer")
+	player.play("timeChange")
+	yield(player, "animation_finished")
+	mis.get_node("TimerChangeLabel").visible=false
 
 func set_current_npc(npc):
 	current_npc = npc

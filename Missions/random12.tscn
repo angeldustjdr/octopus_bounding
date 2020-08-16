@@ -12,3 +12,6 @@ text = "Gun shipping"
 margin_top = 209.26
 margin_bottom = 313.26
 text = "We need to secure this gun shipping. More guns = more power !"
+
+[node name="TimerIgnore" parent="." index="7"]
+wait_time = 60.0

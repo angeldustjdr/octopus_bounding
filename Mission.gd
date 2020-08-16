@@ -89,10 +89,11 @@ func affect_npc(npc):
 			npc.get_node("pickableFilter").visible = true
 			npcList.append(npc)
 			get_node("NPCRect/NPC"+str(l+1)).texture = load("res://Assets/portraits/"+npc.NPC_name.to_lower()+"_pixelized_mission.png")
-			$TimerIgnore.stop()
-			if (l+1 < nb_npc):
-				$TimerIgnore.start()
-			elif (l+1 == nb_npc):
+			#$TimerIgnore.stop()
+			#if (l+1 < nb_npc):
+			#	$TimerIgnore.start()
+			#elif (l+1 == nb_npc):
+			if (l+1 == nb_npc):
 				missionAccepted = true
 				$TimerMission.start()
 		else:

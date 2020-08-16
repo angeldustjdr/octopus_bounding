@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
@@ -56,6 +56,39 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 32, 32 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "timeChange"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 0.392292 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
+}
 
 [node name="Mission" type="RigidBody2D"]
 position = Vector2( 82, -78.0339 )
@@ -413,6 +446,21 @@ position = Vector2( -144, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3"]
 position = Vector2( 176, 32.0339 )
 shape = SubResource( 10 )
+
+[node name="TimerChangeLabel" type="Label" parent="."]
+visible = false
+margin_left = 121.162
+margin_top = 555.03
+margin_right = 161.162
+margin_bottom = 576.03
+custom_fonts/font = SubResource( 11 )
+text = "-5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TimerChangeLabel"]
+anims/timeChange = SubResource( 12 )
 [connection signal="timeout" from="TimerIgnore" to="." method="_on_TimerIgnore_timeout"]
 [connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]
 [connection signal="area_entered" from="detection_npc" to="." method="_on_detection_npc_area_entered"]

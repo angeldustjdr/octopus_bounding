@@ -20,6 +20,7 @@ font_data = ExtResource( 2 )
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
 nextMission = [ "act1_06", "act1_04", "", "" ]
+clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="3"]
 custom_fonts/font = SubResource( 3 )
@@ -28,6 +29,3 @@ text = "Erica"
 [node name="Text_label" parent="." index="5"]
 custom_fonts/normal_font = SubResource( 2 )
 text = "Nothing could have been better. The date went perfectly. Maybe we should continue this relationship."
-
-[node name="TimerMission" parent="." index="10"]
-wait_time = 3.0

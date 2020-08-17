@@ -3,10 +3,11 @@ extends Node
 var day = 1
 var time = 0
 var random = randomize()
-var modifEquilibrage = 0.5
 var inSequence = true
 var missionQueue = ["tuto01"]
 var currentLevel = 0
+var nextSequence = 0
+var nbSequence = 0
 
 #SCORE
 var money = 0
@@ -114,14 +115,22 @@ func _on_Mission_timeout(mission):
 	$Audio.stream = load("res://Assets/music/burning.ogg")
 	$Audio.play()
 	day += 1
+	if inSequence==false:
+		nextSequence+=1
+		if nextSequence>=5:
+			inSequence=true
+			nextSequence=0
+			nbSequence+=1
+			missionQueue=["act"+str(nbSequence)+"_01"]
 	update_GUI()
+	print(mission.clear_board_on_complete)
 	if mission.clear_board_on_complete == true:
-		for i in range(len(missions)):
-			if mission != missions[i]:
-				missions[i].delete_on_missionTimeOut()
-				missions.remove(i)
-	missions.remove(index)
-	mission.delete_on_missionTimeOut()
+		for mis in missions:
+			mis.delete_on_missionTimeOut()
+			missions = []
+	else:
+		missions.remove(index)
+		mission.delete_on_missionTimeOut()
 
 
 func load_NPC(name):
@@ -190,15 +199,12 @@ func set_current_npc(npc):
 	current_npc = npc
 
 func update_score(money_incr,reput_incr,compro_incr):
-	money_incr *= modifEquilibrage
-	reput_incr *= modifEquilibrage
-	compro_incr *= modifEquilibrage
 	anminateOutcome(money_incr,"money")
 	anminateOutcome(reput_incr,"reputation")
 	anminateOutcome(compro_incr,"compromised")
-	money += round(money_incr)
-	reputation += round(reput_incr)
-	compromised += round(compro_incr)
+	money += money_incr
+	reputation += reput_incr
+	compromised += compro_incr
 	update_GUI()
 	check_gameover()
 

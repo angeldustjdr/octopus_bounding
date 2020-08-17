@@ -27,3 +27,6 @@ visible = false
 
 [node name="TimerIgnore" parent="." index="8"]
 wait_time = 1e+08
+
+[node name="TimerMission" parent="." index="9"]
+wait_time = 2.0

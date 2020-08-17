@@ -35,6 +35,9 @@ text = "We need to secure this gun shipping. More guns = more power !"
 [node name="SuccessChance" parent="." index="7"]
 custom_fonts/font = SubResource( 1 )
 
+[node name="TimerIgnore" parent="." index="8"]
+wait_time = 100.0
+
 [node name="TimeLabel" parent="." index="11"]
 custom_fonts/font = SubResource( 2 )
 

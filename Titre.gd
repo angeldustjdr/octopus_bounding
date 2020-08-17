@@ -21,4 +21,4 @@ func _input(event):
 			var _anim_player = $SceneTranstion/AnimationPlayer
 			_anim_player.play("fade")
 			yield(_anim_player, "animation_finished")
-			get_tree().change_scene("res://Main.tscn")
+			get_tree().change_scene("res://Pre-main.tscn")

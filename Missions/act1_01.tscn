@@ -6,6 +6,7 @@
 missionType = "Story"
 failable = false
 needJohnathan = true
+cantIgnore = true
 
 [node name="Title_label" parent="." index="2"]
 text = "Enzo's restaurant"
@@ -19,5 +20,5 @@ visible = false
 [node name="Lose" parent="." index="6"]
 visible = false
 
-[node name="TimerIgnore" parent="." index="7"]
+[node name="TimerIgnore" parent="." index="8"]
 wait_time = 1e+08

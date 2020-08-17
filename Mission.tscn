@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
@@ -62,6 +62,12 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 32, 32 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 14
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 20
@@ -380,9 +386,9 @@ shape = SubResource( 2 )
 
 [node name="NPCRect" type="ColorRect" parent="."]
 margin_left = 40.0
-margin_top = 448.0
+margin_top = 455.0
 margin_right = 248.0
-margin_bottom = 512.0
+margin_bottom = 519.0
 mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
@@ -462,6 +468,20 @@ position = Vector2( -144, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3"]
 position = Vector2( 176, 32.0339 )
 shape = SubResource( 11 )
+
+[node name="NeedJohnathan" type="Label" parent="."]
+visible = false
+margin_left = 40.0
+margin_top = 424.0
+margin_right = 257.0
+margin_bottom = 463.0
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.992157, 0.729412, 0.00784314, 1 )
+text = "You need to do the job yourself !
+ (drag and drop Johnathan)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TimerChangeLabel" type="Label" parent="."]
 visible = false

@@ -33,6 +33,7 @@ func _ready():
 	_anim_player.play_backwards("fade")
 	yield(_anim_player, "animation_finished")
 	update_GUI()
+	load_NPC("johnathan")
 	load_NPC("alison")
 	load_NPC("erica")
 	load_NPC("thomas")

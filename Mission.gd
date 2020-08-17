@@ -15,6 +15,11 @@ export var missionType = "?"
 var isWin = 1
 export var failable = true
 export var needJohnathan = false
+export var cantIgnore = false
+export var add_NPC_on_complete = ""
+export var del_NPC_on_complete = ""
+export var nextMission = ["","","",""]
+export var clear_board_on_complete = false
 
 var speed = -400
 
@@ -44,6 +49,9 @@ func _ready():
 func _process(_delta):
 	linear_velocity.x = speed
 #Timer 
+	if cantIgnore:
+		$TimerIgnore.wait_time=1
+		$TimerIgnore.stop()
 	if missionAccepted==false:
 		$TimeLabel.text = str($TimerIgnore.time_left)
 		$TimeLabel/TextureRect.color = Color(0, 0, 0, 0.3)
@@ -79,6 +87,8 @@ func _on_detection_npc_area_exited(area):
 		emit_signal("NPCExit", self)
 
 func affect_npc(npc):
+	if npc.NPC_name=="Johnathan":
+		$NeedJohnathan.visible=false
 	var Sign = -1
 	if npc.NPC_type==missionType or npc.NPC_type=="You":
 		Sign=1
@@ -92,8 +102,17 @@ func affect_npc(npc):
 			npcList.append(npc)
 			get_node("NPCRect/NPC"+str(l+1)).texture = load("res://Assets/portraits/"+npc.NPC_name.to_lower()+"_pixelized_mission.png")
 			if (l+1 == nb_npc):
-				missionAccepted = true
-				$TimerMission.start()
+				if needJohnathan:
+					for perso in npcList:
+						if perso.NPC_name=="Johnathan":
+							missionAccepted = true
+							$TimerMission.start()
+					if missionAccepted==false:
+						$NeedJohnathan.visible=true
+				else:
+					$NeedJohnathan.visible = false
+					missionAccepted = true
+					$TimerMission.start()
 		else:
 			print("ERROR AFFECT_NPC")
 
@@ -133,6 +152,7 @@ func unaffect_npc(num):
 		if l==1:
 			$SuccessChance.text = "Success chance: 0%"
 			successChancePercent=50
+			$NeedJohnathan.visible = false
 		else:
 			var Sign = -1
 			if npc.NPC_type==missionType or npc.NPC_type=="You":

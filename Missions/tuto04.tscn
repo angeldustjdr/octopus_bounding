@@ -20,8 +20,11 @@ font_data = ExtResource( 3 )
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 5 )
 missionType = "You"
+failable = false
+cantIgnore = true
 add_NPC_on_complete = "mathias"
 nextMission = [ "tuto05", "", "", "" ]
+clear_board_on_complete = true
 
 [node name="Title_label" parent="." index="2"]
 custom_fonts/font = SubResource( 6 )
@@ -30,3 +33,13 @@ text = "You know the drill"
 [node name="Text_label" parent="." index="4"]
 custom_fonts/normal_font = SubResource( 7 )
 text = "Match the type of character to the type of mission. You can do any type of mission."
+
+[node name="NeedJohnathan" parent="." index="14"]
+visible = false
+margin_left = 40.0
+margin_top = 424.0
+margin_right = 257.0
+margin_bottom = 463.0
+custom_colors/font_color = Color( 0.992157, 0.729412, 0.00784314, 1 )
+text = "You need to do the job yourself !
+ (drag and drop Johnathan)"

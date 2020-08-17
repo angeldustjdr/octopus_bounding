@@ -16,7 +16,7 @@ func _process(delta):
 	$SubTitleLabel2.modulate.a = abs(sin(time))
 
 func _input(event):
-	if event is InputEventKey or event is InputEventMouseButton:
+	if event is InputEventMouseButton:
 		var index = event.button_index
 		var wheel
 		match index:
@@ -35,3 +35,10 @@ func _input(event):
 			_anim_player.play("fade")
 			yield(_anim_player, "animation_finished")
 			get_tree().change_scene("res://Pre-main.tscn")
+	else:
+		if event is InputEventKey:
+			var _anim_player = $SceneTranstion/AnimationPlayer
+			_anim_player.play("fade")
+			yield(_anim_player, "animation_finished")
+			get_tree().change_scene("res://Pre-main.tscn")
+		

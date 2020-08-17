@@ -3,7 +3,7 @@ extends Node
 var day = 1
 var time = 0
 var random = randomize()
-var modifEquilibrage = 1
+var modifEquilibrage = 0.5
 var inSequence = true
 var missionQueue = ["tuto01"]
 var currentLevel = 0
@@ -196,9 +196,9 @@ func update_score(money_incr,reput_incr,compro_incr):
 	anminateOutcome(money_incr,"money")
 	anminateOutcome(reput_incr,"reputation")
 	anminateOutcome(compro_incr,"compromised")
-	money += money_incr
-	reputation += reput_incr
-	compromised += compro_incr
+	money += round(money_incr)
+	reputation += round(reput_incr)
+	compromised += round(compro_incr)
 	update_GUI()
 	check_gameover()
 

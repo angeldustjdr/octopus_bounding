@@ -20,7 +20,8 @@ func _ready():
 			$Outline.color=Color(1,0,0,0.5)
 		"Wit":
 			$Outline.color=Color(0,0,1,0.5)
-	
+	$AnimationPlayer.play("NPCenter")
+
 func _process(_delta):
 	if dragging:
 		var mousepos = get_viewport().get_mouse_position()

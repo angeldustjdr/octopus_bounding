@@ -36,33 +36,6 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=6]
-resource_name = "compromisedUpdate"
-tracks/0/type = "value"
-tracks/0/path = NodePath("updateCompromised:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 0.392292 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("updateCompromised:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
-}
-
 [sub_resource type="Animation" id=7]
 resource_name = "moneyUpdate"
 tracks/0/type = "value"
@@ -90,7 +63,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=17]
 resource_name = "reputationUpdate"
 tracks/0/type = "value"
 tracks/0/path = NodePath("updateReputation:modulate")
@@ -106,6 +79,33 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("updateReputation:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "compromisedUpdate"
+tracks/0/type = "value"
+tracks/0/path = NodePath("updateCompromised:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 0.392292 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("updateCompromised:rect_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -344,10 +344,14 @@ margin_bottom = 102.272
 custom_fonts/font = SubResource( 5 )
 text = "XXXX"
 
-[node name="animationUpdate" type="AnimationPlayer" parent="GameArea"]
-anims/compromisedUpdate = SubResource( 6 )
+[node name="animationMoneyUpdate" type="AnimationPlayer" parent="GameArea"]
 anims/moneyUpdate = SubResource( 7 )
-anims/reputationUpdate = SubResource( 8 )
+
+[node name="animationReputationUpdate" type="AnimationPlayer" parent="GameArea"]
+anims/reputationUpdate = SubResource( 17 )
+
+[node name="animationCompromisedUpdate" type="AnimationPlayer" parent="GameArea"]
+anims/compromisedUpdate = SubResource( 18 )
 
 [node name="MissionTimer" type="Timer" parent="."]
 script = ExtResource( 8 )

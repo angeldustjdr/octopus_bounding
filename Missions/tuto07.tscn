@@ -8,6 +8,7 @@ outcomeMoney = [ 10, 0 ]
 outcomeReputation = [ 10, 0 ]
 missionType = "Tutorial"
 failable = false
+nextMission = [ "end_sequence", "", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
 text = "Multi-tasking (bis)"

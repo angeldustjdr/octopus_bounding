@@ -3,17 +3,20 @@ extends Node
 var day = 1
 var time = 0
 var random = randomize()
+var modifEquilibrage = 1
+var inSequence = true
+var missionQueue = ["tuto01"]
+var currentLevel = 0
 
 #SCORE
-var money = 10000
-var reputation = 300000
-var compromised = -100
+var money = 0
+var reputation = 0
+var compromised = 0
 
 #MISSION
 var mission_offset = Vector2(-10.009,-83.992)
 var mission_starting_point = Vector2(1104,0)
 var missions = []
-var levels = []
 var mission_per_level = [5, 5, 3]
 export var ignore_reputation_decrease_factor = 5
 var mission_collision_index = []
@@ -34,10 +37,6 @@ func _ready():
 	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("johnathan")
-	load_NPC("alison")
-	load_NPC("erica")
-	load_NPC("thomas")
-	load_NPC("nina")
 	$MissionTimer.start()
 
 func update_GUI():
@@ -51,17 +50,24 @@ func _process(delta):
 	if money < -80:
 		get_node("GameArea/ScoreArea/Money/Money_label").set("custom_colors/font_color",Color(1,0,0))
 		get_node("GameArea/ScoreArea/Money/Money_label").modulate.a=abs(sin(time))
+	else:
+		get_node("GameArea/ScoreArea/Money/Money_label").set("custom_colors/font_color",Color(1,1,1))
+		get_node("GameArea/ScoreArea/Money/Money_label").modulate.a=1
 	if reputation < 20:
 		get_node("GameArea/ScoreArea/Reputation/Reputation_label").set("custom_colors/font_color",Color(1,0,0))
 		get_node("GameArea/ScoreArea/Reputation/Reputation_label").modulate.a=abs(sin(time))
+	else:
+		get_node("GameArea/ScoreArea/Reputation/Reputation_label").set("custom_colors/font_color",Color(1,1,1))
+		get_node("GameArea/ScoreArea/Reputation/Reputation_label").modulate.a=1
 	if compromised > 80:
 		get_node("GameArea/ScoreArea/Compromised/Compromised_label").set("custom_colors/font_color",Color(1,0,0))
 		get_node("GameArea/ScoreArea/Compromised/Compromised_label").modulate.a=abs(sin(time))
+	else:
+		get_node("GameArea/ScoreArea/Compromised/Compromised_label").set("custom_colors/font_color",Color(1,1,1))
+		get_node("GameArea/ScoreArea/Compromised/Compromised_label").modulate.a=1
 
-func instance_new_mission(level):
-	levels.append(level)
-	var number = randi() % mission_per_level[level] + 1
-	var Mission = load("res://Missions/random"+str(level)+str(number)+".tscn")
+func instance_new_mission(myMission):
+	var Mission = load("res://Missions/"+myMission+".tscn")
 	var mission = Mission.instance()
 	mission.get_node("TimerIgnore").wait_time *= 1+randf()*0.4
 	mission.position.x = mission_starting_point.x + mission_offset.x
@@ -77,30 +83,46 @@ func instance_new_mission(level):
 	mission.connect("missionAccomplished", self, "update_score")
 
 func _on_MissionTimer_timeout():
+	if inSequence==false:
+		missionQueue.append("random"+str(currentLevel)+str(1+randi()%mission_per_level[currentLevel]))
 	if(len(missions) < 4):
-		var rand_level = randi() % 3
-		#var rand_level = 0
-		instance_new_mission(rand_level)
+		if missionQueue.size()>0:
+			instance_new_mission(missionQueue[0])
+			missionQueue.remove(0)
 
 func _on_MissionIgnore_timeout(mission):
 	var index = missions.find(mission)
-	update_score(0,-1*(levels[index]+1)*ignore_reputation_decrease_factor,0)
+	update_score(0,-1*(currentLevel+1)*ignore_reputation_decrease_factor,0)
 	update_GUI()
 	$Audio.stream = load("res://Assets/music/burning.ogg")
 	$Audio.play()
 	missions.remove(index)
-	levels.remove(index)
 	mission.delete_on_ignoreTimeOut()
 
 func _on_Mission_timeout(mission):
+	if mission.add_NPC_on_complete != "":
+		load_NPC(mission.add_NPC_on_complete)
+	for next in mission.nextMission:
+		if next=="end_sequence":
+			inSequence = false
+			for i in range(4):
+				missionQueue.append("random"+str(currentLevel)+str(1+randi()%mission_per_level[currentLevel]))
+		else:
+			if next != "":
+				missionQueue.append(next)
 	var index = missions.find(mission)
 	$Audio.stream = load("res://Assets/music/burning.ogg")
 	$Audio.play()
 	day += 1
 	update_GUI()
+	if mission.clear_board_on_complete == true:
+		for i in range(len(missions)):
+			if mission != missions[i]:
+				missions[i].delete_on_missionTimeOut()
+				missions.remove(i)
 	missions.remove(index)
-	levels.remove(index)
 	mission.delete_on_missionTimeOut()
+
 
 func load_NPC(name):
 	npcs_name.append(name)
@@ -168,6 +190,9 @@ func set_current_npc(npc):
 	current_npc = npc
 
 func update_score(money_incr,reput_incr,compro_incr):
+	money_incr *= modifEquilibrage
+	reput_incr *= modifEquilibrage
+	compro_incr *= modifEquilibrage
 	anminateOutcome(money_incr,"money")
 	anminateOutcome(reput_incr,"reputation")
 	anminateOutcome(compro_incr,"compromised")
@@ -185,20 +210,20 @@ func anminateOutcome(value,myString):
 		if myString=="money":
 			$GameArea/updateMoney.text = Sign+str(value)
 			$GameArea/updateMoney.visible=true
-			$GameArea/animationUpdate.play("moneyUpdate")
-			yield($GameArea/animationUpdate, "animation_finished")
+			$GameArea/animationMoneyUpdate.play("moneyUpdate")
+			yield($GameArea/animationMoneyUpdate, "animation_finished")
 			$GameArea/updateMoney.visible=false
 		if myString=="reputation":
 			$GameArea/updateReputation.text = Sign+str(value)
 			$GameArea/updateReputation.visible=true
-			$GameArea/animationUpdate.play("reputationUpdate")
-			yield($GameArea/animationUpdate, "animation_finished")
+			$GameArea/animationReputationUpdate.play("reputationUpdate")
+			yield($GameArea/animationReputationUpdate, "animation_finished")
 			$GameArea/updateReputation.visible=false
 		if myString=="compromised":
 			$GameArea/updateCompromised.text = Sign+str(value)
 			$GameArea/updateCompromised.visible=true
-			$GameArea/animationUpdate.play("compromisedUpdate")
-			yield($GameArea/animationUpdate, "animation_finished")
+			$GameArea/animationCompromisedUpdate.play("compromisedUpdate")
+			yield($GameArea/animationCompromisedUpdate, "animation_finished")
 			$GameArea/updateCompromised.visible=false
 
 func check_gameover():

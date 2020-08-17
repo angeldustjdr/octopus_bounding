@@ -41,7 +41,8 @@ nb_npc = 2
 outcomeMoney = [ 10, 0 ]
 outcomeReputation = [ 10, 0 ]
 missionType = "Brawl"
-cantIgnore = true
+add_NPC_on_complete = ""
+nextMission = [ "tuto06", "tuto07", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
 custom_fonts/font = SubResource( 2 )
@@ -53,18 +54,27 @@ text = "Some missions need more people. Your best friend Mathias can help !"
 
 [node name="Money_label" parent="Won" index="1"]
 custom_fonts/font = SubResource( 4 )
+text = "+"
 
 [node name="Reputation_label" parent="Won" index="3"]
 custom_fonts/font = SubResource( 4 )
+text = "+"
 
 [node name="Compromise_label" parent="Won" index="5"]
 custom_fonts/font = SubResource( 5 )
+text = "0"
 
 [node name="Money_label" parent="Lose" index="1"]
 custom_fonts/font = SubResource( 6 )
+text = "0"
 
 [node name="Reputation_label" parent="Lose" index="3"]
 custom_fonts/font = SubResource( 6 )
+text = "0"
 
 [node name="Compromise_label" parent="Lose" index="5"]
 custom_fonts/font = SubResource( 6 )
+text = "0"
+
+[node name="TimerMission" parent="." index="9"]
+wait_time = 3.0

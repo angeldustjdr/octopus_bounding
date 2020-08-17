@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Missions/act1_05.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+absorbent = true
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="Mission" instance=ExtResource( 1 )]
+physics_material_override = SubResource( 1 )
+nextMission = [ "act1_07", "random01", "random02", "random03" ]
+
+[node name="Title_label" parent="." index="3"]
+custom_fonts/font = SubResource( 3 )
+
+[node name="Text_label" parent="." index="5"]
+custom_fonts/normal_font = SubResource( 2 )
+text = "Another date with Erica. Things are going fast."
+
+[node name="TimerMission" parent="." index="10"]
+wait_time = 3.0

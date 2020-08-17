@@ -5,7 +5,6 @@
 
 [node name="Character" instance=ExtResource( 2 )]
 NPC_name = "Mathias"
-NPC_type = "brawl"
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 texture = ExtResource( 1 )

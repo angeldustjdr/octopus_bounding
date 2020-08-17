@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Missions/act1_11.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Mission.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="Mission" instance=ExtResource( 1 )]
+position = Vector2( 82, -78.0339 )
+mass = 0.00102041
+gravity_scale = 0.0
+script = ExtResource( 3 )
+missionType = "Story"
+failable = false
+needJohnathan = true
+cantIgnore = true
+add_NPC_on_complete = "erica"
+nextMission = [ "end_sequence", "", "", "" ]
+clear_board_on_complete = true
+
+[node name="Title_label" parent="." index="3"]
+text = "Erica's future"
+
+[node name="Text_label" parent="." index="5"]
+margin_left = 40.0
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 433.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+text = "Erica asked me to join the team. She would do a great job (she's got skills), but it's too dangerous. Should I accept ? "

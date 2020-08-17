@@ -6,13 +6,13 @@ var initialX_textureRect
 var npcList = []
 var successChancePercent = 50
 onready var initialTimerIgnore = $TimerIgnore.wait_time
+var isWin = 1
 
 export var nb_npc = 1
 export var outcomeMoney = [0,0]
 export var outcomeReputation = [0,0]
 export var outcomeCompromised = [0,0]
 export var missionType = "?"
-var isWin = 1
 export var failable = true
 export var needJohnathan = false
 export var cantIgnore = false

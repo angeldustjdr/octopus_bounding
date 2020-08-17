@@ -6,6 +6,8 @@
 missionType = "Tutorial"
 failable = false
 cantIgnore = true
+nextMission = [ "tuto02", "", "", "" ]
+clear_board_on_complete = true
 
 [node name="Title_label" parent="." index="2"]
 text = "Your fist mission"
@@ -21,3 +23,6 @@ visible = false
 
 [node name="TimerIgnore" parent="." index="8"]
 wait_time = 1.0
+
+[node name="TimerMission" parent="." index="9"]
+wait_time = 2.0

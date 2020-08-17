@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Missions/act1_10.tscn" type="PackedScene" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+absorbent = true
+
+[node name="Mission" instance=ExtResource( 1 )]
+physics_material_override = SubResource( 1 )
+nextMission = [ "act1_12", "act_04", "", "" ]
+
+[node name="Text_label" parent="." index="5"]
+text = "Erica is getting more and more involved in my job. Should I be worried ?"

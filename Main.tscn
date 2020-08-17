@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/icons/shaking-hands_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Assets/icons/money-stack_pixelized.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=6]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://MissionTimer.gd" type="Script" id=8]
+[ext_resource path="res://InfoBulleManager.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -116,13 +117,31 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 4, 292 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 544, 8 )
 
-[sub_resource type="AudioStreamSample" id=11]
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 128.652, 50.8537 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 134.565, 50.4331 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 122.16, 50.2521 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 102.98, 50.799 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="AudioStreamSample" id=15]
 
 [node name="Main" type="Node"]
 script = ExtResource( 6 )
@@ -381,21 +400,75 @@ position = Vector2( 72, 648 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 172, 416 )
-shape = SubResource( 9 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 712, 128 )
-shape = SubResource( 10 )
+shape = SubResource( 14 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 712, 696 )
+shape = SubResource( 14 )
+
+[node name="InfoBulleManager" type="Node2D" parent="."]
+position = Vector2( 144, 0 )
+script = ExtResource( 9 )
+
+[node name="InfoBulleMoney" type="Area2D" parent="InfoBulleManager"]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="InfoMoney" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleMoney"]
+position = Vector2( 144.223, 50.5154 )
+shape = SubResource( 9 )
+
+[node name="InfoBulleReputation" type="Area2D" parent="InfoBulleManager"]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="InfoReputation" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleReputation"]
+position = Vector2( 448.693, 52.5955 )
 shape = SubResource( 10 )
+
+[node name="InfoBulleCompromised" type="Area2D" parent="InfoBulleManager"]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="InfoCompromised" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleCompromised"]
+position = Vector2( 740.561, 52.5494 )
+shape = SubResource( 11 )
+
+[node name="InfoBulleDay" type="Area2D" parent="InfoBulleManager"]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="InfoDay" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleDay"]
+position = Vector2( 1030.1, 52.6556 )
+shape = SubResource( 12 )
+
+[node name="InfoBulle" type="Label" parent="InfoBulleManager"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 16 )
+text = "xxxxxxxxx"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = SubResource( 11 )
+stream = SubResource( 15 )
 volume_db = -3.0
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]
+[connection signal="mouse_entered" from="InfoBulleManager/InfoBulleMoney" to="InfoBulleManager" method="_on_InfoBulleMoney_mouse_entered"]
+[connection signal="mouse_exited" from="InfoBulleManager/InfoBulleMoney" to="InfoBulleManager" method="_on_InfoBulleMoney_mouse_exited"]
+[connection signal="mouse_entered" from="InfoBulleManager/InfoBulleReputation" to="InfoBulleManager" method="_on_InfoBulleReputation_mouse_entered"]
+[connection signal="mouse_exited" from="InfoBulleManager/InfoBulleReputation" to="InfoBulleManager" method="_on_InfoBulleReputation_mouse_exited"]
+[connection signal="mouse_entered" from="InfoBulleManager/InfoBulleCompromised" to="InfoBulleManager" method="_on_InfoBulleCompromised_mouse_entered"]
+[connection signal="mouse_exited" from="InfoBulleManager/InfoBulleCompromised" to="InfoBulleManager" method="_on_InfoBulleCompromised_mouse_exited"]
+[connection signal="mouse_entered" from="InfoBulleManager/InfoBulleDay" to="InfoBulleManager" method="_on_InfoBulleDay_mouse_entered"]
+[connection signal="mouse_exited" from="InfoBulleManager/InfoBulleDay" to="InfoBulleManager" method="_on_InfoBulleDay_mouse_exited"]

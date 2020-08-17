@@ -34,4 +34,4 @@ text = "0"
 text = "0"
 
 [node name="TimerIgnore" parent="." index="7"]
-wait_time = 1e+08
+wait_time = 300.0

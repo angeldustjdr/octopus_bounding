@@ -5,6 +5,7 @@
 [node name="Mission" instance=ExtResource( 1 )]
 missionType = "Tutorial"
 failable = false
+needIgnore = false
 
 [node name="Title_label" parent="." index="2"]
 text = "Your fist mission"

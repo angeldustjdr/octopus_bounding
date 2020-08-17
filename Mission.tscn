@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
@@ -52,19 +52,24 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=9]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 6 )
+
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="Animation" id=12]
-resource_name = "timeChange"
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -316,6 +321,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SuccessChance" type="Label" parent="."]
+margin_left = 46.0
+margin_top = 527.47
+margin_right = 180.0
+margin_bottom = 550.47
+custom_fonts/font = SubResource( 9 )
+text = "Success chance: 0%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TimerIgnore" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
@@ -340,7 +356,7 @@ margin_left = 88.0
 margin_top = 560.0
 margin_right = 256.0
 margin_bottom = 600.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 valign = 1
 __meta__ = {
@@ -395,7 +411,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1"]
 position = Vector2( 32, 32.0339 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="NPC2" type="TextureRect" parent="NPCRect"]
 visible = false
@@ -420,7 +436,7 @@ position = Vector2( -72, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2"]
 position = Vector2( 104, 32.0339 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="NPC3" type="TextureRect" parent="NPCRect"]
 visible = false
@@ -445,7 +461,7 @@ position = Vector2( -144, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3"]
 position = Vector2( 176, 32.0339 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="TimerChangeLabel" type="Label" parent="."]
 visible = false
@@ -453,14 +469,14 @@ margin_left = 121.162
 margin_top = 555.03
 margin_right = 161.162
 margin_bottom = 576.03
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "-5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TimerChangeLabel"]
-anims/timeChange = SubResource( 12 )
+anims/timeChange = SubResource( 13 )
 [connection signal="timeout" from="TimerIgnore" to="." method="_on_TimerIgnore_timeout"]
 [connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]
 [connection signal="area_entered" from="detection_npc" to="." method="_on_detection_npc_area_entered"]

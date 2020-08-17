@@ -4,6 +4,8 @@ var rand = randomize()
 var missionAccepted = false
 var initialX_textureRect
 var npcList = []
+var successChancePercent = 50
+onready var initialTimerIgnore = $TimerIgnore.wait_time
 
 export var nb_npc = 1
 export var outcomeMoney = [0,0]
@@ -46,7 +48,7 @@ func _process(_delta):
 		$TimeLabel.text = str($TimerIgnore.time_left)
 		$TimeLabel/TextureRect.color = Color(0, 0, 0, 0.3)
 		$TimeLabel.set("custom_colors/font_color", Color(1,1,1))
-		$TimeLabel/TextureRect.rect_size.x = initialX_textureRect * $TimerIgnore.time_left/$TimerIgnore.wait_time
+		$TimeLabel/TextureRect.rect_size.x = initialX_textureRect * $TimerIgnore.time_left/initialTimerIgnore
 	else:
 		$TimeLabel.text = str($TimerMission.time_left)
 		$TimeLabel/TextureRect.color = Color(1, 1, 1, 0.3)
@@ -55,14 +57,9 @@ func _process(_delta):
 
 func _on_TimerMission_timeout():
 	if failable:
-		var successChance = 50
-		for npc in npcList:
-			if npc.NPC_type == "You" or npc.NPC_type == missionType:
-				successChance += 30 / npcList.size()
-			else:
-				successChance -= 30 / npcList.size()
 		var roll = randf()*100.0
-		if roll<=successChance:
+		print("roll="+str(roll)+" VS %chance="+str(successChancePercent))
+		if roll<=successChancePercent:
 			isWin = 0
 		else:
 			isWin = 1
@@ -82,6 +79,11 @@ func _on_detection_npc_area_exited(area):
 		emit_signal("NPCExit", self)
 
 func affect_npc(npc):
+	var Sign = -1
+	if npc.NPC_type==missionType or npc.NPC_type=="You":
+		Sign=1
+	successChancePercent += round(Sign*40/nb_npc)
+	$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
 	var l = len(npcList)
 	if(l < nb_npc):
 		if (l <= 2):
@@ -89,10 +91,6 @@ func affect_npc(npc):
 			npc.get_node("pickableFilter").visible = true
 			npcList.append(npc)
 			get_node("NPCRect/NPC"+str(l+1)).texture = load("res://Assets/portraits/"+npc.NPC_name.to_lower()+"_pixelized_mission.png")
-			#$TimerIgnore.stop()
-			#if (l+1 < nb_npc):
-			#	$TimerIgnore.start()
-			#elif (l+1 == nb_npc):
 			if (l+1 == nb_npc):
 				missionAccepted = true
 				$TimerMission.start()
@@ -132,6 +130,15 @@ func unaffect_npc(num):
 	var l = len(npcList)
 	if (num < l):
 		var npc = npcList[num]
+		if l==1:
+			$SuccessChance.text = "Success chance: 0%"
+			successChancePercent=50
+		else:
+			var Sign = -1
+			if npc.NPC_type==missionType or npc.NPC_type=="You":
+				Sign=1
+			successChancePercent -= round(Sign*40/nb_npc)
+			$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
 		npc.pickable = true
 		npc.get_node("pickableFilter").visible = false
 		npcList.remove(num)

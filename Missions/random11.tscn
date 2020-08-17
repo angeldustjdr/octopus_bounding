@@ -34,5 +34,5 @@ text = "0"
 [node name="Compromise_label" parent="Lose" index="5"]
 text = "+"
 
-[node name="TimerIgnore" parent="." index="7"]
-wait_time = 60.0
+[node name="TimerIgnore" parent="." index="8"]
+wait_time = 120.0

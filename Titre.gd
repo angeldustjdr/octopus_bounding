@@ -17,7 +17,20 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
-		if event.pressed:
+		var index = event.button_index
+		var wheel
+		match index:
+			BUTTON_WHEEL_DOWN:
+				wheel = true
+			BUTTON_WHEEL_UP:
+				wheel = true
+			BUTTON_WHEEL_LEFT:
+				wheel = true
+			BUTTON_WHEEL_RIGHT:
+				wheel = true
+			_:
+				wheel = false
+		if event.pressed and !wheel:
 			var _anim_player = $SceneTranstion/AnimationPlayer
 			_anim_player.play("fade")
 			yield(_anim_player, "animation_finished")

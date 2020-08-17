@@ -1,47 +1,22 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Missions/random21.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Missions/murder.gd" type="Script" id=2]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Mission.gd" type="Script" id=4]
 
-[sub_resource type="PhysicsMaterial" id=5]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 absorbent = true
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=8]
-size = 20
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=9]
-size = 20
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 18
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 3 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 32, 32 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
@@ -49,45 +24,47 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
 [node name="Mission" instance=ExtResource( 1 )]
-position = Vector2( 82, -78.0339 )
-mass = 0.00102041
-physics_material_override = SubResource( 5 )
-gravity_scale = 0.0
-script = ExtResource( 4 )
+physics_material_override = SubResource( 1 )
 outcomeMoney = [ 0, -10 ]
 outcomeReputation = [ 30, -20 ]
 missionType = "Wit"
 
 [node name="Title_label" parent="." index="2"]
-margin_left = 40.0
-margin_top = 112.0
-margin_right = 256.0
-margin_bottom = 144.0
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Murder"
-align = 1
 
 [node name="Text_label" parent="." index="4"]
-margin_left = 40.0
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 312.0
-custom_fonts/normal_font = SubResource( 7 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 3 )
 script = ExtResource( 2 )
 
 [node name="Money_label" parent="Won" index="1"]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 4 )
 text = "0"
-align = 1
-valign = 1
 
 [node name="Reputation_label" parent="Won" index="3"]
 text = "+++"
@@ -96,44 +73,25 @@ text = "+++"
 text = "-"
 
 [node name="Reputation_label" parent="Lose" index="3"]
-margin_left = 128.0
-margin_right = 160.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 9 )
-align = 1
-valign = 1
+custom_fonts/font = SubResource( 5 )
 
 [node name="Compromise_label" parent="Lose" index="5"]
-margin_left = 192.0
-margin_right = 224.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 9 )
-align = 1
-valign = 1
+custom_fonts/font = SubResource( 5 )
 
 [node name="SuccessChance" parent="." index="7"]
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="TimeLabel" parent="." index="11"]
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 8 )
 
-[node name="TimerChangeLabel" parent="." index="14"]
-custom_fonts/font = SubResource( 4 )
-[connection signal="timeout" from="TimerIgnore" to="." method="_on_TimerIgnore_timeout"]
-[connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]
-[connection signal="area_entered" from="detection_npc" to="." method="_on_detection_npc_area_entered"]
-[connection signal="area_exited" from="detection_npc" to="." method="_on_detection_npc_area_exited"]
-[connection signal="input_event" from="NPCRect/NPC1/collision_NPC1" to="." method="_on_collision_NPC1_input_event"]
-[connection signal="input_event" from="NPCRect/NPC2/collision_NPC2" to="." method="_on_collision_NPC2_input_event"]
-[connection signal="input_event" from="NPCRect/NPC3/collision_NPC3" to="." method="_on_collision_NPC3_input_event"]
+[node name="TimerChangeLabel" parent="." index="15"]
+custom_fonts/font = SubResource( 9 )

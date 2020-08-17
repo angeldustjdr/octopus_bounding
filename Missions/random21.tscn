@@ -46,9 +46,6 @@ text = "++"
 [node name="SuccessChance" parent="." index="7"]
 custom_fonts/font = SubResource( 1 )
 
-[node name="TimerIgnore" parent="." index="8"]
-wait_time = 120.0
-
 [node name="TimeLabel" parent="." index="11"]
 custom_fonts/font = SubResource( 2 )
 
@@ -61,5 +58,5 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3" index="0"]
 shape = SubResource( 3 )
 
-[node name="TimerChangeLabel" parent="." index="14"]
+[node name="TimerChangeLabel" parent="." index="15"]
 custom_fonts/font = SubResource( 4 )

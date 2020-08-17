@@ -63,19 +63,19 @@ font_data = ExtResource( 6 )
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=12]
 size = 14
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -475,7 +475,7 @@ margin_left = 40.0
 margin_top = 424.0
 margin_right = 257.0
 margin_bottom = 463.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.992157, 0.729412, 0.00784314, 1 )
 text = "You need to do the job yourself !
  (drag and drop Johnathan)"
@@ -489,18 +489,11 @@ margin_left = 121.162
 margin_top = 555.03
 margin_right = 161.162
 margin_bottom = 576.03
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "-5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TimerChangeLabel"]
-anims/timeChange = SubResource( 13 )
-[connection signal="timeout" from="TimerIgnore" to="." method="_on_TimerIgnore_timeout"]
-[connection signal="timeout" from="TimerMission" to="." method="_on_TimerMission_timeout"]
-[connection signal="area_entered" from="detection_npc" to="." method="_on_detection_npc_area_entered"]
-[connection signal="area_exited" from="detection_npc" to="." method="_on_detection_npc_area_exited"]
-[connection signal="input_event" from="NPCRect/NPC1/collision_NPC1" to="." method="_on_collision_NPC1_input_event"]
-[connection signal="input_event" from="NPCRect/NPC2/collision_NPC2" to="." method="_on_collision_NPC2_input_event"]
-[connection signal="input_event" from="NPCRect/NPC3/collision_NPC3" to="." method="_on_collision_NPC3_input_event"]
+anims/timeChange = SubResource( 14 )

@@ -43,7 +43,15 @@ func _ready():
 		"Wit":
 			$Type_label.set("custom_colors/font_color",Color(0,0,1))
 	$TimerIgnore.start()
-	initialX_textureRect = $TimeLabel/TextureRect.rect_size.x 
+	initialX_textureRect = $TimeLabel/TextureRect.rect_size.x
+	#CONNEXION
+	$TimerIgnore.connect("timeout", self, "_on_TimerIgnore_timeout")
+	$TimerMission.connect("timeout", self, "_on_TimerMission_timeout")
+	$detection_npc.connect("area_entered", self, "_on_detection_npc_area_entered")
+	$detection_npc.connect("area_exited", self, "_on_detection_npc_area_exited")
+	$NPCRect/NPC1/collision_NPC1.connect("input_event", self, "_on_collision_NPC1_input_event")
+	$NPCRect/NPC2/collision_NPC2.connect("input_event", self, "_on_collision_NPC2_input_event")
+	$NPCRect/NPC3/collision_NPC3.connect("input_event", self, "_on_collision_NPC3_input_event")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

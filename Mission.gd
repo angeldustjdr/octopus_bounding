@@ -127,7 +127,7 @@ func affect_npc(npc):
 
 func delete_on_ignoreTimeOut():
 	makeNPC_pickable()
-	make_disappear()
+	emit_signal("disappear")
 	queue_free()
 
 func delete_on_missionTimeOut():
@@ -136,7 +136,6 @@ func delete_on_missionTimeOut():
 	var reputation_increment = round(modifEquilibrage*round(outcomeReputation[isWin]*(0.9+randf()*0.2)))
 	var compromised_increment = round(modifEquilibrage*round(outcomeCompromised[isWin]*(0.9+randf()*0.2)))
 	emit_signal("missionAccomplished",money_increment,reputation_increment,compromised_increment)
-	make_disappear()
 	queue_free()
 	
 func makeNPC_pickable():
@@ -188,6 +187,3 @@ func update_npcs():
 	for i in range(len(npcList),nb_npc):
 		#get_node("NPCRect/NPC"+str(i+1)).texture = load("res://Assets/icons/person.png")
 		get_node("NPCRect/NPC"+str(i+1)).texture = load("res://Assets/icons/person_pixelized.png")
-
-func make_disappear():
-	print("WESH")

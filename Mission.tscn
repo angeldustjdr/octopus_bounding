@@ -15,22 +15,28 @@
 friction = 0.0
 absorbent = true
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 134, 276 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 22
 outline_size = 2
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=6]
 size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -46,36 +52,30 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 20
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=10]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 6 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=12]
 size = 14
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=13]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -101,19 +101,20 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "disapear"
+[sub_resource type="Animation" id=15]
+resource_name = "disappear"
+length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="Mission" type="RigidBody2D"]
@@ -126,7 +127,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 144, 360 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 144, 360 )
@@ -137,7 +138,7 @@ margin_left = 40.0
 margin_top = 112.0
 margin_right = 256.0
 margin_bottom = 144.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Titre"
@@ -151,7 +152,7 @@ margin_left = 40.0
 margin_top = 160.0
 margin_right = 256.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 align = 1
@@ -164,7 +165,7 @@ margin_left = 40.0
 margin_top = 208.0
 margin_right = 256.0
 margin_bottom = 312.0
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Random text for the test of the mighty mission etc. \\zq dzq dqzd qzdqzdqzd z zq"
 __meta__ = {
@@ -197,7 +198,7 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 __meta__ = {
@@ -219,7 +220,7 @@ margin_left = 128.0
 margin_right = 160.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 __meta__ = {
@@ -241,7 +242,7 @@ margin_left = 192.0
 margin_right = 224.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 align = 1
 valign = 1
 __meta__ = {
@@ -283,7 +284,7 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 __meta__ = {
@@ -305,7 +306,7 @@ margin_left = 128.0
 margin_right = 160.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 __meta__ = {
@@ -327,7 +328,7 @@ margin_left = 192.0
 margin_right = 224.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 __meta__ = {
@@ -348,7 +349,7 @@ margin_left = 46.0
 margin_top = 527.47
 margin_right = 180.0
 margin_bottom = 550.47
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "Success chance: 0%"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -378,7 +379,7 @@ margin_left = 88.0
 margin_top = 560.0
 margin_right = 256.0
 margin_bottom = 600.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 valign = 1
 __meta__ = {
@@ -398,7 +399,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="detection_npc"]
 position = Vector2( 144, 360 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="NPCRect" type="ColorRect" parent="."]
 margin_left = 40.0
@@ -433,7 +434,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1"]
 position = Vector2( 32, 32.0339 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="NPC2" type="TextureRect" parent="NPCRect"]
 visible = false
@@ -458,7 +459,7 @@ position = Vector2( -72, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2"]
 position = Vector2( 104, 32.0339 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="NPC3" type="TextureRect" parent="NPCRect"]
 visible = false
@@ -483,7 +484,7 @@ position = Vector2( -144, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3"]
 position = Vector2( 176, 32.0339 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="NeedJohnathan" type="Label" parent="."]
 visible = false
@@ -491,7 +492,7 @@ margin_left = 40.0
 margin_top = 424.0
 margin_right = 257.0
 margin_bottom = 463.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.992157, 0.729412, 0.00784314, 1 )
 text = "I need to do the job myself !
  (drag and drop Johnathan)"
@@ -505,14 +506,14 @@ margin_left = 121.162
 margin_top = 555.03
 margin_right = 161.162
 margin_bottom = 580.03
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 13 )
 text = "-5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TimerChangeLabel"]
-anims/timeChange = SubResource( 15 )
+anims/timeChange = SubResource( 14 )
 
-[node name="MissionDisapear" type="AnimationPlayer" parent="."]
-anims/disapear = SubResource( 16 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/disappear = SubResource( 15 )

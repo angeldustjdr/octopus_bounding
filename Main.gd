@@ -115,6 +115,9 @@ func _on_MissionIgnore_timeout(mission):
 	$Audio.stream = load("res://Assets/music/burning.ogg")
 	$Audio.play()
 	missions.remove(index)
+	var anim = mission.get_node("AnimationPlayer")
+	anim.play("disappear")
+	yield(anim,"animation_finished")
 	mission.delete_on_ignoreTimeOut()
 
 func _on_Mission_timeout(mission):
@@ -143,11 +146,20 @@ func _on_Mission_timeout(mission):
 			currentLevel+=1
 			missionQueue=["act"+str(nbSequence)+"_01"]
 	update_GUI()
+	print("WESH")
 	if mission.clear_board_on_complete == true:
+		var anim
+		for mis in missions:
+			anim = mis.get_node("AnimationPlayer")
+			anim.play("disappear")
+		yield(anim,"animation_finished")
 		for mis in missions:
 			mis.delete_on_missionTimeOut()
 			missions = []
 	else:
+		var anim = mission.get_node("AnimationPlayer")
+		anim.play("disappear")
+		yield(anim,"animation_finished")
 		missions.remove(index)
 		mission.delete_on_missionTimeOut()
 

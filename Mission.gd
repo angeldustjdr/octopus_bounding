@@ -81,26 +81,14 @@ func _on_TimerMission_timeout():
 		if roll<=successChancePercent:
 			$AnimationPlayer.play("appear_success")
 			yield($AnimationPlayer,"animation_finished")
-<<<<<<< HEAD
-=======
-			#$Sucess.visible = true
->>>>>>> master
 			isWin = 0
 		else:
 			$AnimationPlayer.play("appear_failure")
 			yield($AnimationPlayer,"animation_finished")
-<<<<<<< HEAD
-=======
-			#$Failure.visible = true
->>>>>>> master
 			isWin = 1
 	else:
 		$AnimationPlayer.play("appear_success")
 		yield($AnimationPlayer,"animation_finished")
-<<<<<<< HEAD
-=======
-		#$Success.visible = true
->>>>>>> master
 		isWin = 0
 	emit_signal("missionTimeOut", self)
 

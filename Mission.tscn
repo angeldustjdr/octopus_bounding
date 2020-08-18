@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Assets/icons/sands-of-time_pixelized.png" type="Texture" id=8]
 [ext_resource path="res://Assets/icons/cancel_pixelized.png" type="Texture" id=9]
 [ext_resource path="res://Assets/icons/check-mark_pixelized.png" type="Texture" id=10]
+[ext_resource path="res://Assets/failure_mission_pixelized.png" type="Texture" id=11]
+[ext_resource path="res://Assets/success_stamp_pixelized.png" type="Texture" id=12]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -102,7 +104,38 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-resource_name = "disappear"
+resource_name = "appear_failure"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Failure:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "appear_success"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Success:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -502,10 +535,12 @@ __meta__ = {
 
 [node name="TimerChangeLabel" type="Label" parent="."]
 visible = false
+modulate = Color( 1, 1, 1, 0.7 )
 margin_left = 121.162
 margin_top = 555.03
 margin_right = 161.162
 margin_bottom = 580.03
+rect_scale = Vector2( 1.6, 1.6 )
 custom_fonts/font = SubResource( 13 )
 text = "-5"
 __meta__ = {
@@ -516,4 +551,32 @@ __meta__ = {
 anims/timeChange = SubResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/disappear = SubResource( 15 )
+anims/appear_failure = SubResource( 15 )
+anims/appear_success = SubResource( 16 )
+anims/disappear = SubResource( 17 )
+
+[node name="Failure" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -30.0
+margin_top = 442.034
+margin_right = 330.0
+margin_bottom = 526.034
+rect_rotation = -39.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Success" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -30.0
+margin_top = 442.034
+margin_right = 330.0
+margin_bottom = 526.034
+rect_rotation = -39.0
+texture = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

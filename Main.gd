@@ -146,7 +146,6 @@ func _on_Mission_timeout(mission):
 			currentLevel+=1
 			missionQueue=["act"+str(nbSequence)+"_01"]
 	update_GUI()
-	print("WESH")
 	if mission.clear_board_on_complete == true:
 		var anim
 		for mis in missions:

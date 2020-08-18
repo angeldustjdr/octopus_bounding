@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act1_01.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+outcomeMoney = [ 0, 0 ]
+nextMission = [ "act2_02", "act2_03", "", "" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "New recruits"
+
+[node name="Text_label" parent="." index="4"]
+margin_bottom = 476.0
+text = "The business is more and more florishing. I am confident I will be able to reach the Boss in no time. Plus, more and more people want to be part of my team..."

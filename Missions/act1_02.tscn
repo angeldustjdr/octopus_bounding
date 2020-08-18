@@ -13,7 +13,7 @@ margin_right = 219.796
 text = "Enzo's daughter"
 
 [node name="Text_label" parent="." index="4"]
-margin_bottom = 433.0
+margin_bottom = 541.0
 bbcode_enabled = true
 text = "Enzo's daughter, Erica, is such a beauty. We stared at each other last time I visited her father. There is something between us. I can feel it. Maybe I should make a move..."
 

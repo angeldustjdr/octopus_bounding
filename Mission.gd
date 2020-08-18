@@ -191,5 +191,3 @@ func update_npcs():
 
 func make_disappear():
 	print("WESH")
-	$MissionAnimation.play("disappear")
-	yield($MissionAnimation, "animation_finished")

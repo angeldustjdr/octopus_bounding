@@ -30,7 +30,7 @@ func _on_InfoBulleCompromised_mouse_exited():
 
 
 func _on_InfoBulleDay_mouse_entered():
-	$InfoBulle.text = "Press escape or \nspace to pause the game."
+	$InfoBulle.text = "Press escape or \nspace to pause \nthe game."
 	$InfoBulle.visible=true
 
 func _on_InfoBulleDay_mouse_exited():

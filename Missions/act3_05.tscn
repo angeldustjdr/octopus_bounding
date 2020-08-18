@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act3_01.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nextMission = [ "act3_06", "act3_07", "act3_08", "act3_09" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "Gathering info"
+
+[node name="Text_label" parent="." index="4"]
+text = "I can''t approach  Adam for now. I need to gain his confidence. Let's do his mission first. Maybe then I'll be able to get close to him.
+
+For now I need intel on this pastor."

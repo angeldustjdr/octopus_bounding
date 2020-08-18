@@ -77,12 +77,18 @@ func _process(_delta):
 func _on_TimerMission_timeout():
 	if failable:
 		var roll = randf()*100.0
-		print("roll="+str(roll)+" VS %chance="+str(successChancePercent))
+		#print("roll="+str(roll)+" VS %chance="+str(successChancePercent))
 		if roll<=successChancePercent:
+			$AnimationPlayer.play("appear_success")
+			yield($AnimationPlayer,"animation_finished")
 			isWin = 0
 		else:
+			$AnimationPlayer.play("appear_failure")
+			yield($AnimationPlayer,"animation_finished")
 			isWin = 1
 	else:
+		$AnimationPlayer.play("appear_success")
+		yield($AnimationPlayer,"animation_finished")
 		isWin = 0
 	emit_signal("missionTimeOut", self)
 

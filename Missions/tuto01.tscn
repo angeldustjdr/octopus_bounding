@@ -7,6 +7,7 @@ missionType = "Tutorial"
 failable = false
 cantIgnore = true
 nextMission = [ "tuto02", "", "", "" ]
+clear_board_on_complete = true
 
 [node name="Title_label" parent="." index="2"]
 text = "Your first mission"

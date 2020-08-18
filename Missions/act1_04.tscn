@@ -19,6 +19,7 @@ size = 20
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
+pause_mode = 1
 position = Vector2( 82, -78.0339 )
 mass = 0.00102041
 physics_material_override = SubResource( 1 )

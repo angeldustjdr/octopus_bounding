@@ -3,13 +3,13 @@
 [ext_resource path="res://Missions/act1_06.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 3 )
 
@@ -18,11 +18,10 @@ nextMission = [ "act1_08", "random04", "random05", "random01" ]
 clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="2"]
-custom_fonts/font = SubResource( 2 )
-text = "Erica"
+custom_fonts/font = SubResource( 1 )
 
 [node name="Text_label" parent="." index="4"]
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "Another date with Erica. Things are getting serious."
 
 [node name="TimerMission" parent="." index="9"]

@@ -18,6 +18,10 @@ font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+missionType = "Story"
+failable = false
+needJohnathan = true
+cantIgnore = true
 add_NPC_on_complete = "erica"
 nextMission = [ "end_sequence", "", "", "" ]
 clear_board_on_complete = true
@@ -32,7 +36,5 @@ custom_fonts/font = SubResource( 2 )
 custom_fonts/normal_font = SubResource( 3 )
 text = "Erica asked me to join the team. She would do a great job (she's got skills), but it's too dangerous. Should I accept ? "
 
-[node name="Won" parent="." index="5"]
-margin_left = 32.0
-margin_top = 336.0
-margin_bottom = 368.0
+[node name="TimerIgnore" parent="." index="8"]
+one_shot = true

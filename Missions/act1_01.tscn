@@ -8,7 +8,7 @@ missionType = "Story"
 failable = false
 needJohnathan = true
 cantIgnore = true
-nextMission = [ "act1_02", "", "", "" ]
+nextMission = [ "act1_02bis", "", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
 text = "Enzo's restaurant"

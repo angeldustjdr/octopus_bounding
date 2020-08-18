@@ -498,8 +498,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
-[connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
+[connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]
 [connection signal="mouse_entered" from="InfoBulleManager/InfoBulleMoney" to="InfoBulleManager" method="_on_InfoBulleMoney_mouse_entered"]
 [connection signal="mouse_exited" from="InfoBulleManager/InfoBulleMoney" to="InfoBulleManager" method="_on_InfoBulleMoney_mouse_exited"]
 [connection signal="mouse_entered" from="InfoBulleManager/InfoBulleReputation" to="InfoBulleManager" method="_on_InfoBulleReputation_mouse_entered"]

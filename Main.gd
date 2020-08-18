@@ -4,7 +4,7 @@ var day = 1
 var time = 0
 var random = randomize()
 var inSequence = true
-var missionQueue = ["act1_01"]
+var missionQueue = ["tuto01"]
 var currentLevel = 0
 var difficultyCurve = [0,1,1,1,2,2,2]
 var nextSequence = 0
@@ -43,7 +43,7 @@ func _ready():
 	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("johnathan")
-	load_NPC("mathias")
+	#load_NPC("mathias")
 	$MissionTimer.start()
 
 func update_GUI():
@@ -162,18 +162,22 @@ func _on_Mission_timeout(mission):
 			missionQueue=["act"+str(nbSequence)+"_01"]
 	update_GUI()
 	if mission.clear_board_on_complete == true:
+		$MissionTimer.set_paused(true)
 		var anim
 		for mis in missions:
 			anim = mis.get_node("AnimationPlayer")
 			anim.play("disappear")
 		yield(anim,"animation_finished")
+		$MissionTimer.set_paused(false)
 		for mis in missions:
 			mis.delete_on_missionTimeOut()
 			missions = []
 	else:
+		$MissionTimer.set_paused(true)
 		var anim = mission.get_node("AnimationPlayer")
 		anim.play("disappear")
 		yield(anim,"animation_finished")
+		$MissionTimer.set_paused(false)
 		missions.remove(index)
 		mission.delete_on_missionTimeOut()
 

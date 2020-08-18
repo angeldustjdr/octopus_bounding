@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act3_06.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nb_npc = 1
+outcomeMoney = [ -250, 0 ]
+add_NPC_on_complete = "nina"
+prerequis_npc = ""
+
+[node name="Title_label" parent="." index="2"]
+text = "Breaking free"
+
+[node name="Text_label" parent="." index="4"]
+margin_bottom = 405.0
+text = "I know a guy who knows Désiré. But he is in jail. If I pay his bail, he will give us informations. Plus, he may become a great ally !"
+
+[node name="Won" parent="." index="5"]
+visible = true
+margin_left = 34.9966
+margin_top = 406.42
+margin_right = 258.997
+margin_bottom = 438.42
+
+[node name="Money_label" parent="Won" index="1"]
+text = "---"
+
+[node name="Reputation_label" parent="Won" index="3"]
+text = "0"
+
+[node name="Compromise_label" parent="Won" index="5"]
+text = "0"

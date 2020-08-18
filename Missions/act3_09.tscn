@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act3_06.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nb_npc = 1
+prerequis_npc = ""
+prerequis_reputation = 50
+
+[node name="Title_label" parent="." index="2"]
+text = "Using our prestige"
+
+[node name="Text_label" parent="." index="4"]
+text = "With our newly gained reputation, people will surely give us information on Désiré."

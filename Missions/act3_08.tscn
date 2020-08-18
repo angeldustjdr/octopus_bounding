@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act3_06.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+outcomeCompromised = [ 30, 0 ]
+prerequis_npc = "Alison"
+
+[node name="Title_label" parent="." index="2"]
+text = "Alison's network"
+
+[node name="Text_label" parent="." index="4"]
+margin_bottom = 402.0
+text = "Alison was a former police officer. We can use her network to get information on Désiré. This will get us compromised but it may be worth."
+
+[node name="Won" parent="." index="5"]
+visible = true
+margin_left = 33.6818
+margin_top = 401.59
+margin_right = 257.682
+margin_bottom = 433.59
+
+[node name="Money_label" parent="Won" index="1"]
+text = "0"
+
+[node name="Reputation_label" parent="Won" index="3"]
+text = "0"
+
+[node name="Compromise_label" parent="Won" index="5"]
+text = "+++"

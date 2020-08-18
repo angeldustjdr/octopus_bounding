@@ -21,6 +21,8 @@ export var add_NPC_on_complete = ""
 export var del_NPC_on_complete = ""
 export var nextMission = ["","","",""]
 export var clear_board_on_complete = false
+export var prerequis_npc=""
+export var prerequis_reputation=-1
 
 var speed = -500
 

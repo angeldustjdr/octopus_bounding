@@ -25,6 +25,7 @@ font_data = ExtResource( 2 )
 outcomeMoney = [ 10, 0 ]
 outcomeReputation = [ 10, 0 ]
 nextMission = [ "tuto03", "", "", "" ]
+clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="2"]
 text = "Your second mission"

@@ -36,7 +36,7 @@ text = "We need to secure this gun shipping. More guns = more power !"
 custom_fonts/font = SubResource( 1 )
 
 [node name="TimerIgnore" parent="." index="8"]
-wait_time = 100.0
+wait_time = 80.0
 
 [node name="TimeLabel" parent="." index="11"]
 custom_fonts/font = SubResource( 2 )
@@ -52,3 +52,6 @@ shape = SubResource( 3 )
 
 [node name="TimerChangeLabel" parent="." index="15"]
 custom_fonts/font = SubResource( 4 )
+
+[node name="UnavailableRect" parent="." index="17"]
+color = Color( 0.54902, 0.54902, 0.54902, 0.698039 )

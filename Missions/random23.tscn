@@ -47,23 +47,11 @@ text = "Sometime, you need to be harsh. Better punish early than loose control."
 custom_fonts/font = SubResource( 4 )
 
 [node name="Reputation_label" parent="Won" index="3"]
-margin_left = 128.0
-margin_right = 160.0
-rect_pivot_offset = Vector2( 24, 8 )
 custom_fonts/font = SubResource( 4 )
-align = 1
-valign = 1
 
 [node name="Money_label" parent="Lose" index="1"]
-margin_left = 64.0
-margin_top = 0.0
-margin_right = 96.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
 custom_fonts/font = SubResource( 5 )
 text = "0"
-align = 1
-valign = 1
 
 [node name="Reputation_label" parent="Lose" index="3"]
 text = "---"
@@ -71,34 +59,5 @@ text = "---"
 [node name="Compromise_label" parent="Lose" index="5"]
 text = "0"
 
-[node name="SuccessChance" parent="." index="7"]
-margin_left = 46.0
-margin_top = 527.47
-margin_right = 180.0
-margin_bottom = 550.47
-text = "Success chance: 0%"
-
-[node name="TimeLabel" parent="." index="11"]
-margin_left = 88.0
-margin_top = 560.0
-margin_right = 256.0
-margin_bottom = 600.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-valign = 1
-
-[node name="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1" index="0"]
-position = Vector2( 32, 32.0339 )
-
-[node name="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2" index="0"]
-position = Vector2( 104, 32.0339 )
-
-[node name="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3" index="0"]
-position = Vector2( 176, 32.0339 )
-
-[node name="TimerChangeLabel" parent="." index="15"]
-visible = false
-margin_left = 121.162
-margin_top = 555.03
-margin_right = 161.162
-margin_bottom = 576.03
-text = "-5"
+[node name="TimerIgnore" parent="." index="8"]
+wait_time = 80.0

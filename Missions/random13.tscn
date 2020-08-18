@@ -42,6 +42,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 1 )]
+pause_mode = 1
 position = Vector2( 72, -48 )
 mass = 0.00102041
 physics_material_override = SubResource( 1 )
@@ -92,6 +93,10 @@ margin_bottom = 550.47
 custom_fonts/font = SubResource( 5 )
 text = "Success chance: 0%"
 
+[node name="TimerIgnore" parent="." index="8"]
+wait_time = 80.0
+one_shot = true
+
 [node name="TimeLabel" parent="." index="11"]
 margin_left = 88.0
 margin_top = 560.0
@@ -121,3 +126,6 @@ margin_right = 161.162
 margin_bottom = 576.03
 custom_fonts/font = SubResource( 8 )
 text = "-5"
+
+[node name="UnavailableRect" parent="." index="17"]
+color = Color( 0.54902, 0.54902, 0.54902, 0.698039 )

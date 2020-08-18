@@ -34,4 +34,4 @@ text = "-"
 text = "+"
 
 [node name="TimerIgnore" parent="." index="8"]
-wait_time = 100.0
+wait_time = 80.0

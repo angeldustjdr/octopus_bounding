@@ -10,8 +10,8 @@ var nextSequence = 0
 var nbSequence = 0
 
 #SCORE
-var money = 100
-var reputation = 100
+var money = 0
+var reputation = 0
 var compromised = 0
 
 #MISSION
@@ -74,6 +74,19 @@ func _process(delta):
 func instance_new_mission(myMission):
 	var Mission = load("res://Missions/"+myMission+".tscn")
 	var mission = Mission.instance()
+	var missionAvailableNPC=false
+	var missionAvailableReputation=false
+	if mission.prerequis_npc=="":
+		missionAvailableNPC = true
+	else:
+		for perso in npcs:
+			if perso.NPC_name==mission.prerequis_npc:
+				missionAvailableNPC = true
+	if reputation>mission.prerequis_reputation:
+			missionAvailableReputation = true
+	if missionAvailableNPC==false or missionAvailableReputation==false:
+		mission.get_node("UnavailableRect").visible = true
+		mission.get_node("detection_npc/CollisionShape2D2").disabled = true
 	mission.get_node("TimerIgnore").wait_time *= 1+randf()*0.4
 	mission.position.x = mission_starting_point.x + mission_offset.x
 	mission.position.y = mission_starting_point.y + mission_offset.y
@@ -146,7 +159,6 @@ func _on_Mission_timeout(mission):
 			currentLevel+=1
 			missionQueue=["act"+str(nbSequence)+"_01"]
 	update_GUI()
-	print("WESH")
 	if mission.clear_board_on_complete == true:
 		var anim
 		for mis in missions:

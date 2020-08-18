@@ -6,6 +6,7 @@
 nb_npc = 1
 outcomeMoney = [ -250, 0 ]
 add_NPC_on_complete = "nina"
+nextMission = [ "act3_10", "random02", "random11", "random15" ]
 prerequis_npc = ""
 
 [node name="Title_label" parent="." index="2"]

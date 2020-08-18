@@ -9,6 +9,6 @@ nextMission = [ "act3_06", "act3_07", "act3_08", "act3_09" ]
 text = "Gathering info"
 
 [node name="Text_label" parent="." index="4"]
-text = "I can''t approach  Adam for now. I need to gain his confidence. Let's do his mission first. Maybe then I'll be able to get close to him.
+text = "I can't approach  Adam for now. I need to gain his confidence. Let's do his mission first. Maybe then I'll be able to get close to him.
 
 For now I need intel on this pastor."

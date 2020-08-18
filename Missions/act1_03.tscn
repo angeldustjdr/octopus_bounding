@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Missions/act1_02.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/portraits/PortraitErica.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -29,3 +30,5 @@ text = "Date Erica"
 [node name="Text_label" parent="." index="4"]
 custom_fonts/normal_font = SubResource( 3 )
 text = "I should invite Erica on a date. There is something between us, I can feel it."
+
+[node name="PortraitErica" parent="." index="18" instance=ExtResource( 3 )]

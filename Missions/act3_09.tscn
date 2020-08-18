@@ -4,6 +4,7 @@
 
 [node name="Mission" instance=ExtResource( 1 )]
 nb_npc = 1
+nextMission = [ "act3_10", "random02", "random03", "random14" ]
 prerequis_npc = ""
 prerequis_reputation = 50
 

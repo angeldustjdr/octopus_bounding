@@ -20,4 +20,4 @@ text = "Enzo's daughter, Erica, is such a beauty. We stared at each other last t
 [node name="TimerIgnore" parent="." index="8"]
 wait_time = 15.0
 
-[node name="PortraitErica" parent="." index="16" instance=ExtResource( 2 )]
+[node name="PortraitErica" parent="." index="18" instance=ExtResource( 2 )]

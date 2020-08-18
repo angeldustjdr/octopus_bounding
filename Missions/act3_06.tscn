@@ -4,7 +4,7 @@
 
 [node name="Mission" instance=ExtResource( 1 )]
 nb_npc = 2
-nextMission = [ "act3_10", "", "", "" ]
+nextMission = [ "act3_10", "random02", "random12", "random14" ]
 clear_board_on_complete = true
 prerequis_npc = "Thomas"
 

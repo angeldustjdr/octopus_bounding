@@ -4,6 +4,7 @@
 
 [node name="Mission" instance=ExtResource( 1 )]
 outcomeCompromised = [ 30, 0 ]
+nextMission = [ "act3_10", "random02", "random13", "random05" ]
 prerequis_npc = "Alison"
 
 [node name="Title_label" parent="." index="2"]

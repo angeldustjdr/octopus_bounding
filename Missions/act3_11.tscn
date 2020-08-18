@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act3_10.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nextMission = [ "act3_12", "act3_13", "", "" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "Boom"
+
+[node name="Text_label" parent="." index="4"]
+text = "I went to the church and waited for the perfect opportunity.
+
+Désiré is no more..."

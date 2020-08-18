@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/portraits/PortraitDesire.tscn" type="PackedScene" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
-nextMission = [ "act3_11", "random04", "random12", "random13" ]
+nextMission = [ "act3_11", "", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
 margin_right = 202.0

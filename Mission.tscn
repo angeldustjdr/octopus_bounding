@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
@@ -149,6 +149,12 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+
+[sub_resource type="DynamicFont" id=18]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [node name="Mission" type="RigidBody2D"]
 pause_mode = 1
@@ -577,6 +583,31 @@ margin_bottom = 526.034
 rect_rotation = -39.0
 texture = ExtResource( 12 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnavailableRect" type="ColorRect" parent="."]
+visible = false
+margin_left = 10.0
+margin_top = 84.0
+margin_right = 278.0
+margin_bottom = 636.0
+color = Color( 0.266667, 0.266667, 0.266667, 0.505882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnavailableLabel" type="Label" parent="UnavailableRect"]
+margin_left = 70.0
+margin_top = 158.704
+margin_right = 342.0
+margin_bottom = 248.704
+rect_rotation = 42.9
+custom_fonts/font = SubResource( 18 )
+text = "Mission locked.
+Try to pick other choices 
+next time you play."
 __meta__ = {
 "_edit_use_anchors_": false
 }

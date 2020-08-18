@@ -4,14 +4,15 @@ var day = 1
 var time = 0
 var random = randomize()
 var inSequence = true
-var missionQueue = ["tuto01"]
+var missionQueue = ["act3_01"]
 var currentLevel = 0
+var difficultyCurve = [0,1,1,1,2,2,2]
 var nextSequence = 0
 var nbSequence = 0
 
 #SCORE
-var money = 0
-var reputation = 0
+var money = 1000
+var reputation = 10000
 var compromised = 0
 
 #MISSION
@@ -42,6 +43,7 @@ func _ready():
 	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("johnathan")
+	load_NPC("mathias")
 	$MissionTimer.start()
 
 func update_GUI():
@@ -102,7 +104,7 @@ func instance_new_mission(myMission):
 
 func _on_MissionTimer_timeout():
 	if inSequence==false:
-		missionQueue.append("random"+str(currentLevel)+str(1+randi()%mission_per_level[currentLevel]))
+		missionQueue.append("random"+str(difficultyCurve[currentLevel])+str(1+randi()%mission_per_level[difficultyCurve[currentLevel]]))
 		if(len(missions) < 4):
 			if missionQueue.size()>0:
 				instance_new_mission(missionQueue[0])
@@ -123,7 +125,7 @@ func _on_MissionTimer_timeout():
 
 func _on_MissionIgnore_timeout(mission):
 	var index = missions.find(mission)
-	update_score(0,-1*(currentLevel+1)*ignore_reputation_decrease_factor,0)
+	update_score(0,-1*(difficultyCurve[currentLevel]+1)*ignore_reputation_decrease_factor,0)
 	update_GUI()
 	$Audio.stream = load("res://Assets/music/burning.ogg")
 	$Audio.play()
@@ -140,7 +142,7 @@ func _on_Mission_timeout(mission):
 		if next=="end_sequence":
 			inSequence = false
 			for i in range(4):
-				missionQueue.append("random"+str(currentLevel)+str(1+randi()%mission_per_level[currentLevel]))
+				missionQueue.append("random"+str(difficultyCurve[currentLevel])+str(1+randi()%mission_per_level[difficultyCurve[currentLevel]]))
 		elif "end_game" in next:
 			print("A FAIRE => load la bonne fin")
 		else:

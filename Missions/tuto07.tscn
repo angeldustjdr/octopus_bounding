@@ -37,3 +37,6 @@ text = "0"
 
 [node name="TimerIgnore" parent="." index="8"]
 wait_time = 1000.0
+
+[node name="TimerMission" parent="." index="9"]
+wait_time = 3.0

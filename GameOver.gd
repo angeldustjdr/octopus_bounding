@@ -9,7 +9,7 @@ func _ready():
 
 func _process(delta):
 	time += delta
-	$gameoverLabel.modulate.a = abs(sin(time))
+	$gameoverLabel.modulate.a = 0.5+0.5*sin(2*time)
 	
 func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:

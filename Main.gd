@@ -35,6 +35,8 @@ var pauseFrameBefore = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("gameIsPaused",$InfoBulleManager,"manage_pause")
+	connect("gameIsPaused",get_node("/root/MusicPlayer"),"set_volume_for_pause")
 	var _anim_player = $SceneTranstion/AnimationPlayer
 	_anim_player.play_backwards("fade")
 	yield(_anim_player, "animation_finished")
@@ -84,7 +86,6 @@ func instance_new_mission(myMission):
 	mission.connect("NPCEnter", self, "set_current_mission_collision")
 	mission.connect("NPCExit", self, "reset_current_mission_collision")
 	mission.connect("missionAccomplished", self, "update_score")
-	connect("gameIsPaused",$InfoBulleManager,"manage_pause")
 
 func _on_MissionTimer_timeout():
 	if inSequence==false:

@@ -9,6 +9,7 @@ outcomeReputation = [ 10, 0 ]
 missionType = "Tutorial"
 failable = false
 nextMission = [ "end_sequence", "", "", "" ]
+clear_board_on_complete = true
 
 [node name="Title_label" parent="." index="2"]
 text = "Multi-tasking (bis)"

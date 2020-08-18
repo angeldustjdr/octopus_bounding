@@ -13,7 +13,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time += delta
-	$SubTitleLabel2.modulate.a = abs(sin(time))
+	$SubTitleLabel2.modulate.a = 0.5+0.5*sin(2*time)
 
 func _input(event):
 	if event is InputEventMouseButton:

@@ -36,7 +36,7 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "moneyUpdate"
 tracks/0/type = "value"
 tracks/0/path = NodePath("updateMoney:modulate")
@@ -63,7 +63,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=7]
 resource_name = "reputationUpdate"
 tracks/0/type = "value"
 tracks/0/path = NodePath("updateReputation:modulate")
@@ -90,7 +90,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=8]
 resource_name = "compromisedUpdate"
 tracks/0/type = "value"
 tracks/0/path = NodePath("updateCompromised:modulate")
@@ -144,6 +144,7 @@ font_data = ExtResource( 7 )
 [sub_resource type="AudioStreamSample" id=16]
 
 [node name="Main" type="Node"]
+pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="MissionArea" type="TextureRect" parent="."]
@@ -345,15 +346,16 @@ custom_fonts/font = SubResource( 5 )
 text = "XXXX"
 
 [node name="animationMoneyUpdate" type="AnimationPlayer" parent="GameArea"]
-anims/moneyUpdate = SubResource( 7 )
+anims/moneyUpdate = SubResource( 6 )
 
 [node name="animationReputationUpdate" type="AnimationPlayer" parent="GameArea"]
-anims/reputationUpdate = SubResource( 17 )
+anims/reputationUpdate = SubResource( 7 )
 
 [node name="animationCompromisedUpdate" type="AnimationPlayer" parent="GameArea"]
-anims/compromisedUpdate = SubResource( 18 )
+anims/compromisedUpdate = SubResource( 8 )
 
 [node name="MissionTimer" type="Timer" parent="."]
+pause_mode = 1
 script = ExtResource( 8 )
 
 [node name="MissionRect" type="ColorRect" parent="."]
@@ -465,6 +467,15 @@ __meta__ = {
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 16 )
 volume_db = -3.0
+
+[node name="PauseRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 1282.0
+margin_bottom = 720.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]

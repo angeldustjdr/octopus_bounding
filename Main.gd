@@ -30,6 +30,8 @@ var current_npc = null
 
 var clicked = false
 signal mouse_button_released
+signal gameIsPaused(stat)
+var pauseFrameBefore = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -82,6 +84,7 @@ func instance_new_mission(myMission):
 	mission.connect("NPCEnter", self, "set_current_mission_collision")
 	mission.connect("NPCExit", self, "reset_current_mission_collision")
 	mission.connect("missionAccomplished", self, "update_score")
+	connect("gameIsPaused",$InfoBulleManager,"manage_pause")
 
 func _on_MissionTimer_timeout():
 	if inSequence==false:
@@ -173,6 +176,13 @@ func _input(event):
 			if(clicked):
 				emit_signal("mouse_button_released")
 				clicked = false
+	elif(event is InputEventKey):
+		if (event.scancode == KEY_ESCAPE or event.scancode == KEY_SPACE) and event.pressed:
+			if(!pauseFrameBefore):
+				pauseFrameBefore = true
+				pauseGame()
+		elif (event.scancode == KEY_ESCAPE or event.scancode == KEY_SPACE) and !event.pressed:
+			pauseFrameBefore = false
 
 func set_current_mission_collision(mission):
 	mission_collision_index.append(mission)
@@ -260,3 +270,8 @@ func gameover():
 	_anim_player.play("fade")
 	yield(_anim_player, "animation_finished")
 	get_tree().change_scene("res://GameOver.tscn")
+
+func pauseGame():
+	$PauseRect.visible = !$PauseRect.visible
+	emit_signal("gameIsPaused",$PauseRect.visible)
+	get_tree().paused = !get_tree().paused

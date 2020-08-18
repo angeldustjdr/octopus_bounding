@@ -7,7 +7,6 @@ func _on_InfoBulleMoney_mouse_entered():
 	$InfoBulle.text = "This is your money.\nDon't go to deep into debts:\n-100 is game over."
 	$InfoBulle.visible=true
 
-
 func _on_InfoBulleMoney_mouse_exited():
 	$InfoBulle.visible=false
 
@@ -31,9 +30,12 @@ func _on_InfoBulleCompromised_mouse_exited():
 
 
 func _on_InfoBulleDay_mouse_entered():
-	$InfoBulle.text = "Click to pause.\nEsc also works."
+	$InfoBulle.text = "Press escape or \nspace to pause the game."
 	$InfoBulle.visible=true
-
 
 func _on_InfoBulleDay_mouse_exited():
 	$InfoBulle.visible=false
+	
+func manage_pause(stat):
+	if($InfoBulle.visible):
+		$InfoBulle.visible = stat

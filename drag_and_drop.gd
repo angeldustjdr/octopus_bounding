@@ -40,10 +40,11 @@ func go_back_to_initial_position():
 	dragging = false
 	position = initial_position
 
-
 func _on_Character_mouse_entered():
 	$NPC_info.visible=true
 
-
 func _on_Character_mouse_exited():
 	$NPC_info.visible=false
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	$Outline.visible = true

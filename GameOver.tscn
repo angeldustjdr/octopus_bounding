@@ -38,6 +38,7 @@ size = 26
 font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="gameover" type="Sprite" parent="."]

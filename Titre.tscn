@@ -16,6 +16,7 @@ outline_size = 3
 font_data = ExtResource( 2 )
 
 [node name="Titre" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="title_screen" type="Sprite" parent="."]

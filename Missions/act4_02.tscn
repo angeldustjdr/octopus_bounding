@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act4_01.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nextMission = [ "act4_03", "act4_04", "act4_05", "act4_06" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "A traitor ? Who ?"
+
+[node name="Text_label" parent="." index="4"]
+text = "Shit ! I knew it. The team grew too fast... I need to investigate..."
+
+[node name="PortraitAdam" parent="." index="20"]
+visible = false

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Missions/act3_01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/portraits/PortraitAdam.tscn" type="PackedScene" id=2]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nextMission = [ "act4_02", "", "", "" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "Traitor ?"
+
+[node name="Text_label" parent="." index="4"]
+text = "\"Johnathan ? It's me Adam. I'll be out of town for a while. 
+
+I have some information for you. I think their is a mole in your team. A traitor. The last few shipments you took care of didn't arrive at destination. Be careful Johnathan...\""
+
+[node name="PortraitAdam" parent="." index="20" instance=ExtResource( 2 )]

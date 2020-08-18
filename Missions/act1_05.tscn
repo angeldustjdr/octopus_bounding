@@ -7,13 +7,13 @@
 friction = 0.0
 absorbent = true
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 2 )
 
@@ -23,9 +23,9 @@ nextMission = [ "act1_06", "act1_04", "", "" ]
 clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="3"]
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Erica"
 
 [node name="Text_label" parent="." index="5"]
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "Nothing could have been better. The date went perfectly. Maybe we should continue this relationship."

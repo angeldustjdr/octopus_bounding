@@ -7,35 +7,28 @@
 friction = 0.0
 absorbent = true
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
 nextMission = [ "act1_10", "random02", "random03", "random04" ]
+clear_board_on_complete = true
 
 [node name="Title_label" parent="." index="3"]
-margin_left = 3.79604
-margin_right = 219.796
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Life goes on"
 
-[node name="Type_label" parent="." index="4"]
-margin_top = 160.0
-margin_bottom = 192.0
-
 [node name="Text_label" parent="." index="5"]
-margin_bottom = 433.0
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-text = "We moved into our new appartment. We even took a dog and named her Shelby."
+custom_fonts/normal_font = SubResource( 3 )
+text = "I need to decide now. Erica wants us to move into a new appartment. She even wants to take a dog and name her Shelby."
 
 [node name="TimerMission" parent="." index="10"]
 one_shot = true

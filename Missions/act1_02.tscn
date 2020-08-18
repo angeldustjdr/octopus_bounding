@@ -8,8 +8,8 @@ outcomeMoney = [ 0, 0 ]
 nextMission = [ "act1_03", "act1_04", "", "" ]
 
 [node name="Portrait" type="Sprite" parent="." index="2"]
-position = Vector2( 232.99, 132.63 )
-scale = Vector2( 0.349266, 0.349266 )
+position = Vector2( 235.44, 128.398 )
+scale = Vector2( 0.644377, 0.644377 )
 texture = ExtResource( 2 )
 
 [node name="Title_label" parent="." index="3"]

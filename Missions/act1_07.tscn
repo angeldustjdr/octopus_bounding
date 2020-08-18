@@ -1,13 +1,28 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Missions/act1_06.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Mission.gd" type="Script" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
+position = Vector2( 82, -78.0339 )
+mass = 0.00102041
+gravity_scale = 0.0
+script = ExtResource( 2 )
+missionType = "Story"
+failable = false
+needJohnathan = true
+cantIgnore = true
 nextMission = [ "act1_08", "random04", "random05", "random01" ]
 clear_board_on_complete = false
 
 [node name="Text_label" parent="." index="5"]
+margin_left = 40.0
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 433.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
 text = "Another date with Erica. Things are getting serious."
 
 [node name="TimerMission" parent="." index="10"]
-wait_time = 3.0
+wait_time = 5.0

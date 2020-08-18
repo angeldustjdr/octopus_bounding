@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Missions/tuto02.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Mission.gd" type="Script" id=2]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -43,134 +42,34 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 1 )]
-position = Vector2( 82, -78.0339 )
-mass = 0.00102041
 physics_material_override = SubResource( 1 )
-gravity_scale = 0.0
-script = ExtResource( 2 )
 nextMission = [ "tuto04", "", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
-margin_left = 40.0
-margin_top = 112.0
-margin_right = 256.0
-margin_bottom = 144.0
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Your third mission"
-align = 1
 
 [node name="Text_label" parent="." index="4"]
-margin_left = 40.0
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 312.0
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "Try to get your money and reputation high. Don't get compromised."
-
-[node name="Won" parent="." index="5"]
-margin_left = 32.0
-margin_top = 336.0
-margin_right = 256.0
-margin_bottom = 368.0
-rect_pivot_offset = Vector2( -216, -56 )
-color = Color( 0, 1, 0, 0.196078 )
+text = "Try to get your money and reputation high. Don't get compromised. Check your status at the top of the screen."
 
 [node name="Money_label" parent="Won" index="1"]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
 custom_fonts/font = SubResource( 4 )
-align = 1
-valign = 1
 
 [node name="Reputation_label" parent="Won" index="3"]
-margin_left = 128.0
-margin_right = 160.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
 custom_fonts/font = SubResource( 4 )
-align = 1
-valign = 1
 
 [node name="Compromise_label" parent="Won" index="5"]
-margin_left = 192.0
-margin_right = 224.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
 custom_fonts/font = SubResource( 5 )
-align = 1
-valign = 1
-
-[node name="Lose" parent="." index="6"]
-margin_left = 32.0
-margin_top = 392.0
-margin_right = 256.0
-margin_bottom = 424.0
-rect_pivot_offset = Vector2( -216, -56 )
-color = Color( 1, 0, 0, 0.196078 )
 
 [node name="Money_label" parent="Lose" index="1"]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
 custom_fonts/font = SubResource( 6 )
-align = 1
-valign = 1
 
 [node name="Reputation_label" parent="Lose" index="3"]
-margin_left = 128.0
-margin_right = 160.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
 custom_fonts/font = SubResource( 6 )
-align = 1
-valign = 1
 
 [node name="Compromise_label" parent="Lose" index="5"]
-margin_left = 192.0
-margin_right = 224.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 24, 8 )
 custom_fonts/font = SubResource( 6 )
-align = 1
-valign = 1
-
-[node name="SuccessChance" parent="." index="7"]
-margin_left = 46.0
-margin_top = 527.47
-margin_right = 180.0
-margin_bottom = 550.47
-text = "Success chance: 0%"
-
-[node name="TimeLabel" parent="." index="11"]
-margin_left = 88.0
-margin_top = 560.0
-margin_right = 256.0
-margin_bottom = 600.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-valign = 1
-
-[node name="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1" index="0"]
-position = Vector2( 32, 32.0339 )
-
-[node name="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2" index="0"]
-position = Vector2( 104, 32.0339 )
-
-[node name="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3" index="0"]
-position = Vector2( 176, 32.0339 )
 
 [node name="NeedJohnathan" parent="." index="14"]
 custom_fonts/font = SubResource( 7 )
-
-[node name="TimerChangeLabel" parent="." index="15"]
-visible = false
-margin_left = 121.162
-margin_top = 555.03
-margin_right = 161.162
-margin_bottom = 576.03
-text = "-5"

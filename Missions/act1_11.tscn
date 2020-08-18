@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Mission.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 2 )
 
@@ -19,19 +19,15 @@ needJohnathan = true
 cantIgnore = true
 nextMission = [ "act1_12", "act1_04", "", "" ]
 
-[node name="Title_label" parent="." index="3"]
-margin_top = 112.0
-margin_bottom = 144.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-align = 1
-
-[node name="Type_label" parent="." index="4"]
-margin_bottom = 192.0
-text = ""
-
 [node name="Text_label" parent="." index="5"]
+margin_left = 40.0
 margin_top = 208.0
-custom_fonts/normal_font = SubResource( 2 )
+margin_right = 256.0
+margin_bottom = 433.0
+custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
 text = "Erica is getting more and more involved in my job. Should I be worried ?"
+
+[node name="TimerMission" parent="." index="10"]
+wait_time = 5.0

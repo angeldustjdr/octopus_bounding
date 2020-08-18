@@ -8,3 +8,6 @@ clear_board_on_complete = true
 
 [node name="Text_label" parent="." index="5"]
 text = "Another date with Erica. Things are going fast."
+
+[node name="TimerMission" parent="." index="10"]
+wait_time = 5.0

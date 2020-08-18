@@ -10,8 +10,8 @@ var nextSequence = 0
 var nbSequence = 0
 
 #SCORE
-var money = 0
-var reputation = 0
+var money = 100
+var reputation = 100
 var compromised = 0
 
 #MISSION
@@ -86,10 +86,23 @@ func instance_new_mission(myMission):
 func _on_MissionTimer_timeout():
 	if inSequence==false:
 		missionQueue.append("random"+str(currentLevel)+str(1+randi()%mission_per_level[currentLevel]))
-	if(len(missions) < 4):
+		if(len(missions) < 4):
+			if missionQueue.size()>0:
+				instance_new_mission(missionQueue[0])
+				missionQueue.remove(0)
+	else:
 		if missionQueue.size()>0:
-			instance_new_mission(missionQueue[0])
-			missionQueue.remove(0)
+			if "random" in missionQueue[0]:
+				instance_new_mission(missionQueue[0])
+				missionQueue.remove(0)
+			else:
+				var wait = false
+				for mis in missions:
+					if mis.missionType=="Brawl" or mis.missionType=="Wit":
+						wait = true
+				if wait==false:
+					instance_new_mission(missionQueue[0])
+					missionQueue.remove(0)
 
 func _on_MissionIgnore_timeout(mission):
 	var index = missions.find(mission)
@@ -123,7 +136,6 @@ func _on_Mission_timeout(mission):
 			nbSequence+=1
 			missionQueue=["act"+str(nbSequence)+"_01"]
 	update_GUI()
-	print(mission.clear_board_on_complete)
 	if mission.clear_board_on_complete == true:
 		for mis in missions:
 			mis.delete_on_missionTimeOut()

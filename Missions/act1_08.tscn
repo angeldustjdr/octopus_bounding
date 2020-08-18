@@ -7,36 +7,27 @@
 friction = 0.0
 absorbent = true
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
 nextMission = [ "act1_09", "act1_04", "", "" ]
-clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="3"]
-margin_left = 3.79604
-margin_right = 219.796
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "A new life"
 
-[node name="Type_label" parent="." index="4"]
-margin_top = 160.0
-margin_bottom = 192.0
-
 [node name="Text_label" parent="." index="5"]
-margin_bottom = 433.0
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-text = "Erica wants to settle down with me. Should I accept ?"
+custom_fonts/normal_font = SubResource( 3 )
+text = "Erica wants to settle down with me. Should I accept ? I need time to think."
 
 [node name="TimerMission" parent="." index="10"]
 one_shot = true

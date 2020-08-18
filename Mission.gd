@@ -81,14 +81,26 @@ func _on_TimerMission_timeout():
 		if roll<=successChancePercent:
 			$AnimationPlayer.play("appear_success")
 			yield($AnimationPlayer,"animation_finished")
+<<<<<<< HEAD
+=======
+			#$Sucess.visible = true
+>>>>>>> master
 			isWin = 0
 		else:
 			$AnimationPlayer.play("appear_failure")
 			yield($AnimationPlayer,"animation_finished")
+<<<<<<< HEAD
+=======
+			#$Failure.visible = true
+>>>>>>> master
 			isWin = 1
 	else:
 		$AnimationPlayer.play("appear_success")
 		yield($AnimationPlayer,"animation_finished")
+<<<<<<< HEAD
+=======
+		#$Success.visible = true
+>>>>>>> master
 		isWin = 0
 	emit_signal("missionTimeOut", self)
 
@@ -136,7 +148,7 @@ func affect_npc(npc):
 func delete_on_ignoreTimeOut():
 	makeNPC_pickable()
 	emit_signal("disappear")
-	queue_free()
+	call_deferred("queue_free")
 
 func delete_on_missionTimeOut():
 	makeNPC_pickable()
@@ -144,7 +156,7 @@ func delete_on_missionTimeOut():
 	var reputation_increment = round(modifEquilibrage*round(outcomeReputation[isWin]*(0.9+randf()*0.2)))
 	var compromised_increment = round(modifEquilibrage*round(outcomeCompromised[isWin]*(0.9+randf()*0.2)))
 	emit_signal("missionAccomplished",money_increment,reputation_increment,compromised_increment)
-	queue_free()
+	call_deferred("queue_free")
 	
 func makeNPC_pickable():
 	for npc in npcList:

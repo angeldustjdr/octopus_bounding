@@ -477,7 +477,7 @@ margin_right = 257.0
 margin_bottom = 463.0
 custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.992157, 0.729412, 0.00784314, 1 )
-text = "You need to do the job yourself !
+text = "I need to do the job myself !
  (drag and drop Johnathan)"
 __meta__ = {
 "_edit_use_anchors_": false

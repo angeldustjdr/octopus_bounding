@@ -121,6 +121,8 @@ func _on_Mission_timeout(mission):
 			inSequence = false
 			for i in range(4):
 				missionQueue.append("random"+str(currentLevel)+str(1+randi()%mission_per_level[currentLevel]))
+		elif "end_game" in next:
+			print("A FAIRE => load la bonne fin")
 		else:
 			if next != "":
 				missionQueue.append(next)
@@ -130,10 +132,11 @@ func _on_Mission_timeout(mission):
 	day += 1
 	if inSequence==false:
 		nextSequence+=1
-		if nextSequence>=5:
+		if nextSequence>=3:
 			inSequence=true
 			nextSequence=0
 			nbSequence+=1
+			currentLevel+=1
 			missionQueue=["act"+str(nbSequence)+"_01"]
 	update_GUI()
 	if mission.clear_board_on_complete == true:

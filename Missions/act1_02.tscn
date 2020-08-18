@@ -1,26 +1,23 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Missions/act1_01.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/portraits/erica.png" type="Texture" id=2]
+[ext_resource path="res://Assets/portraits/PortraitErica.tscn" type="PackedScene" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
 outcomeMoney = [ 0, 0 ]
 nextMission = [ "act1_03", "act1_04", "", "" ]
 
-[node name="Portrait" type="Sprite" parent="." index="2"]
-position = Vector2( 235.44, 128.398 )
-scale = Vector2( 0.644377, 0.644377 )
-texture = ExtResource( 2 )
-
-[node name="Title_label" parent="." index="3"]
+[node name="Title_label" parent="." index="2"]
 margin_left = 3.79604
 margin_right = 219.796
 text = "Enzo's daughter"
 
-[node name="Text_label" parent="." index="5"]
+[node name="Text_label" parent="." index="4"]
 margin_bottom = 433.0
 bbcode_enabled = true
 text = "Enzo's daughter, Erica, is such a beauty. We stared at each other last time I visited her father. There is something between us. I can feel it. Maybe I should make a move..."
 
-[node name="TimerIgnore" parent="." index="9"]
+[node name="TimerIgnore" parent="." index="8"]
 wait_time = 15.0
+
+[node name="PortraitErica" parent="." index="16" instance=ExtResource( 2 )]

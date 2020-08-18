@@ -13,21 +13,11 @@ position = Vector2( 82, -78.0339 )
 mass = 0.00102041
 gravity_scale = 0.0
 script = ExtResource( 3 )
-missionType = "Story"
-failable = false
-needJohnathan = true
-cantIgnore = true
 nextMission = [ "act1_12", "act1_04", "", "" ]
 
-[node name="Text_label" parent="." index="5"]
-margin_left = 40.0
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 433.0
+[node name="Text_label" parent="." index="4"]
 custom_fonts/normal_font = SubResource( 1 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-bbcode_enabled = true
 text = "Erica is getting more and more involved in my job. Should I be worried ?"
 
-[node name="TimerMission" parent="." index="10"]
-wait_time = 5.0
+[node name="TimerIgnore" parent="." index="8"]
+wait_time = 15.0

@@ -26,14 +26,10 @@ clear_board_on_complete = true
 custom_fonts/font = SubResource( 2 )
 text = "Adam's message"
 
-[node name="Text_label" parent="." index="4"]
+[node name="Text_label" parent="." index="21"]
 custom_fonts/normal_font = SubResource( 3 )
 text = "\"Hey Johnathan. Just a short message to tell you that Erica is really skilled at her job, haha ! 
 
-I need to know, Johnathan, are you still loyal to me ?\"
+This was a test Johnathan... I need to know, are you still loyal to me ?\"
 
 Do I have a choice. I have to say YES and leave Erica to her fate."
-
-[node name="TimerChangeLabel" parent="." index="15"]
-modulate = Color( 1, 1, 1, 0.7 )
-rect_scale = Vector2( 1.6, 1.6 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Missions/act4_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
@@ -17,9 +17,15 @@ font_data = ExtResource( 2 )
 size = 20
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=9]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
-nextMission = [ "act5_02", "", "", "" ]
+nextMission = [ "act5_02", "act5_03", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
 margin_left = 27.0
@@ -28,11 +34,46 @@ custom_fonts/font = SubResource( 2 )
 text = "New opportinuty"
 
 [node name="Text_label" parent="." index="4"]
+margin_left = 40.0
+margin_top = 208.0
 margin_bottom = 425.0
+rect_pivot_offset = Vector2( 0, 0 )
 custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Adam is back in town. He sent me a message.
 
-\"Hey Johnathan ! I wanted to thank you again for what you did on the Désiré case. I know I can count on you... I want you to get to the next level. I can boost one of your fields of activity. Send me one representative of the field you want to put your focus on.\""
+\"Hey Johnathan ! I wanted to thank you again for what you did on the Désiré case. I know I can count on you... I want you to get to the next level. Send me your best man: I can boost your activities.\""
+
+[node name="Won" parent="." index="5"]
+margin_top = 336.0
+margin_right = 256.0
+margin_bottom = 368.0
+rect_pivot_offset = Vector2( -216, -56 )
+color = Color( 0, 1, 0, 0.196078 )
+
+[node name="Money" parent="Won" index="0"]
+visible = true
+
+[node name="Lose" parent="." index="6"]
+margin_top = 392.0
+margin_right = 256.0
+margin_bottom = 424.0
+rect_pivot_offset = Vector2( -216, -56 )
+color = Color( 1, 0, 0, 0.196078 )
+
+[node name="Money" parent="Lose" index="0"]
+visible = true
+
+[node name="SuccessChance" parent="." index="7"]
+margin_left = 46.0
+margin_top = 527.47
+margin_right = 180.0
+margin_bottom = 550.47
+custom_fonts/font = SubResource( 9 )
+text = "Success chance: 0%"
+
+[node name="TimerMission" parent="." index="9"]
+one_shot = true
 
 [node name="TimerChangeLabel" parent="." index="15"]
 modulate = Color( 1, 1, 1, 0.7 )

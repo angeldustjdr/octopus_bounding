@@ -6,6 +6,7 @@
 [node name="Mission" instance=ExtResource( 1 )]
 outcomeMoney = [ 40, 0 ]
 outcomeReputation = [ 40, 0 ]
+add_NPC_on_complete = "marcus"
 nextMission = [ "end_sequence", "", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
@@ -14,7 +15,10 @@ margin_right = 209.0
 text = "Mission accomplished"
 
 [node name="Text_label" parent="." index="4"]
+margin_bottom = 406.0
 text = "Adam, the Boss, sent us a message: 
-\"Good job Johnathan ! You have proven your loyalty. Here is your reward. Unfortunately, I'm out of town. Next time, I'll meet you in person. Until then, god bless you Johnathan\""
+\"Good job Johnathan ! You have proven your loyalty. Here is your reward. And also, take Marcus with you. You can trust him (even though people call him the Flesh Eater... It's a joke ! haha !).
+
+Unfortunately, I'm out of town. Next time, I'll meet you in person. Until then, god bless you Johnathan\""
 
 [node name="PortraitAdam" parent="." index="18" instance=ExtResource( 2 )]

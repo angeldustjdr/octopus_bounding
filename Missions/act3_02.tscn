@@ -11,7 +11,7 @@ margin_right = 207.0
 text = "Meet the Boss"
 
 [node name="Text_label" parent="." index="4"]
-margin_bottom = 437.0
+margin_bottom = 395.0
 text = "The meeting takes place in a small café. The Boss is sitting on the other side of the room, behind a bulletproof glass wall and surrounded by his bodyguards.
 
 I don't stand a chance."

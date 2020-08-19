@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Missions/act4_01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+absorbent = true
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="Mission" instance=ExtResource( 1 )]
+physics_material_override = SubResource( 1 )
+nextMission = [ "act5_02", "", "", "" ]
+
+[node name="Title_label" parent="." index="2"]
+margin_left = 27.0
+margin_right = 204.0
+custom_fonts/font = SubResource( 2 )
+text = "New opportinuty"
+
+[node name="Text_label" parent="." index="4"]
+margin_bottom = 425.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "Adam is back in town. He sent me a message.
+
+\"Hey Johnathan ! I wanted to thank you again for what you did on the Désiré case. I know I can count on you... I want you to get to the next level. I can boost one of your fields of activity. Send me one representative of the field you want to put your focus on.\""
+
+[node name="TimerChangeLabel" parent="." index="15"]
+modulate = Color( 1, 1, 1, 0.7 )
+rect_scale = Vector2( 1.6, 1.6 )
+
+[node name="PortraitAdam" parent="." index="20"]
+position = Vector2( 239.22, 127.138 )

@@ -467,11 +467,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
-
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 16 )
 volume_db = -3.0
+
+[node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
 
 [node name="PauseRect" type="ColorRect" parent="."]
 pause_mode = 2

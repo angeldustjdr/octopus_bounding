@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Missions/act5_01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+absorbent = true
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="Mission" instance=ExtResource( 1 )]
+physics_material_override = SubResource( 1 )
+nextMission = [ "end_sequence", "", "", "" ]
+clear_board_on_complete = true
+
+[node name="Title_label" parent="." index="2"]
+custom_fonts/font = SubResource( 2 )
+text = "Adam's message"
+
+[node name="Text_label" parent="." index="4"]
+custom_fonts/normal_font = SubResource( 3 )
+text = "\"Hey Johnathan. Just a short message to tell you that Erica is really skilled at her job, haha ! 
+
+I need to know, Johnathan, are you still loyal to me ?\"
+
+Do I have a choice. I have to say YES and leave Erica to her fate."
+
+[node name="TimerChangeLabel" parent="." index="15"]
+modulate = Color( 1, 1, 1, 0.7 )
+rect_scale = Vector2( 1.6, 1.6 )

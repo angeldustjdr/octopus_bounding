@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://FlickeringLabel.gd" type="Script" id=2]
+[ext_resource path="res://Assets/pre-main_pixelized.png" type="Texture" id=3]
+[ext_resource path="res://Missions/end_game_01.gd" type="Script" id=4]
+[ext_resource path="res://SceneTranstion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Credit.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="pre-main_pixelized" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 968.0
+margin_top = 585.0
+margin_right = 1239.0
+margin_bottom = 632.0
+color = Color( 0.137255, 0.137255, 0.137255, 0.827451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 26.0
+margin_top = 598.0
+margin_right = 559.0
+margin_bottom = 678.0
+color = Color( 0.137255, 0.137255, 0.137255, 0.827451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlickeringLabel" type="Label" parent="."]
+margin_left = 130.813
+margin_top = 123.678
+margin_right = 473.813
+margin_bottom = 210.678
+custom_fonts/font = SubResource( 1 )
+text = "You failed"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Try again" type="Label" parent="."]
+margin_left = 974.57
+margin_top = 588.83
+margin_right = 1228.57
+margin_bottom = 653.83
+custom_fonts/font = SubResource( 2 )
+text = "Replay and try again.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credit" parent="." instance=ExtResource( 6 )]
+
+[node name="SceneTranstion" parent="." instance=ExtResource( 5 )]

@@ -4,7 +4,7 @@ var day = 1
 var time = 0
 var random = randomize()
 var inSequence = true
-var missionQueue = ["tuto01"]
+var missionQueue = ["act5_01"]
 var currentLevel = 0
 var difficultyCurve = [0,1,1,2,2,2,2]
 var nextSequence = 0
@@ -43,7 +43,8 @@ func _ready():
 	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("johnathan")
-	#load_NPC("mathias")
+	load_NPC("mathias")
+	load_NPC("erica")
 	$MissionTimer.start()
 
 func update_GUI():
@@ -144,7 +145,10 @@ func _on_Mission_timeout(mission):
 			for i in range(4):
 				missionQueue.append("random"+str(difficultyCurve[currentLevel])+str(1+randi()%mission_per_level[difficultyCurve[currentLevel]]))
 		elif "end_game" in next:
-			print("A FAIRE => load la bonne fin")
+			var _anim_player = $SceneTranstion/AnimationPlayer
+			_anim_player.play("fade")
+			yield(_anim_player, "animation_finished")
+			get_tree().change_scene("res://Missions/"+next+".tscn")
 		else:
 			if next != "":
 				missionQueue.append(next)

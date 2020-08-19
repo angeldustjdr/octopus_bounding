@@ -542,12 +542,10 @@ __meta__ = {
 
 [node name="TimerChangeLabel" type="Label" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0.7 )
 margin_left = 121.162
 margin_top = 555.03
 margin_right = 161.162
 margin_bottom = 580.03
-rect_scale = Vector2( 1.6, 1.6 )
 custom_fonts/font = SubResource( 13 )
 text = "-5"
 __meta__ = {

@@ -5,6 +5,7 @@
 [ext_resource path="res://GameOver.gd" type="Script" id=3]
 [ext_resource path="res://Assets/feather_pixelized.png" type="Texture" id=4]
 [ext_resource path="res://SceneTranstion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Credit.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.0298507, 0.134328 )
@@ -31,10 +32,6 @@ color_ramp = SubResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 80
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 26
 font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Node2D"]
@@ -67,16 +64,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credit" type="Label" parent="."]
-margin_left = 40.0
-margin_top = 604.794
-margin_right = 544.0
-margin_bottom = 673.794
-custom_fonts/font = SubResource( 5 )
-text = "Game made for the Godot Wild Jam #24
-by Jodie, Vost and angeldust"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Credit" parent="." instance=ExtResource( 6 )]
 
 [node name="SceneTranstion" parent="." instance=ExtResource( 5 )]

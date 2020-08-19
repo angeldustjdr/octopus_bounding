@@ -44,7 +44,7 @@ func _ready():
 	update_GUI()
 	load_NPC("johnathan")
 	load_NPC("mathias")
-	load_NPC("erica")
+	load_NPC("alison")
 	$MissionTimer.start()
 
 func update_GUI():

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/failure_mission_pixelized.png-e28610b9dbefc8c8f28a56d984aaf95a.stex"
+path="res://.import/cross-mark_pixelized.png-6748497576dda1ae4f645b6df977da85.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/failure_mission_pixelized.png"
-dest_files=[ "res://.import/failure_mission_pixelized.png-e28610b9dbefc8c8f28a56d984aaf95a.stex" ]
+source_file="res://Assets/cross-mark_pixelized.png"
+dest_files=[ "res://.import/cross-mark_pixelized.png-6748497576dda1ae4f645b6df977da85.stex" ]
 
 [params]
 

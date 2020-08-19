@@ -7,6 +7,7 @@ export var initial_position = Vector2(0, 0)
 var dragging = false
 var clicked = false
 var pickable = true
+var available = true
 
 signal dragged(npc_id)
 
@@ -49,3 +50,15 @@ func _on_Character_mouse_exited():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	$Outline.visible = true
+
+func make_not_available():
+	$pickableFilter.visible = true
+	$notAvailableTexture.visible = true
+	available = false
+	pickable = false
+	
+func make_available():
+	$pickableFilter.visible = false
+	$notAvailableTexture.visible = false
+	available = true
+	pickable = true

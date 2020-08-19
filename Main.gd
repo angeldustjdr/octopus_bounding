@@ -4,7 +4,7 @@ var day = 1
 var time = 0
 var random = randomize()
 var inSequence = true
-var missionQueue = ["act6_01"]
+var missionQueue = ["tuto01"]
 var currentLevel = 0
 var difficultyCurve = [0,1,1,2,2,2,2]
 var nextSequence = 0
@@ -43,8 +43,14 @@ func _ready():
 	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("johnathan")
-	load_NPC("mathias")
-	load_NPC("alison")
+	#load_NPC("mathias")
+	#load_NPC("alison")
+	#load_NPC("thomas")
+	#load_NPC("nina")
+	#load_NPC("marcus")
+	#load_NPC("erica")
+	print(npcs)
+	print(npcs_name)
 	$MissionTimer.start()
 
 func update_GUI():
@@ -83,8 +89,9 @@ func instance_new_mission(myMission):
 		missionAvailableNPC = true
 	else:
 		for perso in npcs:
-			if perso.NPC_name==mission.prerequis_npc:
-				missionAvailableNPC = true
+			if perso.NPC_name.to_lower()==mission.prerequis_npc.to_lower():
+				if(perso.available):
+					missionAvailableNPC = true
 	if reputation>mission.prerequis_reputation:
 			missionAvailableReputation = true
 	if missionAvailableNPC==false or missionAvailableReputation==false:
@@ -139,6 +146,10 @@ func _on_MissionIgnore_timeout(mission):
 func _on_Mission_timeout(mission):
 	if mission.add_NPC_on_complete != "":
 		load_NPC(mission.add_NPC_on_complete)
+	if mission.del_NPC_on_complete != "":
+		var index = npcs_name.find(mission.del_NPC_on_complete)
+		if(index != -1):
+			npcs[index].make_not_available()
 	for next in mission.nextMission:
 		if next=="end_sequence":
 			inSequence = false

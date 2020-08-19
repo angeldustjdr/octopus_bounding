@@ -32,10 +32,6 @@ size = 22
 outline_size = 2
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 20
-font_data = ExtResource( 6 )
-
 [sub_resource type="DynamicFont" id=6]
 size = 20
 outline_size = 2
@@ -157,6 +153,10 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 6 )
+
 [node name="Mission" type="RigidBody2D"]
 pause_mode = 1
 position = Vector2( 82, -78.0339 )
@@ -196,18 +196,6 @@ custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Text_label" type="RichTextLabel" parent="."]
-margin_left = 40.0
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 312.0
-custom_fonts/normal_font = SubResource( 5 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "Random text for the test of the mighty mission etc. \\zq dzq dqzd qzdqzdqzd z zq"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -613,3 +601,15 @@ __meta__ = {
 
 [node name="Stapple" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+
+[node name="Text_label" type="RichTextLabel" parent="."]
+margin_left = 40.0
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 312.0
+custom_fonts/normal_font = SubResource( 5 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Random text for the test of the mighty mission etc. \\zq dzq dqzd qzdqzdqzd z zq"
+__meta__ = {
+"_edit_use_anchors_": false
+}

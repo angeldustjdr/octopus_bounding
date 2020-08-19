@@ -32,6 +32,7 @@ font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "act5_02"
 del_NPC_on_complete = "erica"
 nextMission = [ "act5_06", "random01", "random22", "random15" ]
 clear_board_on_complete = true
@@ -51,7 +52,7 @@ custom_fonts/font = SubResource( 4 )
 custom_fonts/normal_font = SubResource( 5 )
 text = "Erica knows everything from almost the begining. She is the best person to send. She is smart and can boost any of our activities."
 
-[node name="PortraitAdam" parent="." index="20"]
+[node name="PortraitAdam" parent="." index="19"]
 visible = false
 
 [node name="PortraitErica" parent="." index="22" instance=ExtResource( 2 )]

@@ -1,5 +1,7 @@
 extends AudioStreamPlayer
 
+var keyPressedFrameBefore = false
+
 func _input(event):
 	if event is InputEventMouseButton:
 		var index = event.button_index
@@ -18,5 +20,9 @@ func _input(event):
 		if (event.is_pressed() and !(wheel)):
 			self.play()
 	elif event is InputEventKey:
-		if (event.is_pressed()):
-			self.play()
+		if (event.pressed):
+			if (!keyPressedFrameBefore):
+				keyPressedFrameBefore = true
+				self.play()
+		else:
+			keyPressedFrameBefore = false

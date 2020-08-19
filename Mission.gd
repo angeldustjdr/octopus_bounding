@@ -9,6 +9,7 @@ onready var initialTimerIgnore = $TimerIgnore.wait_time
 var isWin = 1
 var modifEquilibrage = 0.5
 
+export var file_name = ""
 export var nb_npc = 1
 export var outcomeMoney = [0,0]
 export var outcomeReputation = [0,0]
@@ -27,6 +28,7 @@ export var prerequis_reputation=-1
 
 var speed = -500
 
+signal disappear
 signal ignoreTimeOut(mission_id)
 signal missionTimeOut(mission_id)
 signal NPCEnter(mission_id)

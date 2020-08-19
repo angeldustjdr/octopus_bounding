@@ -4,14 +4,12 @@
 [ext_resource path="res://Missions/gambling.gd" type="Script" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "random05"
 outcomeMoney = [ 10, -10 ]
 missionType = "Wit"
 
 [node name="Title_label" parent="." index="2"]
 text = "Gambling"
-
-[node name="Text_label" parent="." index="4"]
-script = ExtResource( 2 )
 
 [node name="Money_label" parent="Won" index="1"]
 text = "+"
@@ -33,5 +31,8 @@ text = "0"
 [node name="Compromise_label" parent="Lose" index="5"]
 text = "0"
 
-[node name="TimerIgnore" parent="." index="8"]
+[node name="TimerIgnore" parent="." index="7"]
 wait_time = 100.0
+
+[node name="Text_label" parent="." index="18"]
+script = ExtResource( 2 )

@@ -13,7 +13,7 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -25,6 +25,7 @@ font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "act5_01"
 nextMission = [ "act5_02", "act5_03", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
@@ -34,7 +35,7 @@ custom_fonts/font = SubResource( 2 )
 text = "New opportunity"
 
 [node name="SuccessChance" parent="." index="6"]
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="TimerChangeLabel" parent="." index="14"]
 modulate = Color( 1, 1, 1, 0.7 )

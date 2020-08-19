@@ -19,6 +19,7 @@ font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "act6_15"
 nextMission = [ "end_game_04", "", "", "" ]
 
 [node name="Title_label" parent="." index="2"]

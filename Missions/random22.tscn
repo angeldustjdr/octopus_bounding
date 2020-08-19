@@ -16,6 +16,8 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -25,31 +27,30 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 20
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=6]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=9]
+size = 20
+font_data = ExtResource( 3 )
+
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "random22"
 outcomeMoney = [ 0, -10 ]
 outcomeReputation = [ 30, -20 ]
 missionType = "Wit"
@@ -58,12 +59,8 @@ missionType = "Wit"
 custom_fonts/font = SubResource( 2 )
 text = "Murder"
 
-[node name="Text_label" parent="." index="4"]
-custom_fonts/normal_font = SubResource( 3 )
-script = ExtResource( 2 )
-
 [node name="Money_label" parent="Won" index="1"]
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "0"
 
 [node name="Reputation_label" parent="Won" index="3"]
@@ -73,32 +70,30 @@ text = "+++"
 text = "-"
 
 [node name="Reputation_label" parent="Lose" index="3"]
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 
 [node name="Compromise_label" parent="Lose" index="5"]
+custom_fonts/font = SubResource( 4 )
+
+[node name="SuccessChance" parent="." index="6"]
 custom_fonts/font = SubResource( 5 )
 
-[node name="SuccessChance" parent="." index="7"]
+[node name="TimeLabel" parent="." index="10"]
 custom_fonts/font = SubResource( 6 )
 
-[node name="TimerIgnore" parent="." index="8"]
-wait_time = 80.0
-
-[node name="TimeLabel" parent="." index="11"]
-custom_fonts/font = SubResource( 7 )
-
 [node name="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
-[node name="TimerChangeLabel" parent="." index="15"]
+[node name="TimerChangeLabel" parent="." index="14"]
 margin_bottom = 576.03
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 
-[node name="UnavailableRect" parent="." index="17"]
-color = Color( 0.54902, 0.54902, 0.54902, 0.698039 )
+[node name="Text_label" parent="." index="18"]
+custom_fonts/normal_font = SubResource( 9 )
+script = ExtResource( 2 )

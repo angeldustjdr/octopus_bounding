@@ -12,4 +12,3 @@ func set_volume_for_pause(pause):
 		$BGmusic.volume_db = base_volume - 15
 	else:
 		$BGmusic.volume_db = base_volume
- 

@@ -3,13 +3,11 @@
 [ext_resource path="res://Missions/act6_07.tscn" type="PackedScene" id=1]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act6_08"
 nextMission = [ "act6_09", "random12", "random15", "random23" ]
 
 [node name="Title_label" parent="." index="2"]
 text = "Get some equipment"
 
-[node name="TimerIgnore" parent="." index="7"]
-wait_time = 80.0
-
-[node name="Text_label" parent="." index="20"]
+[node name="Text_label" parent="." index="18"]
 text = "Then I need to get some gear."

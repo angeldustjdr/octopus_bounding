@@ -19,6 +19,7 @@ font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "act5_06"
 nextMission = [ "act5_07", "random03", "random21", "random14" ]
 
 [node name="Title_label" parent="." index="2"]
@@ -31,5 +32,5 @@ text = "Erica on duty"
 custom_fonts/normal_font = SubResource( 3 )
 text = "Erica is now in Adam's lair. I hope she is doing fine."
 
-[node name="PortraitAdam" parent="." index="20"]
+[node name="PortraitAdam" parent="." index="19"]
 visible = false

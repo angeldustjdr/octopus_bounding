@@ -10,6 +10,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act5_07"
 nextMission = [ "act5_08", "random02", "random11", "random13" ]
 
 [node name="Title_label" parent="." index="2"]

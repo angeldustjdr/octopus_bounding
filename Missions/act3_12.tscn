@@ -20,6 +20,7 @@ font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "act3_12"
 nextMission = [ "act3_14", "", "", "" ]
 clear_board_on_complete = true
 

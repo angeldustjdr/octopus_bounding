@@ -22,6 +22,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "tuto02"
 outcomeMoney = [ 10, 0 ]
 outcomeReputation = [ 10, 0 ]
 nextMission = [ "tuto03", "", "", "" ]
@@ -30,10 +31,7 @@ clear_board_on_complete = false
 [node name="Title_label" parent="." index="2"]
 text = "Your second mission"
 
-[node name="Text_label" parent="." index="4"]
-text = "The icons below show the potential outcome if you succeed (green) or if you fail (red)"
-
-[node name="Won" parent="." index="5"]
+[node name="Won" parent="." index="4"]
 visible = true
 
 [node name="Money_label" parent="Won" index="1"]
@@ -45,7 +43,7 @@ text = "+"
 [node name="Compromise_label" parent="Won" index="5"]
 text = "0"
 
-[node name="Lose" parent="." index="6"]
+[node name="Lose" parent="." index="5"]
 visible = true
 
 [node name="Money_label" parent="Lose" index="1"]
@@ -57,10 +55,10 @@ text = "0"
 [node name="Compromise_label" parent="Lose" index="5"]
 text = "0"
 
-[node name="SuccessChance" parent="." index="7"]
+[node name="SuccessChance" parent="." index="6"]
 custom_fonts/font = SubResource( 1 )
 
-[node name="TimeLabel" parent="." index="11"]
+[node name="TimeLabel" parent="." index="10"]
 custom_fonts/font = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1" index="0"]
@@ -72,5 +70,8 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3" index="0"]
 shape = SubResource( 3 )
 
-[node name="TimerChangeLabel" parent="." index="15"]
+[node name="TimerChangeLabel" parent="." index="14"]
 custom_fonts/font = SubResource( 4 )
+
+[node name="Text_label" parent="." index="18"]
+text = "The icons below show the potential outcome if you succeed (green) or if you fail (red)"

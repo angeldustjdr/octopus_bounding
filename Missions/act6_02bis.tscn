@@ -19,6 +19,7 @@ font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "act6_02bis"
 del_NPC_on_complete = "alison"
 del_NPC_chance = 50
 nextMission = [ "act6_06", "random21", "random13", "random23" ]
@@ -27,6 +28,6 @@ nextMission = [ "act6_06", "random21", "random13", "random23" ]
 custom_fonts/font = SubResource( 2 )
 text = "Alison's plan"
 
-[node name="Text_label" parent="." index="20"]
+[node name="Text_label" parent="." index="18"]
 custom_fonts/normal_font = SubResource( 3 )
 text = "Alison wants Marcus to witness an meeting between her and the chief inspector. If the meeting goes wrong, it's dangerous for her..."

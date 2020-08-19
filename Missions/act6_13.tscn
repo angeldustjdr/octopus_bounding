@@ -4,6 +4,7 @@
 [ext_resource path="res://Assets/portraits/PortraitAdam.tscn" type="PackedScene" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act6_13"
 nb_npc = 1
 nextMission = [ "end_game_02", "", "", "" ]
 clear_board_on_complete = true

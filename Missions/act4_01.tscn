@@ -165,6 +165,7 @@ mass = 0.00102041
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
 script = ExtResource( 14 )
+file_name = "act4_01"
 missionType = "Story"
 failable = false
 needJohnathan = true

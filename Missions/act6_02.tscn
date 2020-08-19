@@ -4,6 +4,7 @@
 [ext_resource path="res://Assets/portraits/PortraitAlison.tscn" type="PackedScene" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act6_02"
 del_NPC_on_complete = "marcus"
 nextMission = [ "act6_02bis", "act6_02ter", "", "" ]
 clear_board_on_complete = true

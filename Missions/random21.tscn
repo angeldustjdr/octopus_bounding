@@ -22,6 +22,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "random21"
 nb_npc = 3
 outcomeMoney = [ 30, 0 ]
 outcomeReputation = [ 0, -20 ]
@@ -29,10 +30,6 @@ outcomeCompromised = [ 0, 20 ]
 
 [node name="Title_label" parent="." index="2"]
 text = "Drug deals"
-
-[node name="Text_label" parent="." index="4"]
-text = "We need to secure the market. Remember kids: don't do drugs, except when we are the supplier."
-script = null
 
 [node name="Money_label" parent="Won" index="1"]
 text = "+++"
@@ -43,13 +40,13 @@ text = "--"
 [node name="Compromise_label" parent="Lose" index="5"]
 text = "++"
 
-[node name="SuccessChance" parent="." index="7"]
+[node name="SuccessChance" parent="." index="6"]
 custom_fonts/font = SubResource( 1 )
 
-[node name="TimerIgnore" parent="." index="8"]
+[node name="TimerIgnore" parent="." index="7"]
 wait_time = 80.0
 
-[node name="TimeLabel" parent="." index="11"]
+[node name="TimeLabel" parent="." index="10"]
 custom_fonts/font = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1" index="0"]
@@ -61,8 +58,12 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3" index="0"]
 shape = SubResource( 3 )
 
-[node name="TimerChangeLabel" parent="." index="15"]
+[node name="TimerChangeLabel" parent="." index="14"]
 custom_fonts/font = SubResource( 4 )
 
-[node name="UnavailableRect" parent="." index="17"]
+[node name="Text_label" parent="." index="18"]
+text = "We need to secure the market. Remember kids: don't do drugs, except when we are the supplier."
+script = null
+
+[node name="UnavailableRect" parent="." index="19"]
 color = Color( 0.54902, 0.54902, 0.54902, 0.698039 )

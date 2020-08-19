@@ -3,91 +3,80 @@
 [ext_resource path="res://Missions/tuto04.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="PhysicsMaterial" id=8]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 absorbent = true
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=10]
-size = 20
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=4]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 14
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = ExtResource( 3 )
+
 [node name="Mission" instance=ExtResource( 1 )]
-physics_material_override = SubResource( 8 )
+physics_material_override = SubResource( 1 )
+file_name = "tuto05"
 nb_npc = 2
-outcomeMoney = [ 10, 0 ]
-outcomeReputation = [ 10, 0 ]
 missionType = "Brawl"
 add_NPC_on_complete = ""
 nextMission = [ "tuto06", "tuto07", "", "" ]
-clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="2"]
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 2 )
 text = "Don't go alone"
 
-[node name="Text_label" parent="." index="4"]
-custom_fonts/normal_font = SubResource( 10 )
-text = "Some missions need more people. Your best friend Mathias can help !"
-
 [node name="Money_label" parent="Won" index="1"]
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="Reputation_label" parent="Won" index="3"]
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="Compromise_label" parent="Won" index="5"]
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 4 )
 
 [node name="Money_label" parent="Lose" index="1"]
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 5 )
 
 [node name="Reputation_label" parent="Lose" index="3"]
-visible = true
-margin_left = 128.0
-margin_top = 0.0
-margin_right = 160.0
-margin_bottom = 32.0
-custom_fonts/font = SubResource( 13 )
-text = "0"
+custom_fonts/font = SubResource( 5 )
 
 [node name="Compromise_label" parent="Lose" index="5"]
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 5 )
 
-[node name="TimerMission" parent="." index="9"]
+[node name="TimerMission" parent="." index="8"]
 wait_time = 3.0
 
-[node name="NeedJohnathan" parent="." index="14"]
-rect_pivot_offset = Vector2( 0, 0 )
-custom_fonts/font = SubResource( 7 )
-align = 0
-valign = 0
+[node name="NeedJohnathan" parent="." index="13"]
+custom_fonts/font = SubResource( 6 )
+
+[node name="Text_label" parent="." index="18"]
+custom_fonts/normal_font = SubResource( 7 )
+text = "Some missions need more people. Your best friend Mathias can help !"

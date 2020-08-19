@@ -4,6 +4,7 @@
 [ext_resource path="res://Missions/act6_02ter.tscn" type="PackedScene" id=2]
 
 [node name="Mission" instance=ExtResource( 2 )]
+file_name = "act6_04ter"
 outcomeCompromised = [ 50, 0 ]
 prerequis_npc = "Nina"
 

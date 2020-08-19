@@ -3,6 +3,7 @@
 [ext_resource path="res://Missions/act1_01.tscn" type="PackedScene" id=1]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act4_03"
 outcomeMoney = [ 0, 0 ]
 del_NPC_on_complete = "alison"
 nextMission = [ "end_sequence", "", "", "" ]
@@ -12,5 +13,5 @@ prerequis_npc = "Alison"
 [node name="Title_label" parent="." index="2"]
 text = "Alison"
 
-[node name="Text_label" parent="." index="20"]
+[node name="Text_label" parent="." index="18"]
 text = "Alison is a former cop. And her behaviour is strange. She is the mole !"

@@ -8,14 +8,8 @@ size = 20
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
-missionType = "Story"
-failable = false
-needJohnathan = true
-cantIgnore = true
+file_name = "act1_11"
 nextMission = [ "act1_12", "act1_04bis", "", "" ]
-
-[node name="TimerIgnore" parent="." index="7"]
-one_shot = true
 
 [node name="Text_label" parent="." index="19"]
 custom_fonts/normal_font = SubResource( 1 )

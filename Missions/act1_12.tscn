@@ -18,6 +18,7 @@ font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "act1_12"
 add_NPC_on_complete = "erica"
 nextMission = [ "end_sequence", "", "", "" ]
 clear_board_on_complete = true
@@ -28,19 +29,6 @@ text = "Erica's future"
 [node name="Type_label" parent="." index="3"]
 custom_fonts/font = SubResource( 2 )
 
-[node name="Money_label" parent="Won" index="1"]
-text = ""
-
-[node name="TimerMission" parent="." index="8"]
-wait_time = 5.0
-
 [node name="Text_label" parent="." index="19"]
-margin_left = 40.0
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 433.0
-rect_pivot_offset = Vector2( 0, 0 )
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-bbcode_enabled = true
 text = "Erica asked me to join the team. She would do a great job (she's got skills), but it's too dangerous. Should I accept ? "

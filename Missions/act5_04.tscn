@@ -4,6 +4,7 @@
 [ext_resource path="res://Assets/portraits/PortraitMathias.tscn" type="PackedScene" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act5_04"
 nextMission = [ "act5_05", "random02", "random14", "random13" ]
 
 [node name="Title_label" parent="." index="2"]

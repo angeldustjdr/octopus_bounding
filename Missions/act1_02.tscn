@@ -4,13 +4,14 @@
 [ext_resource path="res://Assets/portraits/PortraitErica.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act1_02"
 outcomeMoney = [ 0, 0 ]
 nextMission = [ "act1_03bis", "act1_04bis", "", "" ]
 
@@ -20,10 +21,10 @@ margin_right = 219.796
 text = "Enzo's daughter"
 
 [node name="Money_label" parent="Won" index="1"]
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 
 [node name="Reputation_label" parent="Won" index="3"]
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 
 [node name="TimerIgnore" parent="." index="7"]
 wait_time = 15.0

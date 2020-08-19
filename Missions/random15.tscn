@@ -34,16 +34,12 @@ font_data = ExtResource( 2 )
 [node name="Mission" instance=ExtResource( 1 )]
 position = Vector2( 266, -40 )
 physics_material_override = SubResource( 1 )
+file_name = "random15"
 outcomeMoney = [ 0, 0 ]
 outcomeReputation = [ 20, -20 ]
 
 [node name="Title_label" parent="." index="2"]
 text = "Dark diplomacy"
-
-[node name="Text_label" parent="." index="4"]
-margin_top = 209.26
-margin_bottom = 313.26
-text = "Sometime, you need to compromise. Only for this time, we will make a deal with the police."
 
 [node name="Money_label" parent="Won" index="1"]
 text = "0"
@@ -57,13 +53,10 @@ custom_fonts/font = SubResource( 2 )
 [node name="Reputation_label" parent="Lose" index="3"]
 text = "--"
 
-[node name="SuccessChance" parent="." index="7"]
+[node name="SuccessChance" parent="." index="6"]
 custom_fonts/font = SubResource( 3 )
 
-[node name="TimerIgnore" parent="." index="8"]
-wait_time = 80.0
-
-[node name="TimeLabel" parent="." index="11"]
+[node name="TimeLabel" parent="." index="10"]
 custom_fonts/font = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1" index="0"]
@@ -75,8 +68,13 @@ shape = SubResource( 5 )
 [node name="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3" index="0"]
 shape = SubResource( 5 )
 
-[node name="TimerChangeLabel" parent="." index="15"]
+[node name="TimerChangeLabel" parent="." index="14"]
 custom_fonts/font = SubResource( 6 )
 
-[node name="UnavailableRect" parent="." index="17"]
+[node name="Text_label" parent="." index="18"]
+margin_top = 209.26
+margin_bottom = 313.26
+text = "Sometime, you need to compromise. Only for this time, we will make a deal with the police."
+
+[node name="UnavailableRect" parent="." index="19"]
 color = Color( 0.54902, 0.54902, 0.54902, 0.698039 )

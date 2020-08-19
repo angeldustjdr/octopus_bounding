@@ -15,6 +15,8 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -25,12 +27,11 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 20
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "random23"
 outcomeMoney = [ 0, 0 ]
 outcomeReputation = [ 30, -30 ]
 outcomeCompromised = [ 0, 0 ]
@@ -39,18 +40,14 @@ outcomeCompromised = [ 0, 0 ]
 custom_fonts/font = SubResource( 2 )
 text = "Punishment"
 
-[node name="Text_label" parent="." index="4"]
-custom_fonts/normal_font = SubResource( 3 )
-text = "Sometime, you need to be harsh. Better punish early than loose control."
-
 [node name="Money_label" parent="Won" index="1"]
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="Reputation_label" parent="Won" index="3"]
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 
 [node name="Money_label" parent="Lose" index="1"]
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "0"
 
 [node name="Reputation_label" parent="Lose" index="3"]
@@ -59,5 +56,6 @@ text = "---"
 [node name="Compromise_label" parent="Lose" index="5"]
 text = "0"
 
-[node name="TimerIgnore" parent="." index="8"]
-wait_time = 80.0
+[node name="Text_label" parent="." index="18"]
+custom_fonts/normal_font = SubResource( 5 )
+text = "Sometime, you need to be harsh. Better punish early than loose control."

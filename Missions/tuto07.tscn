@@ -3,6 +3,7 @@
 [ext_resource path="res://Mission.tscn" type="PackedScene" id=1]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "tuto07"
 nb_npc = 2
 outcomeMoney = [ 10, 0 ]
 outcomeReputation = [ 10, 0 ]
@@ -13,9 +14,6 @@ clear_board_on_complete = true
 
 [node name="Title_label" parent="." index="2"]
 text = "Multi-tasking (bis)"
-
-[node name="Text_label" parent="." index="4"]
-text = "Make wise choices and you will earn money and respect in no time."
 
 [node name="Money_label" parent="Won" index="1"]
 text = "+"
@@ -35,8 +33,11 @@ text = "0"
 [node name="Compromise_label" parent="Lose" index="5"]
 text = "0"
 
-[node name="TimerIgnore" parent="." index="8"]
+[node name="TimerIgnore" parent="." index="7"]
 wait_time = 1000.0
 
-[node name="TimerMission" parent="." index="9"]
+[node name="TimerMission" parent="." index="8"]
 wait_time = 3.0
+
+[node name="Text_label" parent="." index="18"]
+text = "Make wise choices and you will earn money and respect in no time."

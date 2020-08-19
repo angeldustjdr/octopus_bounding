@@ -27,7 +27,7 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=4]
 size = 22
 outline_size = 2
 font_data = ExtResource( 6 )
@@ -147,11 +147,11 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=17]
 size = 20
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=18]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -192,7 +192,7 @@ margin_left = 40.0
 margin_top = 160.0
 margin_right = 256.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 align = 1
@@ -579,7 +579,7 @@ margin_left = 40.0
 margin_top = 208.0
 margin_right = 256.0
 margin_bottom = 312.0
-custom_fonts/normal_font = SubResource( 19 )
+custom_fonts/normal_font = SubResource( 17 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Random text for the test of the mighty mission etc. \\zq dzq dqzd qzdqzdqzd z zq"
 __meta__ = {
@@ -603,7 +603,7 @@ margin_top = 158.704
 margin_right = 342.0
 margin_bottom = 248.704
 rect_rotation = 42.9
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
 text = "Mission locked.
 Try to pick other choices 
 next time you play."

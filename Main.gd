@@ -33,6 +33,8 @@ var clicked = false
 signal mouse_button_released
 signal gameIsPaused(stat)
 var pauseFrameBefore = false
+var saveFrameBefore = false
+var loadFrameBefore = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -214,6 +216,35 @@ func load_NPC(name):
 	connect("mouse_button_released",npc,"go_back_to_initial_position")
 	npc.connect("dragged",self,"set_current_npc")
 	$NPCArea.add_child(npc)
+	var anim = npc.get_node("AnimationPlayer")
+	anim.play("NPCenter")
+	yield(anim,"animation_finished")
+	
+func load_NPC_without_animation(name):
+	npcs_name.append(name)
+	var file_path = "res://PNJ/"+name+".tscn"
+	var Current_character = load(file_path)
+	var npc = Current_character.instance()
+	npcs.append(npc)
+	var i_npc = len(npcs) - 1
+	var i_position = get_node("NPCArea/node_NPC"+str(i_npc+1)).position
+	npc.initial_position.y = i_position.x
+	npc.initial_position.y = i_position.y
+	npc.position.x = i_position.x
+	npc.position.y = i_position.y
+	npc_slot_occupied[i_npc] = true
+	connect("mouse_button_released",npc,"go_back_to_initial_position")
+	npc.connect("dragged",self,"set_current_npc")
+	$NPCArea.add_child(npc)
+	var anim = npc.get_node("AnimationPlayer")
+	anim.set_current_animation("NPCenter")
+	anim.advance(anim.current_animation_length)
+	
+func unload_NPC_without_animation(num):
+	npc_slot_occupied[num] = true
+	npcs_name.remove(num)
+	npcs[num].call_deferred("queue_free")
+	npcs.remove(num)
 
 func _input(event):
 	if(event is InputEventMouseButton):
@@ -224,13 +255,35 @@ func _input(event):
 				emit_signal("mouse_button_released")
 				clicked = false
 	elif(event is InputEventKey):
-		if (event.scancode == KEY_ESCAPE or event.scancode == KEY_SPACE) and event.pressed:
-			if(!pauseFrameBefore):
-				pauseFrameBefore = true
-				pauseGame()
-		elif (event.scancode == KEY_ESCAPE or event.scancode == KEY_SPACE) and !event.pressed:
-			pauseFrameBefore = false
-
+		match event.scancode:
+			KEY_ESCAPE:
+				if(event.pressed):
+					if(!pauseFrameBefore):
+						pauseFrameBefore = true
+						pauseGame()
+				else:
+					pauseFrameBefore = false
+			KEY_SPACE:
+				if(event.pressed):
+					if(!pauseFrameBefore):
+						pauseFrameBefore = true
+						pauseGame()
+				else:
+					pauseFrameBefore = false
+			KEY_F1:
+				if (event.pressed):
+					if(!saveFrameBefore):
+						saveFrameBefore = true
+						save()
+				else:
+					saveFrameBefore = false
+			KEY_F2:
+				if (event.pressed):
+					if(!loadFrameBefore):
+						loadFrameBefore = true
+						load_save()
+				else:
+					loadFrameBefore = false
 func set_current_mission_collision(mission):
 	mission_collision_index.append(mission)
 	#print(mission_collision_index)
@@ -322,3 +375,94 @@ func pauseGame():
 	$PauseRect.visible = !$PauseRect.visible
 	emit_signal("gameIsPaused",$PauseRect.visible)
 	get_tree().paused = !get_tree().paused
+
+func save():
+	#print("SAVE")
+	var saveFile = File.new()
+	var err = saveFile.open("res://save/save.dat", File.WRITE)
+	if err != OK:
+		printerr("Could not open file, error code ", err)
+		return ""
+	saveFile.store_line(str(int(inSequence)))
+	saveFile.store_line(str(currentLevel))
+	saveFile.store_line(str(nextSequence))
+	saveFile.store_line(str(nbSequence))
+	var line = npcs_name[0]
+	for i in range(1,len(npcs_name)):
+		line += ","+npcs_name[i]
+	saveFile.store_line(line)
+	if (len(missionQueue) > 0):
+		line = missionQueue[0]
+		for i in range(1,len(missionQueue)):
+			line += ","+missionQueue[i]
+		saveFile.store_line(line)
+	else:
+		saveFile.store_line("")
+	line = str(money) +","+str(reputation)+','+str(compromised)+","+str(day)
+	saveFile.store_line(line)
+	if len(missions)>0:
+		line = missions[0].file_name
+		for i in range(1,len(missions)):
+			line += ","+missions[i].file_name
+	else:
+		line = ""
+	saveFile.store_line(line)
+	saveFile.close()
+	
+func load_save():
+	#print("LOAD")
+	clean_mission_board()
+	clean_NPC_board()
+	missionQueue = []
+	$MissionTimer.stop()
+	var loadedFile = File.new()
+	var err = loadedFile.open("res://save/save.dat", File.READ)
+	if err != OK:
+		printerr("Could not open file, error code ", err)
+		return ""
+	var line = loadedFile.get_line()
+	inSequence = bool(int(line))
+	line = loadedFile.get_line()
+	currentLevel = int(line)
+	line = loadedFile.get_line()
+	nextSequence = int(line)
+	line = loadedFile.get_line()
+	nbSequence = int(line)
+	line = loadedFile.get_line()
+	line = line.split(",")
+	for name in line:
+		load_NPC_without_animation(name)
+	line = loadedFile.get_line()
+	line = line.split(",")
+	if (line[0] != ""):
+		for mQ in line:
+			missionQueue.append(mQ)
+	line = loadedFile.get_line()
+	line = line.split(",")
+	money = int(line[0])
+	reputation = int(line[1])
+	compromised = int(line[2])
+	day = int(line[3])
+	line = loadedFile.get_line()
+	loadedFile.close()
+	if (line != ""):
+		line = line.split(",")
+		var t = Timer.new()
+		t.set_wait_time(1.0)
+		t.set_one_shot(true)
+		add_child(t)
+		for li in line:
+			instance_new_mission(li.to_lower())
+			t.start()
+			yield(t,"timeout")
+	update_GUI()
+	$MissionTimer.start()
+
+func clean_mission_board():
+	for mis in missions:
+		mis.delete_on_ignoreTimeOut()
+	missions = []
+	
+func clean_NPC_board():
+	for i in range(len(npcs)-1,-1,-1):
+		unload_NPC_without_animation(i)

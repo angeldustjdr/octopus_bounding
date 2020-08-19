@@ -3,6 +3,7 @@
 [ext_resource path="res://Mission.tscn" type="PackedScene" id=1]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "random14"
 nb_npc = 2
 outcomeMoney = [ 20, 0 ]
 outcomeReputation = [ 0, -10 ]
@@ -11,9 +12,6 @@ missionType = "Wit"
 
 [node name="Title_label" parent="." index="2"]
 text = "Money Laundry"
-
-[node name="Text_label" parent="." index="4"]
-text = "This casino is the perfect place to wash our dirty money."
 
 [node name="Money_label" parent="Won" index="1"]
 text = "++"
@@ -33,5 +31,8 @@ text = "-"
 [node name="Compromise_label" parent="Lose" index="5"]
 text = "+"
 
-[node name="TimerIgnore" parent="." index="8"]
+[node name="TimerIgnore" parent="." index="7"]
 wait_time = 80.0
+
+[node name="Text_label" parent="." index="18"]
+text = "This casino is the perfect place to wash our dirty money."

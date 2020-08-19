@@ -21,8 +21,8 @@ func _ready():
 			$Outline.color=Color(1,0,0,0.5)
 		"Wit":
 			$Outline.color=Color(0,0,1,0.5)
-	$AnimationPlayer.play("NPCenter")
-	yield($AnimationPlayer, "animation_finished")
+	#$AnimationPlayer.play("NPCenter")
+	#yield($AnimationPlayer, "animation_finished")
 
 func _process(_delta):
 	if dragging:

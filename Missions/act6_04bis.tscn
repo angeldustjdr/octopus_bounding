@@ -4,6 +4,7 @@
 [ext_resource path="res://Assets/portraits/PortraitNina.tscn" type="PackedScene" id=2]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act6_04bis"
 del_NPC_on_complete = "nina"
 prerequis_npc = "Nina"
 

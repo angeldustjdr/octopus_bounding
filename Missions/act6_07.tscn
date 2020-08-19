@@ -3,6 +3,7 @@
 [ext_resource path="res://Missions/act1_01.tscn" type="PackedScene" id=1]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act6_07"
 nb_npc = 2
 outcomeMoney = [ 0, 0 ]
 outcomeCompromised = [ 0, 30 ]
@@ -42,5 +43,5 @@ visible = true
 [node name="TimerIgnore" parent="." index="7"]
 wait_time = 80.0
 
-[node name="Text_label" parent="." index="20"]
+[node name="Text_label" parent="." index="18"]
 text = "The plan is in motion. First I need to get some guns."

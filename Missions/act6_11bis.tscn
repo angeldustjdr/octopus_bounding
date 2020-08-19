@@ -3,6 +3,7 @@
 [ext_resource path="res://Missions/act6_11.tscn" type="PackedScene" id=1]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act6_11bis"
 nb_npc = 1
 nextMission = [ "act6_12", "act6_13", "", "" ]
 

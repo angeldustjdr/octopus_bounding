@@ -3,6 +3,7 @@
 [ext_resource path="res://Missions/act3_06.tscn" type="PackedScene" id=1]
 
 [node name="Mission" instance=ExtResource( 1 )]
+file_name = "act3_07"
 nb_npc = 1
 outcomeMoney = [ -250, 0 ]
 add_NPC_on_complete = "nina"

@@ -20,6 +20,7 @@ font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
+file_name = "act6_04"
 nextMission = [ "act6_04bis", "act6_04ter", "", "" ]
 prerequis_npc = "Nina"
 

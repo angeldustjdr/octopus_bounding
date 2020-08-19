@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Missions/act6_01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/portraits/PortraitAlison.tscn" type="PackedScene" id=2]
+
+[node name="Mission" instance=ExtResource( 1 )]
+del_NPC_on_complete = "marcus"
+nextMission = [ "act6_06", "", "", "" ]
+clear_board_on_complete = true
+prerequis_npc = "Alison"
+
+[node name="Title_label" parent="." index="2"]
+margin_right = 194.0
+text = "Using Alison"
+
+[node name="Text_label" parent="." index="20"]
+text = "We can trick Marcus into thinking I am with the cops. Alison and her contacts can help."
+
+[node name="PortraitAlison" parent="." index="21" instance=ExtResource( 2 )]

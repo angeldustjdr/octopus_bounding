@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/portraits/PortraitAdam.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Missions/act6_01.tscn" type="PackedScene" id=2]
+
+[node name="Mission" instance=ExtResource( 2 )]
+nextMission = [ "act6_07", "act6_07bis", "", "" ]
+
+[node name="Title_label" parent="." index="2"]
+margin_right = 201.0
+text = "Adam's call"
+
+[node name="Text_label" parent="." index="20"]
+text = "Adam"
+
+[node name="PortraitAdam" parent="." index="21" instance=ExtResource( 1 )]

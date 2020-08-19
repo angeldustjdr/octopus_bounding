@@ -19,6 +19,7 @@ export var needJohnathan = false
 export var cantIgnore = false
 export var add_NPC_on_complete = ""
 export var del_NPC_on_complete = ""
+export var del_NPC_chance = 100
 export var nextMission = ["","","",""]
 export var clear_board_on_complete = false
 export var prerequis_npc=""

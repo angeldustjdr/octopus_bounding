@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act1_01.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+outcomeMoney = [ 0, 0 ]
+nextMission = [ "act6_02", "act6_03", "act6_04", "act6_05" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "Getting to Adam"
+
+[node name="Text_label" parent="." index="20"]
+margin_bottom = 362.0
+text = "I need to make Adam pay for what he did. I will force a meeting and go prepared.
+
+Maybe I can use Marcus, the guy he sent to help me. This Marcus guy must be in contact with Adam. If I manage to make him believe that I will betray him, he will surely want to meet me in person (and kill me)."

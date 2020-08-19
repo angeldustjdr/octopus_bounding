@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Missions/act1_03bis.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,12 @@ absorbent = true
 
 [sub_resource type="DynamicFont" id=2]
 size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
@@ -37,10 +43,20 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Ignore Erica"
 align = 1
 
-[node name="Text_label" parent="." index="4"]
+[node name="Won" parent="." index="4"]
+margin_bottom = 368.0
+
+[node name="Money_label" parent="Won" index="1"]
+custom_fonts/font = SubResource( 4 )
+
+[node name="Reputation_label" parent="Won" index="3"]
+custom_fonts/font = SubResource( 4 )
+
+[node name="Text_label" parent="." index="18"]
+visible = true
 margin_left = 40.0
 margin_top = 208.0
-margin_right = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Forget it. I don't have the time for that."

@@ -13,20 +13,20 @@ nextMission = [ "act1_02bis", "", "", "" ]
 [node name="Title_label" parent="." index="2"]
 text = "Enzo's restaurant"
 
-[node name="Text_label" parent="." index="4"]
-text = "Enzo, the owner of an Italian cafe, hasn't payed his \"taxes\" yet. I need to settle this."
-
-[node name="Won" parent="." index="5"]
+[node name="Won" parent="." index="4"]
 visible = false
 
-[node name="Lose" parent="." index="6"]
+[node name="Lose" parent="." index="5"]
 visible = false
 
-[node name="SuccessChance" parent="." index="7"]
+[node name="SuccessChance" parent="." index="6"]
 visible = false
 
-[node name="TimerIgnore" parent="." index="8"]
+[node name="TimerIgnore" parent="." index="7"]
 wait_time = 1e+08
 
-[node name="TimerMission" parent="." index="9"]
+[node name="TimerMission" parent="." index="8"]
 wait_time = 2.0
+
+[node name="Text_label" parent="." index="18"]
+text = "Enzo, the owner of an Italian cafe, hasn't payed his \"taxes\" yet. I need to settle this."

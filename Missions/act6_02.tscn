@@ -13,7 +13,7 @@ prerequis_npc = "Alison"
 margin_right = 194.0
 text = "Using Alison"
 
-[node name="Text_label" parent="." index="20"]
+[node name="Text_label" parent="." index="18"]
 text = "We can trick Marcus into thinking I am with the cops. Alison and her contacts can help."
 
-[node name="PortraitAlison" parent="." index="21" instance=ExtResource( 2 )]
+[node name="PortraitAlison" parent="." index="19" instance=ExtResource( 2 )]

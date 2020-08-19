@@ -10,11 +10,7 @@ prerequis_npc = "Alison"
 [node name="Title_label" parent="." index="2"]
 text = "Alison's network"
 
-[node name="Text_label" parent="." index="4"]
-margin_bottom = 402.0
-text = "Alison was a former police officer. We can use her network to get information on Désiré. This will get us compromised but it may be worth."
-
-[node name="Won" parent="." index="5"]
+[node name="Won" parent="." index="4"]
 visible = true
 margin_left = 33.6818
 margin_top = 401.59
@@ -29,3 +25,7 @@ text = "0"
 
 [node name="Compromise_label" parent="Won" index="5"]
 text = "+++"
+
+[node name="Text_label" parent="." index="18"]
+margin_bottom = 402.0
+text = "Alison was a former police officer. We can use her network to get information on Désiré. This will get us compromised but it may be worth."

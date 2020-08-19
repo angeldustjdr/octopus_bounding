@@ -17,10 +17,10 @@ text = "----"
 [node name="Compromise_label" parent="Won" index="5"]
 text = "0"
 
-[node name="Text_label" parent="." index="20"]
+[node name="Text_label" parent="." index="18"]
 text = "Thomas's plan is too dangerous. I should go to the meeting."
 
-[node name="PortraitAlison" parent="." index="21"]
+[node name="PortraitAlison" parent="." index="19"]
 visible = false
 
-[node name="PortraitThomas" parent="." index="22" instance=ExtResource( 2 )]
+[node name="PortraitThomas" parent="." index="20" instance=ExtResource( 2 )]

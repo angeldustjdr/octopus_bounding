@@ -27,13 +27,9 @@ margin_right = 256.0
 custom_fonts/font = SubResource( 2 )
 text = "Erica on duty"
 
-[node name="Text_label" parent="." index="4"]
+[node name="Text_label" parent="." index="18"]
 custom_fonts/normal_font = SubResource( 3 )
 text = "Erica is now in Adam's lair. I hope she is doing fine."
-
-[node name="TimerChangeLabel" parent="." index="15"]
-modulate = Color( 1, 1, 1, 0.7 )
-rect_scale = Vector2( 1.6, 1.6 )
 
 [node name="PortraitAdam" parent="." index="20"]
 visible = false

@@ -9,7 +9,7 @@ nextMission = [ "act6_02", "act6_03", "act6_04", "act6_05" ]
 [node name="Title_label" parent="." index="2"]
 text = "Getting to Adam"
 
-[node name="Text_label" parent="." index="20"]
+[node name="Text_label" parent="." index="18"]
 margin_bottom = 362.0
 text = "I need to make Adam pay for what he did. I will force a meeting and go prepared.
 

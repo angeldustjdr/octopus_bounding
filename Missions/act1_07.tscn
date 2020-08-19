@@ -20,9 +20,19 @@ clear_board_on_complete = false
 [node name="Title_label" parent="." index="2"]
 custom_fonts/font = SubResource( 1 )
 
-[node name="Text_label" parent="." index="4"]
-custom_fonts/normal_font = SubResource( 2 )
-text = "Another date with Erica. Things are getting serious."
+[node name="Money_label" parent="Won" index="1"]
+margin_bottom = 32.0
+text = ""
 
-[node name="TimerMission" parent="." index="9"]
-one_shot = true
+[node name="TimerIgnore" parent="." index="7"]
+wait_time = 15.0
+
+[node name="Text_label" parent="." index="19"]
+margin_left = 40.0
+margin_top = 208.0
+margin_right = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+text = "Another date with Erica. Things are getting serious."

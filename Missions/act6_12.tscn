@@ -5,7 +5,6 @@
 
 [node name="Mission" instance=ExtResource( 1 )]
 nb_npc = 1
-failable = false
 nextMission = [ "act6_14", "act6_15", "", "" ]
 clear_board_on_complete = true
 
@@ -13,7 +12,7 @@ clear_board_on_complete = true
 margin_right = 207.0
 text = "Kill Adam"
 
-[node name="Text_label" parent="." index="20"]
+[node name="Text_label" parent="." index="18"]
 text = "Shoot Adam in the face..."
 
-[node name="PortraitAdam" parent="." index="21" instance=ExtResource( 2 )]
+[node name="PortraitAdam" parent="." index="19" instance=ExtResource( 2 )]

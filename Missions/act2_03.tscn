@@ -1,9 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Missions/act2_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/portraits/PortraitThomas.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Mission.gd" type="Script" id=4]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+absorbent = true
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 20
+font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 1 )]
+pause_mode = 1
+position = Vector2( 82, -78.0339 )
+mass = 0.00102041
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 4 )
 add_NPC_on_complete = "thomas"
 nextMission = [ "end_sequence", "", "", "" ]
 clear_board_on_complete = true
@@ -12,7 +34,22 @@ clear_board_on_complete = true
 margin_right = 204.0
 text = "Hire Thomas"
 
-[node name="Text_label" parent="." index="4"]
-text = "Thomas (Brawl) is an ex-boxer who helped us beat some punks. He wants to be part of our team. Full time. The thing is: he was part of a rival family. Should I hire him ?"
+[node name="Won" parent="." index="4"]
+margin_bottom = 368.0
+
+[node name="Money_label" parent="Won" index="1"]
+custom_fonts/font = SubResource( 4 )
+
+[node name="Reputation_label" parent="Won" index="3"]
+custom_fonts/font = SubResource( 4 )
 
 [node name="PortraitThomas" parent="." index="16" instance=ExtResource( 2 )]
+
+[node name="Text_label" parent="." index="19"]
+visible = true
+margin_left = 40.0
+margin_top = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+custom_fonts/normal_font = SubResource( 18 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Thomas (Brawl) is an ex-boxer who helped us beat some punks. He wants to be part of our team. Full time. The thing is: he was part of a rival family. Should I hire him ?"

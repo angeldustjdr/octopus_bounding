@@ -4,7 +4,7 @@ var day = 1
 var time = 0
 var random = randomize()
 var inSequence = true
-var missionQueue = ["act4_01"]
+var missionQueue = ["tuto01"]
 var currentLevel = 0
 var difficultyCurve = [0,1,1,2,2,2,2]
 var nextSequence = 0
@@ -43,12 +43,12 @@ func _ready():
 	yield(_anim_player, "animation_finished")
 	update_GUI()
 	load_NPC("johnathan")
-	load_NPC("mathias")
-	load_NPC("alison")
-	load_NPC("thomas")
-	load_NPC("nina")
-	load_NPC("marcus")
-	load_NPC("erica")
+	#load_NPC("mathias")
+	#load_NPC("alison")
+	#load_NPC("thomas")
+	#load_NPC("nina")
+	#load_NPC("marcus")
+	#load_NPC("erica")
 	#print(npcs)
 	#print(npcs_name)
 	$MissionTimer.start()

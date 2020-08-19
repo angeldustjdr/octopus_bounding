@@ -26,7 +26,7 @@ clear_board_on_complete = true
 custom_fonts/font = SubResource( 2 )
 text = "Adam's message"
 
-[node name="Text_label" parent="." index="21"]
+[node name="Text_label" parent="." index="18"]
 custom_fonts/normal_font = SubResource( 3 )
 text = "\"Hey Johnathan. Just a short message to tell you that Erica is really skilled at her job, haha ! 
 

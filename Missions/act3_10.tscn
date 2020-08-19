@@ -10,7 +10,7 @@ nextMission = [ "act3_11", "", "", "" ]
 margin_right = 202.0
 text = "Info on Désiré"
 
-[node name="Text_label" parent="." index="4"]
-text = "We now know that Désiré preaches every thursday in a private church. It's the perfect opportunity to strike."
-
 [node name="PortraitDesire" parent="." index="18" instance=ExtResource( 2 )]
+
+[node name="Text_label" parent="." index="19"]
+text = "We now know that Désiré preaches every thursday in a private church. It's the perfect opportunity to strike."

@@ -16,20 +16,32 @@ position = Vector2( 82, -78.0339 )
 mass = 0.00102041
 gravity_scale = 0.0
 script = ExtResource( 3 )
+missionType = "Story"
+failable = false
+needJohnathan = true
+cantIgnore = true
 nextMission = [ "act1_11", "random05", "random02", "random03" ]
 clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="2"]
+margin_left = 3.79604
+margin_top = 112.0
+margin_right = 219.796
+margin_bottom = 144.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+align = 1
 
-[node name="Text_label" parent="." index="4"]
+[node name="Money_label" parent="Won" index="1"]
+text = ""
+
+[node name="Text_label" parent="." index="19"]
 margin_left = 40.0
 margin_top = 208.0
 margin_right = 256.0
 margin_bottom = 433.0
+rect_pivot_offset = Vector2( 0, 0 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 text = "Erica is getting used to my job. Life is good."
-
-[node name="TimerIgnore" parent="." index="8"]
-wait_time = 15.0

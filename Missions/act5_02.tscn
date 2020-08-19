@@ -15,19 +15,19 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 20
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=9]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=4]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
 font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 1 )]
@@ -41,53 +41,15 @@ prerequis_npc = "Erica"
 custom_fonts/font = SubResource( 2 )
 text = "Send Erica"
 
-[node name="Text_label" parent="." index="4"]
-margin_left = 40.0
-margin_top = 208.0
-rect_pivot_offset = Vector2( 0, 0 )
-custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
+[node name="SuccessChance" parent="." index="6"]
+custom_fonts/font = SubResource( 3 )
+
+[node name="TimerChangeLabel" parent="." index="14"]
+custom_fonts/font = SubResource( 4 )
+
+[node name="Text_label" parent="." index="18"]
+custom_fonts/normal_font = SubResource( 5 )
 text = "Erica knows everything from almost the begining. She is the best person to send. She is smart and can boost any of our activities."
-
-[node name="Won" parent="." index="5"]
-margin_top = 336.0
-margin_right = 256.0
-margin_bottom = 368.0
-rect_pivot_offset = Vector2( -216, -56 )
-color = Color( 0, 1, 0, 0.196078 )
-
-[node name="Money" parent="Won" index="0"]
-visible = true
-
-[node name="Lose" parent="." index="6"]
-margin_top = 392.0
-margin_right = 256.0
-margin_bottom = 424.0
-rect_pivot_offset = Vector2( -216, -56 )
-color = Color( 1, 0, 0, 0.196078 )
-
-[node name="Money" parent="Lose" index="0"]
-visible = true
-
-[node name="SuccessChance" parent="." index="7"]
-margin_left = 46.0
-margin_top = 527.47
-margin_right = 180.0
-margin_bottom = 550.47
-custom_fonts/font = SubResource( 9 )
-text = "Success chance: 0%"
-
-[node name="TimerMission" parent="." index="9"]
-one_shot = true
-
-[node name="TimerChangeLabel" parent="." index="15"]
-visible = false
-margin_left = 121.162
-margin_top = 555.03
-margin_right = 161.162
-margin_bottom = 580.03
-custom_fonts/font = SubResource( 13 )
-text = "-5"
 
 [node name="PortraitAdam" parent="." index="20"]
 visible = false

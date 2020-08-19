@@ -5,5 +5,5 @@
 [node name="Mission" instance=ExtResource( 1 )]
 nextMission = [ "act3_04", "", "", "" ]
 
-[node name="Text_label" parent="." index="4"]
+[node name="Text_label" parent="." index="19"]
 text = "\"Johnathan, is it ? Nice to meet you. You know me. I am Adam. I knew your mother fairly well... (laugh).... It seems that you are pretty good at what you do. I like your dedication. I've got a job for you. \""

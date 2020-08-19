@@ -13,8 +13,8 @@ margin_left = 30.0
 margin_right = 263.0
 text = "Thomas network"
 
-[node name="Text_label" parent="." index="4"]
+[node name="Text_label" parent="." index="18"]
 text = "Thomas has already worked in this area when he was with the rival family. Let's use his past network to gather intel on Désiré."
 
-[node name="UnavailableRect" parent="." index="17"]
+[node name="UnavailableRect" parent="." index="19"]
 color = Color( 0.54902, 0.54902, 0.54902, 0.698039 )

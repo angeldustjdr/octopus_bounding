@@ -13,14 +13,14 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 20
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=5]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
@@ -31,53 +31,21 @@ nextMission = [ "act5_02", "act5_03", "", "" ]
 margin_left = 27.0
 margin_right = 204.0
 custom_fonts/font = SubResource( 2 )
-text = "New opportinuty"
+text = "New opportunity"
 
-[node name="Text_label" parent="." index="4"]
-margin_left = 40.0
-margin_top = 208.0
+[node name="SuccessChance" parent="." index="6"]
+custom_fonts/font = SubResource( 5 )
+
+[node name="TimerChangeLabel" parent="." index="14"]
+modulate = Color( 1, 1, 1, 0.7 )
+rect_scale = Vector2( 1.6, 1.6 )
+
+[node name="Text_label" parent="." index="18"]
 margin_bottom = 425.0
-rect_pivot_offset = Vector2( 0, 0 )
-custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 4 )
 text = "Adam is back in town. He sent me a message.
 
 \"Hey Johnathan ! I wanted to thank you again for what you did on the Désiré case. I know I can count on you... I want you to get to the next level. Send me your best man: I can boost your activities.\""
 
-[node name="Won" parent="." index="5"]
-margin_top = 336.0
-margin_right = 256.0
-margin_bottom = 368.0
-rect_pivot_offset = Vector2( -216, -56 )
-color = Color( 0, 1, 0, 0.196078 )
-
-[node name="Money" parent="Won" index="0"]
-visible = true
-
-[node name="Lose" parent="." index="6"]
-margin_top = 392.0
-margin_right = 256.0
-margin_bottom = 424.0
-rect_pivot_offset = Vector2( -216, -56 )
-color = Color( 1, 0, 0, 0.196078 )
-
-[node name="Money" parent="Lose" index="0"]
-visible = true
-
-[node name="SuccessChance" parent="." index="7"]
-margin_left = 46.0
-margin_top = 527.47
-margin_right = 180.0
-margin_bottom = 550.47
-custom_fonts/font = SubResource( 9 )
-text = "Success chance: 0%"
-
-[node name="TimerMission" parent="." index="9"]
-one_shot = true
-
-[node name="TimerChangeLabel" parent="." index="15"]
-modulate = Color( 1, 1, 1, 0.7 )
-rect_scale = Vector2( 1.6, 1.6 )
-
-[node name="PortraitAdam" parent="." index="20"]
+[node name="PortraitAdam" parent="." index="19"]
 position = Vector2( 239.22, 127.138 )

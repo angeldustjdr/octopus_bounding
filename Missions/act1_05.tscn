@@ -41,10 +41,16 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Erica"
 align = 1
 
-[node name="Text_label" parent="." index="4"]
+[node name="Money_label" parent="Won" index="1"]
+text = ""
+
+[node name="Text_label" parent="." index="19"]
 margin_left = 40.0
 margin_top = 208.0
 margin_right = 256.0
+margin_bottom = 541.0
+rect_pivot_offset = Vector2( 0, 0 )
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
 text = "Nothing could have been better. The date went perfectly. Maybe we should continue this relationship."

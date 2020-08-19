@@ -48,16 +48,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "There is no traitor"
 align = 1
 
-[node name="Text_label" parent="." index="4"]
-margin_left = 40.0
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 312.0
-custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "No, Adam must be wrong. I know that I don't have a trator in my team. Let's ignore him"
-
-[node name="Won" parent="." index="5"]
+[node name="Won" parent="." index="4"]
 visible = true
 
 [node name="Money_label" parent="Won" index="1"]
@@ -68,3 +59,12 @@ text = "--"
 
 [node name="Compromise_label" parent="Won" index="5"]
 text = "++"
+
+[node name="Text_label" parent="." index="18"]
+margin_left = 40.0
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 312.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "No, Adam must be wrong. I know that I don't have a trator in my team. Let's ignore him."

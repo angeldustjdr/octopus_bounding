@@ -119,19 +119,18 @@ func affect_npc(npc):
 			npc.pickable = false
 			npc.get_node("pickableFilter").visible = true
 			npcList.append(npc)
-			get_node("NPCRect/NPC"+str(l+1)).texture = load("res://Assets/portraits/"+npc.NPC_name.to_lower()+"_pixelized_mission.png")
-			if (l+1 == nb_npc):
-				if needJohnathan:
-					for perso in npcList:
-						if perso.NPC_name=="Johnathan":
-							missionAccepted = true
-							$TimerMission.start()
-					if missionAccepted==false:
-						$NeedJohnathan.visible=true
-				else:
-					$NeedJohnathan.visible = false
-					missionAccepted = true
-					$TimerMission.start()
+			get_node("NPCRect/NPC"+str(l+1)).texture = load("res://Assets/portraits/"+npc.NPC_name.to_lower()+"_pixelized_mission.png")		
+			if needJohnathan:
+				for perso in npcList:
+					if perso.NPC_name=="Johnathan":
+						missionAccepted = true
+						$TimerMission.start()
+				if missionAccepted==false:
+					$NeedJohnathan.visible=true
+			else:
+				$NeedJohnathan.visible = false
+				missionAccepted = true
+				$TimerMission.start()
 		else:
 			print("ERROR AFFECT_NPC")
 
@@ -188,7 +187,8 @@ func unaffect_npc(num):
 		update_npcs()
 		$TimerMission.stop()
 		$TimerIgnore.start()
-		missionAccepted = false
+		if(len(npcList) == 0):
+			missionAccepted = false
 
 func update_npcs():
 	for i in range(0,len(npcList)):

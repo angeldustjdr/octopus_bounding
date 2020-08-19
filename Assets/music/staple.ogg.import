@@ -11,5 +11,5 @@ dest_files=[ "res://.import/staple.ogg-c0e8ee257aec33a21639d335725e9812.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

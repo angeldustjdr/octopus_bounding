@@ -104,6 +104,7 @@ func _on_detection_npc_area_exited(area):
 		emit_signal("NPCExit", self)
 
 func affect_npc(npc):
+	$Stapple.play()
 	if npc.NPC_name=="Johnathan":
 		$NeedJohnathan.visible=false
 	var Sign = -1

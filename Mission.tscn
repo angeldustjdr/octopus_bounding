@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/icons/check-mark_pixelized.png" type="Texture" id=10]
 [ext_resource path="res://Assets/failure_mission_pixelized.png" type="Texture" id=11]
 [ext_resource path="res://Assets/success_stamp_pixelized.png" type="Texture" id=12]
+[ext_resource path="res://Assets/music/staple.ogg" type="AudioStream" id=13]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -611,3 +612,6 @@ next time you play."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Stapple" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )

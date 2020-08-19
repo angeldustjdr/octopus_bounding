@@ -6,7 +6,7 @@ var random = randomize()
 var inSequence = true
 var missionQueue = ["tuto01"]
 var currentLevel = 0
-var difficultyCurve = [0,1,1,1,2,2,2]
+var difficultyCurve = [0,1,1,2,2,2,2]
 var nextSequence = 0
 var nbSequence = 0
 

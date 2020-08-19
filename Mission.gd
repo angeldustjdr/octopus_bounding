@@ -185,9 +185,9 @@ func unaffect_npc(num):
 		npc.get_node("pickableFilter").visible = false
 		npcList.remove(num)
 		update_npcs()
-		$TimerMission.stop()
-		$TimerIgnore.start()
 		if(len(npcList) == 0):
+			$TimerMission.stop()
+			$TimerIgnore.start()
 			missionAccepted = false
 
 func update_npcs():

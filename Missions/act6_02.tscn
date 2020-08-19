@@ -5,7 +5,7 @@
 
 [node name="Mission" instance=ExtResource( 1 )]
 del_NPC_on_complete = "marcus"
-nextMission = [ "act6_06", "", "", "" ]
+nextMission = [ "act6_02bis", "act6_02ter", "", "" ]
 clear_board_on_complete = true
 prerequis_npc = "Alison"
 

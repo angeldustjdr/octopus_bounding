@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Missions/act6_11.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/portraits/PortraitAdam.tscn" type="PackedScene" id=2]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nb_npc = 1
+failable = false
+nextMission = [ "end_game_02", "", "", "" ]
+clear_board_on_complete = true
+
+[node name="Title_label" parent="." index="2"]
+margin_right = 194.0
+text = "Spare Adam"
+
+[node name="Text_label" parent="." index="20"]
+text = "I can't be like him. I must spare him."
+
+[node name="PortraitAdam" parent="." index="21" instance=ExtResource( 2 )]

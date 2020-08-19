@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act1_01.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nb_npc = 2
+outcomeMoney = [ 0, 0 ]
+outcomeCompromised = [ 0, 30 ]
+failable = true
+nextMission = [ "act6_08", "random14", "random21", "random22" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "Get some guns"
+
+[node name="Won" parent="." index="4"]
+visible = true
+
+[node name="Money_label" parent="Won" index="1"]
+text = "0"
+
+[node name="Reputation_label" parent="Won" index="3"]
+text = "0"
+
+[node name="Compromise_label" parent="Won" index="5"]
+text = "0"
+
+[node name="Lose" parent="." index="5"]
+visible = true
+
+[node name="Money_label" parent="Lose" index="1"]
+text = "0"
+
+[node name="Reputation_label" parent="Lose" index="3"]
+text = "0"
+
+[node name="Compromise_label" parent="Lose" index="5"]
+text = "+++"
+
+[node name="SuccessChance" parent="." index="6"]
+visible = true
+
+[node name="TimerIgnore" parent="." index="7"]
+wait_time = 80.0
+
+[node name="Text_label" parent="." index="20"]
+text = "The plan is in motion. First I need to get some guns."

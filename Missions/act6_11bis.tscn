@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/act6_11.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nb_npc = 1
+nextMission = [ "act6_12", "act6_13", "", "" ]
+
+[node name="Text_label" parent="." index="20"]
+text = "Adam stares back at me. 
+
+\"Please, don't kill me. You know, I liked your mother. Like a lot. What happened was unfortunate. I can redeem myself. Heck, maybe I am your father ! Who knows ?
+
+Spare me and you will be my right hand man and we shall get rich together\""

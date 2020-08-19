@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Missions/act6_10.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=9]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Mission" instance=ExtResource( 1 )]
+nb_npc = 3
+nextMission = [ "act6_11bis", "", "", "" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "The revenge"
+
+[node name="Won" parent="." index="4"]
+margin_left = 32.0
+margin_top = 336.0
+margin_right = 256.0
+margin_bottom = 368.0
+rect_pivot_offset = Vector2( -216, -56 )
+color = Color( 0, 1, 0, 0.196078 )
+
+[node name="SuccessChance" parent="." index="6"]
+margin_left = 46.0
+margin_top = 527.47
+margin_right = 180.0
+margin_bottom = 550.47
+custom_fonts/font = SubResource( 9 )
+text = "Success chance: 0%"
+
+[node name="Text_label" parent="." index="20"]
+margin_bottom = 424.0
+text = "It's a blood bath. Fortunately I came prepared. After a long hour of shooting and kill, I am finally in front of Adam.
+
+I point my gun at him. I look him in the eye."

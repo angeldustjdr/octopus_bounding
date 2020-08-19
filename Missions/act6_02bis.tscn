@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Missions/act6_02.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+absorbent = true
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="Mission" instance=ExtResource( 1 )]
+physics_material_override = SubResource( 1 )
+del_NPC_on_complete = "alison"
+del_NPC_chance = 50
+nextMission = [ "act6_06", "random21", "random13", "random23" ]
+
+[node name="Title_label" parent="." index="2"]
+custom_fonts/font = SubResource( 2 )
+text = "Alison's plan"
+
+[node name="Text_label" parent="." index="20"]
+custom_fonts/normal_font = SubResource( 3 )
+text = "Alison wants Marcus to witness an meeting between her and the chief inspector. If the meeting goes wrong, it's dangerous for her..."

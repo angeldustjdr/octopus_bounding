@@ -30,6 +30,7 @@ missionType = "Story"
 failable = false
 needJohnathan = true
 cantIgnore = true
+nextMission = [ "act6_04bis", "act6_04ter", "", "" ]
 prerequis_npc = "Nina"
 
 [node name="Title_label" parent="." index="2"]

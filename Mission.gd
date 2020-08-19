@@ -189,6 +189,9 @@ func unaffect_npc(num):
 			$TimerMission.stop()
 			$TimerIgnore.start()
 			missionAccepted = false
+		else:
+			$TimerMission.stop()
+			$TimerMission.start()
 
 func update_npcs():
 	for i in range(0,len(npcList)):

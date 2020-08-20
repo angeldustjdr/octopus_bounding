@@ -4,6 +4,7 @@ var day = 1
 var time = 0
 var random = randomize()
 var inSequence = true
+var inTuto = true
 var missionQueue = ["tuto01"]
 var currentLevel = 0
 var difficultyCurve = [0,1,1,2,2,2,2]
@@ -34,7 +35,7 @@ var clicked = false
 signal mouse_button_released
 signal gameIsPaused(stat)
 var pauseFrameBefore = false
-var saveFrameBefore = false
+var F2FrameBefore = false
 var loadFrameBefore = false
 
 # Called when the node enters the scene tree for the first time.
@@ -45,11 +46,11 @@ func _ready():
 	_anim_player.play_backwards("fade")
 	yield(_anim_player, "animation_finished")
 	if (GlobalLoad.loadBool): #LOADGAME
-		load_save("save_mission.dat")
+		load_save("res://save/save_mission.dat")
 	else: #NEWGAME
 		load_NPC("johnathan")
-		save("save_sequence.dat")
-		save("save_mission.dat")
+		save("res://save/save_sequence.dat")
+		save("res://save/save_mission.dat")
 	$MissionTimer.start()
 	update_GUI()
 
@@ -117,6 +118,7 @@ func _on_MissionTimer_timeout():
 			if missionQueue.size()>0:
 				instance_new_mission(missionQueue[0])
 				missionQueue.remove(0)
+		inTuto = false
 	else:
 		if missionQueue.size()>0:
 			if "random" in missionQueue[0]:
@@ -197,9 +199,9 @@ func _on_Mission_timeout(mission):
 			missionQueue=["act"+str(nbSequence)+"_01"]
 			saveSequenceBool = true
 	if(len(missions) == 0 and saveSequenceBool):
-		save("save_sequence.dat")
+		save("res://save/save_sequence.dat")
 		saveSequenceBool = false
-	save("save_mission.dat")
+	save("res://save/save_mission.dat")
 	update_GUI()
 
 
@@ -277,17 +279,18 @@ func _input(event):
 				if (event.pressed):
 					if(!loadFrameBefore):
 						loadFrameBefore = true
-						load_save("save_sequence.dat")
-						save("save_mission.dat")
+						load_save("res://save/save_sequence.dat")
+						save("res://save/save_mission.dat")
 				else:
 					loadFrameBefore = false
-#			KEY_F2:
-#				if (event.pressed):
-#					if(!loadFrameBefore):
-#						loadFrameBefore = true
-#						load_save("save_mission.dat")
-#				else:
-#					loadFrameBefore = false
+			KEY_F2:
+				if(inTuto):
+					if (event.pressed):
+						if(!F2FrameBefore):
+							F2FrameBefore = true
+							load_save("res://config/after_tuto.dat")
+					else:
+						F2FrameBefore = false
 
 func set_current_mission_collision(mission):
 	mission_collision_index.append(mission)
@@ -384,10 +387,11 @@ func pauseGame():
 func save(file_name):
 	#print("SAVE")
 	var saveFile = File.new()
-	var err = saveFile.open("res://save/"+file_name, File.WRITE)
+	var err = saveFile.open(file_name, File.WRITE)
 	if err != OK:
 		printerr("Could not open file, error code ", err)
 		return ""
+	saveFile.store_line(str(int(inTuto)))
 	saveFile.store_line(str(int(inSequence)))
 	saveFile.store_line(str(currentLevel))
 	saveFile.store_line(str(nextSequence))
@@ -421,11 +425,13 @@ func load_save(file_name):
 	missionQueue = []
 	$MissionTimer.stop()
 	var loadedFile = File.new()
-	var err = loadedFile.open("res://save/"+file_name, File.READ)
+	var err = loadedFile.open(file_name, File.READ)
 	if err != OK:
 		printerr("Could not open file, error code ", err)
-		return ""
+		return ""	
 	var line = loadedFile.get_line()
+	inTuto = bool(int(line))
+	line = loadedFile.get_line()
 	inSequence = bool(int(line))
 	line = loadedFile.get_line()
 	currentLevel = int(line)

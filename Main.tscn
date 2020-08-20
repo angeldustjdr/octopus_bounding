@@ -504,13 +504,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="PauseRect"]
-margin_left = 317.0
-margin_top = 234.0
-margin_right = 963.0
-margin_bottom = 274.0
+[node name="Load" type="Label" parent="PauseRect"]
+margin_left = 316.0
+margin_top = 177.0
+margin_right = 962.0
+margin_bottom = 217.0
 custom_fonts/font = SubResource( 18 )
 text = "You can press F1 to load the previous act..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skip" type="Label" parent="PauseRect"]
+margin_left = 317.0
+margin_top = 248.0
+margin_right = 963.0
+margin_bottom = 288.0
+custom_fonts/font = SubResource( 18 )
+text = "You can press F2 to skip the tutorial..."
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]

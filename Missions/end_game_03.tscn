@@ -8,4 +8,7 @@
 text = "The mafia and Adam are no more.
 You win... But at what cost ?
 
-Congratulation. You finished the game."
+Congratulations, you finished the game."
+
+[node name="SceneTranstion" parent="." index="7"]
+visible = true

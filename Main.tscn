@@ -478,6 +478,7 @@ stream = SubResource( 16 )
 volume_db = -3.0
 
 [node name="Skip2" type="Label" parent="."]
+pause_mode = 1
 margin_left = 813.0
 margin_top = 640.0
 margin_right = 1254.0

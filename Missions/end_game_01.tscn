@@ -27,6 +27,7 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_left = 968.0
 margin_top = 585.0
 margin_right = 1239.0
@@ -52,24 +53,24 @@ margin_top = 123.678
 margin_right = 473.813
 margin_bottom = 210.678
 custom_fonts/font = SubResource( 1 )
-text = "You failed"
+text = "You failed."
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Try again" type="Label" parent="."]
-margin_left = 974.57
-margin_top = 588.83
-margin_right = 1228.57
-margin_bottom = 653.83
+[node name="Try again" type="Button" parent="."]
+margin_left = 975.0
+margin_top = 589.0
+margin_right = 1241.0
+margin_bottom = 626.0
 custom_fonts/font = SubResource( 2 )
-text = "Replay and try again.
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.839216, 0, 0, 1 )
+text = "Replay and try again."
+flat = true
 
 [node name="Credit" parent="." instance=ExtResource( 6 )]
 
 [node name="SceneTranstion" parent="." instance=ExtResource( 5 )]
+visible = false

@@ -4,6 +4,10 @@ var time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var directory = Directory.new();
+	if(!directory.file_exists("res://save")):
+		directory.open("res://")
+		directory.make_dir("save")
 	var checkFile = File.new()
 	if(checkFile.file_exists("res://save/save_mission.dat")):
 		$LoadGame.visible = true

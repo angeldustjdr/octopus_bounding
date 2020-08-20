@@ -106,7 +106,7 @@ func instance_new_mission(myMission):
 	mission.get_node("TimerIgnore").wait_time *= 1+randf()*0.4
 	mission.position.x = mission_starting_point.x + mission_offset.x
 	mission.position.y = mission_starting_point.y + mission_offset.y
-	$Audio.stream = load("res://Assets/music/mission_enter.ogg")
+	$Audio.stream = load("res://Assets/music/type_writer.wav")
 	$Audio.play()
 	$MissionRect.add_child(mission)
 	missions.append(mission)
@@ -204,7 +204,8 @@ func _on_Mission_timeout(mission):
 			missionQueue=["act"+str(nbSequence)+"_01"]
 			saveSequenceBool = true
 	if(len(missions) == 0 and saveSequenceBool):
-		save("res://save/save_sequence.dat")
+		if (nbSequence <= 6):
+			save("res://save/save_sequence.dat")
 		saveSequenceBool = false
 	save("res://save/save_mission.dat")
 	update_GUI()
@@ -375,10 +376,13 @@ func anminateOutcome(value,myString):
 
 func check_gameover():
 	if (money < -100):
+		get_node("/root/MusicPlayer/Gunshot").play()
 		gameover()
 	elif (reputation < 0):
+		get_node("/root/MusicPlayer/Gunshot").play()
 		gameover()
 	elif (compromised > 100):
+		get_node("/root/MusicPlayer/Jaildoor").play()
 		gameover()
 
 func gameover():

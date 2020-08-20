@@ -4,13 +4,13 @@
 [ext_resource path="res://Assets/portraits/PortraitThomas.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -40,7 +40,7 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 align = 1
 valign = 1
 
@@ -49,7 +49,7 @@ margin_left = 128.0
 margin_right = 160.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "----"
 align = 1
 valign = 1
@@ -59,13 +59,12 @@ margin_left = 192.0
 margin_right = 224.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="Text_label" parent="." index="18"]
-margin_bottom = 362.0
 text = "Thomas's plan is too dangerous. I should go to the meeting."
 
 [node name="PortraitAlison" parent="." index="19"]

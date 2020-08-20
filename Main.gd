@@ -324,7 +324,7 @@ func affect_current_npc():
 	current_npc = null
 
 func changeTime(mis,timeLeft):
-	mis.get_node("TimerIgnore").start(timeLeft-5)
+	mis.get_node("TimerIgnore").start(timeLeft-10)
 	mis.get_node("TimerChangeLabel").visible=true
 	var player = mis.get_node("TimerChangeLabel/AnimationPlayer")
 	player.play("timeChange")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/icons/shaking-hands_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Assets/icons/money-stack_pixelized.png" type="Texture" id=2]
@@ -147,6 +147,12 @@ font_data = ExtResource( 7 )
 [sub_resource type="DynamicFont" id=17]
 size = 64
 outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 31
+outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
@@ -497,6 +503,14 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="PauseRect"]
+margin_left = 317.0
+margin_top = 234.0
+margin_right = 963.0
+margin_bottom = 274.0
+custom_fonts/font = SubResource( 18 )
+text = "You can press F1 to load the previous act..."
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]

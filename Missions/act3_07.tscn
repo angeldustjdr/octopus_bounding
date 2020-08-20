@@ -31,4 +31,6 @@ text = "0"
 
 [node name="Text_label" parent="." index="18"]
 margin_bottom = 405.0
-text = "I know a guy who knows Désiré. But he is in jail. If I pay his bail, he will give us informations. Plus, he may become a great ally !"
+text = "I know a guy who knows Désiré. But he is in jail. If I pay his bail, he will give us informations. Plus, he may become a great ally ! 
+
+OK. He has become a she in the mean time, but what ever !"

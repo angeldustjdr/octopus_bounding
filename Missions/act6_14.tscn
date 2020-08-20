@@ -20,6 +20,7 @@ font_data = ExtResource( 2 )
 [node name="Mission" instance=ExtResource( 1 )]
 physics_material_override = SubResource( 1 )
 file_name = "act6_14"
+failable = false
 nextMission = [ "end_game_03", "", "", "" ]
 
 [node name="Title_label" parent="." index="2"]
@@ -28,8 +29,17 @@ margin_right = 265.0
 custom_fonts/font = SubResource( 2 )
 text = "End the cycle"
 
+[node name="SuccessChance" parent="." index="6"]
+text = "Success chance: 0%"
+
 [node name="Text_label" parent="." index="18"]
+visible = true
+margin_left = 40.0
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 424.0
 custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "It's over. All I have to do it surrender myself to the police or put a bullet into my head.
 
 I got my revenge. Rest in peace Mother."

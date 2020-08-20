@@ -8,7 +8,7 @@ friction = 0.0
 absorbent = true
 
 [sub_resource type="DynamicFont" id=2]
-size = 22
+size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )

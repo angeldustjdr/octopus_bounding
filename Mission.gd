@@ -4,11 +4,11 @@ var rand = randomize()
 var missionAccepted = false
 var initialX_textureRect
 var npcList = []
-var successChancePercent = 50
+var successChancePercent = 0
 onready var initialTimerIgnore = $TimerIgnore.wait_time
 var isWin = 1
 var modifEquilibrage_money = [0.5,0.5]
-var modifEquilibrage_reputation = [0.5,0.5]
+var modifEquilibrage_reputation = [0.5,0.25]
 var modifEquilibrage_compromised = [0.25,0.25]
 
 export var file_name = ""
@@ -112,10 +112,10 @@ func affect_npc(npc):
 	$Stapple.play()
 	if npc.NPC_name=="Johnathan":
 		$NeedJohnathan.visible=false
-	var Sign = -1
+	var mod = 0.5
 	if npc.NPC_type==missionType or npc.NPC_type=="You":
-		Sign=1
-	successChancePercent += round(Sign*40/nb_npc)
+		mod =1
+	successChancePercent += round(mod * 80/nb_npc)
 	$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
 	var l = len(npcList)
 	if(l < nb_npc):

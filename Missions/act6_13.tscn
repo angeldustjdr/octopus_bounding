@@ -6,12 +6,16 @@
 [node name="Mission" instance=ExtResource( 1 )]
 file_name = "act6_13"
 nb_npc = 1
+failable = false
 nextMission = [ "end_game_02", "", "", "" ]
 clear_board_on_complete = true
 
 [node name="Title_label" parent="." index="2"]
 margin_right = 194.0
 text = "Spare Adam"
+
+[node name="Money_label" parent="Won" index="1"]
+text = "0"
 
 [node name="Text_label" parent="." index="18"]
 text = "I can't be like him. I must spare him."

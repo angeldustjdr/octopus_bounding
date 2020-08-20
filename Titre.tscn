@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/title_screen_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
@@ -18,6 +18,11 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=3]
 size = 31
 outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
@@ -93,5 +98,26 @@ __meta__ = {
 [node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
 margin_left = -2.0
 margin_right = 1278.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 37.0
+margin_top = 644.0
+margin_right = 273.0
+margin_bottom = 689.0
+color = Color( 0.235294, 0.235294, 0.235294, 0.345098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 45.4573
+margin_top = 655.825
+margin_right = 263.457
+margin_bottom = 676.825
+custom_fonts/font = SubResource( 4 )
+text = "Better suited for 16+ players"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="LoadGame" to="." method="_on_LoadGame_pressed"]

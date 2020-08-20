@@ -15,9 +15,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Octopus Bonding"
+config/name="The Octopus"
 run/main_scene="res://Disclaimer.tscn"
-config/icon="res://icon.png"
+config/icon="res://octopus.png"
+config/windows_native_icon="res://octopus_GlI_icon.ico"
 
 [autoload]
 

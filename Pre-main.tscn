@@ -53,9 +53,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SceneTranstion" parent="." instance=ExtResource( 2 )]
-visible = false
-
 [node name="Label" type="Label" parent="."]
 margin_left = 913.946
 margin_top = 575.416
@@ -68,3 +65,5 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SceneTranstion" parent="." instance=ExtResource( 2 )]

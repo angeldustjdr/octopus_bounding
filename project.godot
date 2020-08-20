@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 MusicPlayer="*res://MusicPlayer.tscn"
 Click="*res://Assets/music/Click.gd"
+GlobalLoad="*res://global_load.gd"
 
 [display]
 

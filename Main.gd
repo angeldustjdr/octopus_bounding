@@ -9,6 +9,7 @@ var currentLevel = 0
 var difficultyCurve = [0,1,1,2,2,2,2]
 var nextSequence = 0
 var nbSequence = 0
+var saveSequenceBool = false
 
 #SCORE
 var money = 1000
@@ -43,17 +44,14 @@ func _ready():
 	var _anim_player = $SceneTranstion/AnimationPlayer
 	_anim_player.play_backwards("fade")
 	yield(_anim_player, "animation_finished")
-	update_GUI()
-	load_NPC("johnathan")
-	#load_NPC("mathias")
-	#load_NPC("alison")
-	#load_NPC("thomas")
-	#load_NPC("nina")
-	#load_NPC("marcus")
-	#load_NPC("erica")
-	#print(npcs)
-	#print(npcs_name)
+	if (GlobalLoad.loadBool): #LOADGAME
+		load_save("save_mission.dat")
+	else: #NEWGAME
+		load_NPC("johnathan")
+		save("save_sequence.dat")
+		save("save_mission.dat")
 	$MissionTimer.start()
+	update_GUI()
 
 func update_GUI():
 	get_node("GameArea/TimeArea/TimeLabel").text = "Day " + str(day)
@@ -170,15 +168,6 @@ func _on_Mission_timeout(mission):
 	$Audio.stream = load("res://Assets/music/burning.ogg")
 	$Audio.play()
 	day += 1
-	if inSequence==false:
-		nextSequence+=1
-		if nextSequence>=3:
-			inSequence=true
-			nextSequence=0
-			nbSequence+=1
-			currentLevel+=1
-			missionQueue=["act"+str(nbSequence)+"_01"]
-	update_GUI()
 	if mission.clear_board_on_complete == true:
 		$MissionTimer.set_paused(true)
 		var anim
@@ -198,6 +187,20 @@ func _on_Mission_timeout(mission):
 		$MissionTimer.set_paused(false)
 		missions.remove(index)
 		mission.delete_on_missionTimeOut()
+	if inSequence==false:
+		nextSequence+=1
+		if nextSequence>=3:
+			inSequence=true
+			nextSequence=0
+			nbSequence+=1
+			currentLevel+=1
+			missionQueue=["act"+str(nbSequence)+"_01"]
+			saveSequenceBool = true
+	if(len(missions) == 0 and saveSequenceBool):
+		save("save_sequence.dat")
+		saveSequenceBool = false
+	save("save_mission.dat")
+	update_GUI()
 
 
 func load_NPC(name):
@@ -272,18 +275,20 @@ func _input(event):
 					pauseFrameBefore = false
 			KEY_F1:
 				if (event.pressed):
-					if(!saveFrameBefore):
-						saveFrameBefore = true
-						save()
-				else:
-					saveFrameBefore = false
-			KEY_F2:
-				if (event.pressed):
 					if(!loadFrameBefore):
 						loadFrameBefore = true
-						load_save()
+						load_save("save_sequence.dat")
+						save("save_mission.dat")
 				else:
 					loadFrameBefore = false
+#			KEY_F2:
+#				if (event.pressed):
+#					if(!loadFrameBefore):
+#						loadFrameBefore = true
+#						load_save("save_mission.dat")
+#				else:
+#					loadFrameBefore = false
+
 func set_current_mission_collision(mission):
 	mission_collision_index.append(mission)
 	#print(mission_collision_index)
@@ -376,10 +381,10 @@ func pauseGame():
 	emit_signal("gameIsPaused",$PauseRect.visible)
 	get_tree().paused = !get_tree().paused
 
-func save():
+func save(file_name):
 	#print("SAVE")
 	var saveFile = File.new()
-	var err = saveFile.open("res://save/save.dat", File.WRITE)
+	var err = saveFile.open("res://save/"+file_name, File.WRITE)
 	if err != OK:
 		printerr("Could not open file, error code ", err)
 		return ""
@@ -409,14 +414,14 @@ func save():
 	saveFile.store_line(line)
 	saveFile.close()
 	
-func load_save():
+func load_save(file_name):
 	#print("LOAD")
 	clean_mission_board()
 	clean_NPC_board()
 	missionQueue = []
 	$MissionTimer.stop()
 	var loadedFile = File.new()
-	var err = loadedFile.open("res://save/save.dat", File.READ)
+	var err = loadedFile.open("res://save/"+file_name, File.READ)
 	if err != OK:
 		printerr("Could not open file, error code ", err)
 		return ""
@@ -431,7 +436,8 @@ func load_save():
 	line = loadedFile.get_line()
 	line = line.split(",")
 	for name in line:
-		load_NPC_without_animation(name)
+		#load_NPC_without_animation(name)
+		load_NPC(name)
 	line = loadedFile.get_line()
 	line = line.split(",")
 	if (line[0] != ""):
@@ -448,7 +454,7 @@ func load_save():
 	if (line != ""):
 		line = line.split(",")
 		var t = Timer.new()
-		t.set_wait_time(1.0)
+		t.set_wait_time($MissionTimer.wait_time)
 		t.set_one_shot(true)
 		add_child(t)
 		for li in line:

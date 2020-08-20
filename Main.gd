@@ -64,6 +64,8 @@ func _process(delta):
 	for mis in missionQueue:
 		if !("tuto" in mis):
 			$Skip2.visible=false
+		else:
+			$Skip2.visible=true
 	time += delta
 	if money < -80:
 		get_node("GameArea/ScoreArea/Money/Money_label").set("custom_colors/font_color",Color(1,0,0))

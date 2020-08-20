@@ -278,22 +278,24 @@ func _input(event):
 						pauseGame()
 				else:
 					pauseFrameBefore = false
-			KEY_F1:
-				if (event.pressed):
-					if(!loadFrameBefore):
-						loadFrameBefore = true
-						load_save("res://save/save_sequence.dat")
-						save("res://save/save_mission.dat")
-				else:
-					loadFrameBefore = false
-			KEY_F2:
-				if(inTuto):
+		if(!get_tree().paused):
+			match event.scancode:
+				KEY_F1:
 					if (event.pressed):
-						if(!F2FrameBefore):
-							F2FrameBefore = true
-							load_save("res://config/after_tuto.dat")
+						if(!loadFrameBefore):
+							loadFrameBefore = true
+							load_save("res://save/save_sequence.dat")
+							save("res://save/save_mission.dat")
 					else:
-						F2FrameBefore = false
+						loadFrameBefore = false
+				KEY_F2:
+					if(inTuto):
+						if (event.pressed):
+							if(!F2FrameBefore):
+								F2FrameBefore = true
+								load_save("res://config/after_tuto.dat")
+						else:
+							F2FrameBefore = false
 
 func set_current_mission_collision(mission):
 	mission_collision_index.append(mission)

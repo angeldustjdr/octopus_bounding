@@ -13,8 +13,8 @@ var nbSequence = 0
 var saveSequenceBool = false
 
 #SCORE
-var money = 1000
-var reputation = 10000
+var money = 0
+var reputation = 0
 var compromised = 0
 
 #MISSION
@@ -22,7 +22,7 @@ var mission_offset = Vector2(-10.009,-83.992)
 var mission_starting_point = Vector2(1104,0)
 var missions = []
 var mission_per_level = [5, 5, 3]
-export var ignore_reputation_decrease_factor = 5
+export var ignore_reputation_decrease_factor = 2
 var mission_collision_index = []
 
 #NPC
@@ -57,7 +57,7 @@ func _ready():
 func update_GUI():
 	get_node("GameArea/TimeArea/TimeLabel").text = "Day " + str(day)
 	get_node("GameArea/ScoreArea/Money/Money_label").text = str(money)
-	get_node("GameArea/ScoreArea/Reputation/Reputation_label").text = str(reputation)
+	get_node("GameArea/ScoreArea/Reputation/Reputation_label").text = str(reputation) +"%"
 	get_node("GameArea/ScoreArea/Compromised/Compromised_label").text = str(compromised) + "%"
 
 func _process(delta):
@@ -342,6 +342,7 @@ func update_score(money_incr,reput_incr,compro_incr):
 	anminateOutcome(compro_incr,"compromised")
 	money += money_incr
 	reputation += reput_incr
+	reputation = min(reputation,100)
 	compromised += compro_incr
 	update_GUI()
 	check_gameover()

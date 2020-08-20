@@ -5,6 +5,10 @@
 [node name="Mission" instance=ExtResource( 1 )]
 file_name = "act5_51"
 
+[node name="Title_label" parent="." index="2"]
+margin_left = 23.0
+margin_right = 195.0
+
 [node name="Text_label" parent="." index="18"]
 text = "\"Hey Johnathan. Just a short message to tell you that Mathias is really skilled at his job. Unfortunately, he doesn't know how to swim with weight attached to his feet, haha ! 
 

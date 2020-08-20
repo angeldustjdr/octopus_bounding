@@ -9,7 +9,7 @@ outcomeMoney = [ 10, 0 ]
 outcomeReputation = [ 10, 0 ]
 missionType = "Tutorial"
 failable = false
-nextMission = [ "end_sequence", "", "", "" ]
+nextMission = [ "tuto08", "", "", "" ]
 clear_board_on_complete = true
 
 [node name="Title_label" parent="." index="2"]
@@ -40,4 +40,4 @@ wait_time = 1000.0
 wait_time = 3.0
 
 [node name="Text_label" parent="." index="18"]
-text = "Make wise choices and you will earn money and respect in no time."
+text = "You can affect one character or all of them."

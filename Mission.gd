@@ -7,7 +7,9 @@ var npcList = []
 var successChancePercent = 50
 onready var initialTimerIgnore = $TimerIgnore.wait_time
 var isWin = 1
-var modifEquilibrage = 0.5
+var modifEquilibrage_money = [0.5,0.5]
+var modifEquilibrage_reputation = [0.5,0.5]
+var modifEquilibrage_compromised = [0.25,0.25]
 
 export var file_name = ""
 export var nb_npc = 1
@@ -113,7 +115,7 @@ func affect_npc(npc):
 	var Sign = -1
 	if npc.NPC_type==missionType or npc.NPC_type=="You":
 		Sign=1
-	successChancePercent += round(Sign*30/nb_npc)
+	successChancePercent += round(Sign*40/nb_npc)
 	$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
 	var l = len(npcList)
 	if(l < nb_npc):
@@ -143,9 +145,9 @@ func delete_on_ignoreTimeOut():
 
 func delete_on_missionTimeOut():
 	makeNPC_pickable()
-	var money_increment = round(modifEquilibrage*round(outcomeMoney[isWin]*(0.9+randf()*0.2)))
-	var reputation_increment = round(modifEquilibrage*round(outcomeReputation[isWin]*(0.9+randf()*0.2)))
-	var compromised_increment = round(modifEquilibrage*round(outcomeCompromised[isWin]*(0.9+randf()*0.2)))
+	var money_increment = round(modifEquilibrage_money[isWin]*round(outcomeMoney[isWin]*(0.9+randf()*0.2)))
+	var reputation_increment = round(modifEquilibrage_reputation[isWin]*round(outcomeReputation[isWin]*(0.9+randf()*0.2)))
+	var compromised_increment = round(modifEquilibrage_compromised[isWin]*round(outcomeCompromised[isWin]*(0.9+randf()*0.2)))
 	emit_signal("missionAccomplished",money_increment,reputation_increment,compromised_increment)
 	call_deferred("queue_free")
 	

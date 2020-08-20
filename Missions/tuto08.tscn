@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/tuto01.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+nextMission = [ "end_sequence", "", "", "" ]
+
+[node name="Title_label" parent="." index="2"]
+text = "One last thing"
+
+[node name="Text_label" parent="." index="18"]
+margin_bottom = 378.0
+text = "Press Esc or Space to pause.
+
+Press F1 to load your game. You have only one save slot and the game saves automaticaly.."

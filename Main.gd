@@ -61,6 +61,9 @@ func update_GUI():
 	get_node("GameArea/ScoreArea/Compromised/Compromised_label").text = str(compromised) + "%"
 
 func _process(delta):
+	for mis in missionQueue:
+		if !("tuto" in mis):
+			$Skip2.visible=false
 	time += delta
 	if money < -80:
 		get_node("GameArea/ScoreArea/Money/Money_label").set("custom_colors/font_color",Color(1,0,0))

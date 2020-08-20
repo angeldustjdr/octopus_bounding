@@ -59,3 +59,4 @@ text = "0"
 [node name="Text_label" parent="." index="18"]
 custom_fonts/normal_font = SubResource( 5 )
 text = "Sometime, you need to be harsh. Better punish early than loose control."
+script = null

@@ -102,7 +102,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=14]
 resource_name = "appear_failure"
-length = 0.3
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Failure:modulate")
 tracks/0/interp = 1
@@ -110,15 +110,27 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 0.210224 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Failure:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.064704, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=15]
 resource_name = "appear_success"
-length = 0.3
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Success:modulate")
 tracks/0/interp = 1
@@ -126,14 +138,26 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 0.203063 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Success:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.0625001, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.2 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=16]
-length = 0.2
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -141,7 +165,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -555,6 +579,7 @@ margin_top = 442.034
 margin_right = 330.0
 margin_bottom = 526.034
 rect_rotation = -39.0
+rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 expand = true
 __meta__ = {
@@ -568,6 +593,7 @@ margin_top = 442.034
 margin_right = 330.0
 margin_bottom = 526.034
 rect_rotation = -39.0
+rect_scale = Vector2( 1, 0.2 )
 texture = ExtResource( 12 )
 expand = true
 __meta__ = {

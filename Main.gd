@@ -21,7 +21,7 @@ var compromised = 0
 var mission_offset = Vector2(-10.009,-83.992)
 var mission_starting_point = Vector2(1104,0)
 var missions = []
-var mission_per_level = [5, 5, 3]
+var mission_per_level = [5, 5, 5]
 export var ignore_reputation_decrease_factor = 4
 var mission_collision_index = []
 

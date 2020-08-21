@@ -68,7 +68,6 @@ func _ready():
 	update_GUI()
 
 func update_GUI():
-	print("hello")
 	get_node("GameArea/TimeArea/TimeLabel").text = "Day " + str(day)
 	get_node("GameArea/ScoreArea/Money/Money_label").text = str(money)
 	get_node("GameArea/ScoreArea/Reputation/Reputation_label").text = str(reputation) +"%"

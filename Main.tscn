@@ -496,6 +496,7 @@ volume_db = -3.0
 
 [node name="Skip2" type="Label" parent="."]
 pause_mode = 1
+visible = false
 margin_left = 813.0
 margin_top = 640.0
 margin_right = 1254.0
@@ -569,8 +570,8 @@ anims/appear = SubResource( 19 )
 
 [node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
-[connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]
+[connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
 [connection signal="mouse_entered" from="InfoBulleManager/InfoBulleMoney" to="InfoBulleManager" method="_on_InfoBulleMoney_mouse_entered"]
 [connection signal="mouse_exited" from="InfoBulleManager/InfoBulleMoney" to="InfoBulleManager" method="_on_InfoBulleMoney_mouse_exited"]
 [connection signal="mouse_entered" from="InfoBulleManager/InfoBulleReputation" to="InfoBulleManager" method="_on_InfoBulleReputation_mouse_entered"]

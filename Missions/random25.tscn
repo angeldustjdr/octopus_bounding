@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Missions/random21.tscn" type="PackedScene" id=1]
+
+[node name="Mission" instance=ExtResource( 1 )]
+outcomeMoney = [ 30, -30 ]
+outcomeReputation = [ 30, -20 ]
+
+[node name="Title_label" parent="." index="2"]
+text = "Insurance Lobby"
+
+[node name="Reputation_label" parent="Won" index="3"]
+text = "+++"
+
+[node name="Money_label" parent="Lose" index="1"]
+text = "---"
+
+[node name="Text_label" parent="." index="18"]
+text = "Insurances are basically legal extorsion. Moreover, if you optmize the taxe evasion, we will get rich in no time. And people will congratulate us for our businessship !"

@@ -18,4 +18,6 @@ clear_board_on_complete = false
 custom_fonts/font = SubResource( 1 )
 
 [node name="Text_label" parent="." index="19"]
-text = "Erica is getting used to my job. Life is good."
+text = "Erica is getting used to my job. Life is good.
+
+Moreover, Shelby the dog loves when I pet her."

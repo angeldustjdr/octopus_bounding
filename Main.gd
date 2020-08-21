@@ -114,6 +114,7 @@ func instance_new_mission(myMission):
 		mission.get_node("UnavailableRect").visible = true
 		mission.get_node("detection_npc/CollisionShape2D2").disabled = true
 	mission.get_node("TimerIgnore").wait_time *= 1.2 + randf()*0.2
+	#mission.get_node("TimerIgnore").wait_time *= 0.02
 	mission.position.x = mission_starting_point.x + mission_offset.x
 	mission.position.y = mission_starting_point.y + mission_offset.y
 	$Audio.stream = load("res://Assets/music/type_writer.wav")
@@ -216,6 +217,7 @@ func _on_Mission_timeout(mission):
 			saveSequenceBool = true
 	if(len(missions) == 0 and saveSequenceBool):
 		if (nbSequence <= 6):
+			print("hoy")
 			save("res://save/save_sequence.dat")
 			$PauseRect.mode = 1
 			custom_pause(false,"Act " + str(nbSequence),"","")

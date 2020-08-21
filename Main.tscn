@@ -123,7 +123,7 @@ tracks/1/keys = {
 extents = Vector2( 4, 292 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 544, 8 )
+extents = Vector2( 838, 8 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 128.652, 50.8537 )
@@ -437,11 +437,11 @@ position = Vector2( 172, 416 )
 shape = SubResource( 9 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 712, 128 )
+position = Vector2( 1006, 128 )
 shape = SubResource( 10 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 712, 696 )
+position = Vector2( 1006, 696 )
 shape = SubResource( 10 )
 
 [node name="InfoBulleManager" type="Node2D" parent="."]

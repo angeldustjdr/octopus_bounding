@@ -181,17 +181,17 @@ func unaffect_npc(num):
 	var l = len(npcList)
 	if (num < l):
 		var npc = npcList[num]
+		npc.pickable = true
+		npc.get_node("pickableFilter").visible = false
+		npcList.remove(num)
+		update_npcs()
 		if l==1:
 			$SuccessChance.text = "Success chance: 0%"
 			successChancePercent=0
 			$NeedJohnathan.visible = false
 		else:
-			successChancePercent += modSuccess(npc)
+			successChancePercent -= modSuccess(npc)
 			$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
-		npc.pickable = true
-		npc.get_node("pickableFilter").visible = false
-		npcList.remove(num)
-		update_npcs()
 		if(len(npcList) == 0):
 			$TimerMission.stop()
 			$TimerIgnore.start()

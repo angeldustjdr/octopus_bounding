@@ -68,6 +68,7 @@ func _ready():
 	update_GUI()
 
 func update_GUI():
+	print("hello")
 	get_node("GameArea/TimeArea/TimeLabel").text = "Day " + str(day)
 	get_node("GameArea/ScoreArea/Money/Money_label").text = str(money)
 	get_node("GameArea/ScoreArea/Reputation/Reputation_label").text = str(reputation) +"%"
@@ -313,7 +314,7 @@ func _input(event):
 						if(!loadFrameBefore):
 							loadFrameBefore = true
 							load_save("res://save/save_sequence.dat")
-							save("res://save/save_mission.dat")
+							save_mission_equal_save_sequence()
 					else:
 						loadFrameBefore = false
 				KEY_F2:
@@ -425,14 +426,7 @@ func gameover():
 	#_anim_player.play("fade")
 	#yield(_anim_player, "animation_finished")
 	GlobalLoad.loadBool = false
-	var save_seq = File.new()
-	var save_mis = File.new()
-	save_seq.open("res://save/save_sequence.dat", File.READ)
-	save_mis.open("res://save/save_mission.dat", File.WRITE)
-	var save_seq_str = save_seq.get_as_text()
-	save_mis.store_string(save_seq_str)
-	save_mis.close()
-	save_seq.close()
+	save_mission_equal_save_sequence()
 	get_tree().change_scene("res://GameOver.tscn")
 
 func pauseGame():
@@ -484,12 +478,14 @@ func save(file_name):
 	if err != OK:
 		printerr("Could not open file, error code ", err)
 		return ""
+	var line = str(money) +","+str(reputation)+','+str(compromised)+","+str(day)
+	saveFile.store_line(line)
 	saveFile.store_line(str(int(inTuto)))
 	saveFile.store_line(str(int(inSequence)))
 	saveFile.store_line(str(currentLevel))
 	saveFile.store_line(str(nextSequence))
 	saveFile.store_line(str(nbSequence))
-	var line = npcs_name[0]
+	line = npcs_name[0]
 	var inter = str(int(npcs[0].available))
 	for i in range(1,len(npcs_name)):
 		line += ","+npcs_name[i]
@@ -503,8 +499,6 @@ func save(file_name):
 		saveFile.store_line(line)
 	else:
 		saveFile.store_line("")
-	line = str(money) +","+str(reputation)+','+str(compromised)+","+str(day)
-	saveFile.store_line(line)
 	if len(missions)>0:
 		line = missions[0].file_name
 		var lim = min(4,len(missions))
@@ -524,8 +518,15 @@ func load_save(file_name):
 	var err = loadedFile.open(file_name, File.READ)
 	if err != OK:
 		printerr("Could not open file, error code ", err)
-		return ""	
+		return ""
 	var line = loadedFile.get_line()
+	line = line.split(",")
+	money = int(line[0])
+	reputation = int(line[1])
+	compromised = int(line[2])
+	day = int(line[3])
+	update_GUI()
+	line = loadedFile.get_line()
 	inTuto = bool(int(line))
 	line = loadedFile.get_line()
 	inSequence = bool(int(line))
@@ -552,12 +553,6 @@ func load_save(file_name):
 		for mQ in line:
 			missionQueue.append(mQ)
 	line = loadedFile.get_line()
-	line = line.split(",")
-	money = int(line[0])
-	reputation = int(line[1])
-	compromised = int(line[2])
-	day = int(line[3])
-	line = loadedFile.get_line()
 	loadedFile.close()
 	if (line != ""):
 		line = line.split(",")
@@ -569,7 +564,6 @@ func load_save(file_name):
 			instance_new_mission(li.to_lower())
 			t.start()
 			yield(t,"timeout")
-	update_GUI()
 	$MissionTimer.set_paused(false)
 
 func clean_mission_board():
@@ -592,3 +586,13 @@ func custom_pause(shi, pause_text,load_text,skip_text):
 	$PauseRect/PauseLabel.text = pause_text
 	$PauseRect/Load.text = load_text
 	$PauseRect/Skip.text = skip_text
+
+func save_mission_equal_save_sequence():
+	var save_seq = File.new()
+	var save_mis = File.new()
+	save_seq.open("res://save/save_sequence.dat", File.READ)
+	save_mis.open("res://save/save_mission.dat", File.WRITE)
+	var save_seq_str = save_seq.get_as_text()
+	save_mis.store_string(save_seq_str)
+	save_mis.close()
+	save_seq.close()

@@ -7,6 +7,8 @@ file_name = "act5_10"
 nextMission = [ "act5_11", "", "", "" ]
 
 [node name="Text_label" parent="." index="18"]
-text = "Go fuck yourself Adam. I am coming to get you. 
+text = "Go fuck yourself Adam. 
 
-I pack some guns and rush to Adam's mansion. There will be blood tonight..."
+In anger, I pack some guns and rush to Adam's mansion. I know that I am not prepared. Not prepared at all. But this is too much. I might die for this but I am coming to get you Adam !
+
+There will be blood tonight..."

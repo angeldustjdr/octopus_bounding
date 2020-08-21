@@ -33,12 +33,14 @@ var current_npc = null
 
 var clicked = false
 signal mouse_button_released
-signal gameIsPaused(stat)
+signal gameIsPaused(stat,mode)
 signal inputKey
 signal unPause
 var pauseFrameBefore = false
 var F2FrameBefore = false
 var loadFrameBefore = false
+
+var inTransition = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -196,6 +198,7 @@ func _on_Mission_timeout(mission):
 		$MissionTimer.set_paused(true)
 		var anim
 		for mis in missions:
+			mis.get_node("Filter").visible = true
 			anim = mis.get_node("AnimationPlayer")
 			anim.play("disappear")
 		yield(anim,"animation_finished")
@@ -291,21 +294,22 @@ func _input(event):
 				clicked = false
 	elif(event is InputEventKey):
 		emit_signal("inputKey")
-		match event.scancode:
-			KEY_ESCAPE:
-				if(event.pressed):
-					if(!pauseFrameBefore):
-						pauseFrameBefore = true
-						pauseGame()
-				else:
-					pauseFrameBefore = false
-			KEY_SPACE:
-				if(event.pressed):
-					if(!pauseFrameBefore):
-						pauseFrameBefore = true
-						pauseGame()
-				else:
-					pauseFrameBefore = false
+		if (!inTransition):
+			match event.scancode:
+				KEY_ESCAPE:
+					if(event.pressed):
+						if(!pauseFrameBefore):
+							pauseFrameBefore = true
+							pauseGame()
+					else:
+						pauseFrameBefore = false
+				KEY_SPACE:
+					if(event.pressed):
+						if(!pauseFrameBefore):
+							pauseFrameBefore = true
+							pauseGame()
+					else:
+						pauseFrameBefore = false
 		if(!get_tree().paused):
 			match event.scancode:
 				KEY_F1:
@@ -431,7 +435,7 @@ func gameover():
 func pauseGame():
 	match $PauseRect.mode:
 		0:
-			emit_signal("gameIsPaused",!get_tree().paused)
+			emit_signal("gameIsPaused",!get_tree().paused,$PauseRect.mode)
 			if (!get_tree().paused):
 				$PauseRect/AnimationPlayer.play("appear")
 			else:
@@ -440,7 +444,8 @@ func pauseGame():
 			get_tree().paused = !get_tree().paused
 			yield($PauseRect/AnimationPlayer, "animation_finished")
 		1:
-			emit_signal("gameIsPaused",true)
+			inTransition = true
+			emit_signal("gameIsPaused",true,$PauseRect.mode)
 			$PauseRect/disableGame.visible = true
 			get_tree().paused = true
 			$PauseRect/AnimationPlayer.play("appear")
@@ -448,12 +453,14 @@ func pauseGame():
 			yield(self,"inputKey")
 			$PauseRect/AnimationPlayer.play_backwards("appear")
 			yield($PauseRect/AnimationPlayer, "animation_finished")
-			emit_signal("gameIsPaused",false)
+			emit_signal("gameIsPaused",false,$PauseRect.mode)
 			emit_signal("unPause")
 			$PauseRect/disableGame.visible = false
 			get_tree().paused = false
+			inTransition = false
 		2:
-			emit_signal("gameIsPaused",true)
+			inTransition = true
+			emit_signal("gameIsPaused",true,$PauseRect.mode)
 			$PauseRect/disableGame.visible = true
 			get_tree().paused = true
 			$PauseRect/AnimationPlayer.play("appear")
@@ -462,12 +469,13 @@ func pauseGame():
 			var _anim_player = $SceneTranstion/AnimationPlayer
 			_anim_player.play("fade")
 			yield(_anim_player, "animation_finished")
-			emit_signal("gameIsPaused",false)
+			emit_signal("gameIsPaused",false,$PauseRect.mode)
 			emit_signal("unPause")
 			$PauseRect/disableGame.visible = false
 			get_tree().paused = false
+			inTransition = false
 		3:
-			emit_signal("gameIsPaused",!get_tree().paused)
+			emit_signal("gameIsPaused",!get_tree().paused,$PauseRect.mode)
 			get_tree().paused = !get_tree().paused
 
 func save(file_name):

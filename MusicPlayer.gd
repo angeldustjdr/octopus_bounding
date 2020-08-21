@@ -7,8 +7,8 @@ var base_volume
 func _ready():
 	base_volume = $BGmusic.volume_db
 
-func set_volume_for_pause(pause):
-	if (pause):
+func set_volume_for_pause(pause,mode):
+	if (pause and mode == 0):
 		$BGmusic.volume_db = base_volume - 15
 	else:
 		$BGmusic.volume_db = base_volume

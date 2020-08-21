@@ -18,4 +18,3 @@ func _input(event):
 			_anim_player.play("fade")
 			yield(_anim_player, "animation_finished")
 			get_tree().change_scene("res://Titre.tscn")
-

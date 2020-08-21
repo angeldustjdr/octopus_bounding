@@ -639,3 +639,14 @@ __meta__ = {
 
 [node name="Stapple" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+
+[node name="Filter" type="ColorRect" parent="."]
+visible = false
+margin_left = 10.0
+margin_top = 84.0
+margin_right = 278.0
+margin_bottom = 636.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -80,6 +80,7 @@ func _process(_delta):
 		$TimeLabel/TextureRect.rect_size.x = initialX_textureRect * $TimerMission.time_left/$TimerMission.wait_time
 
 func _on_TimerMission_timeout():
+	$Filter.visible = true
 	if failable:
 		var roll = randf()*100.0
 		#print("roll="+str(roll)+" VS %chance="+str(successChancePercent))

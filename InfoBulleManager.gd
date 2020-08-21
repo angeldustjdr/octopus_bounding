@@ -36,6 +36,6 @@ func _on_InfoBulleDay_mouse_entered():
 func _on_InfoBulleDay_mouse_exited():
 	$InfoBulle.visible=false
 	
-func manage_pause(stat):
+func manage_pause(stat, _mode):
 	if($InfoBulle.visible):
 		$InfoBulle.visible = stat

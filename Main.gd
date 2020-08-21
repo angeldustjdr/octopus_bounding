@@ -5,7 +5,7 @@ var time = 0
 var random = randomize()
 var inSequence = true
 var inTuto = true
-var missionQueue = ["tuto01"]
+var missionQueue = []
 var currentLevel = 0
 var difficultyCurve = [0,1,1,2,2,2,2]
 var nextSequence = 0
@@ -36,19 +36,21 @@ signal mouse_button_released
 signal gameIsPaused(stat)
 signal inputKey
 signal unPause
-signal custom_finished
 var pauseFrameBefore = false
 var F2FrameBefore = false
 var loadFrameBefore = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$PauseRect.mode = 0
+	$PauseRect.mode = 3
+	pauseGame()
 	connect("gameIsPaused",$InfoBulleManager,"manage_pause")
 	connect("gameIsPaused",get_node("/root/MusicPlayer"),"set_volume_for_pause")
 	var _anim_player = $SceneTranstion/AnimationPlayer
 	_anim_player.play_backwards("fade")
 	yield(_anim_player, "animation_finished")
+	pauseGame()
+	$PauseRect.mode = 0
 	if (GlobalLoad.loadBool): #LOADGAME
 		load_save("res://save/save_mission.dat")
 	else: #NEWGAME
@@ -58,6 +60,7 @@ func _ready():
 		yield(self,"unPause")
 		reset_pause()
 		$PauseRect.mode = 0
+		missionQueue = ["tuto01"]
 		load_NPC("johnathan")
 		save("res://save/save_sequence.dat")
 		save("res://save/save_mission.dat")
@@ -73,9 +76,11 @@ func update_GUI():
 func _process(delta):
 	for mis in missionQueue:
 		if !("tuto" in mis):
+			$Skip2.shining=false
 			$Skip2.visible=false
 		else:
 			$Skip2.visible=true
+			$Skip2.shining=true
 	time += delta
 	if money < -80:
 		get_node("GameArea/ScoreArea/Money/Money_label").set("custom_colors/font_color",Color(1,0,0))
@@ -114,7 +119,7 @@ func instance_new_mission(myMission):
 		mission.get_node("UnavailableRect").visible = true
 		mission.get_node("detection_npc/CollisionShape2D2").disabled = true
 	mission.get_node("TimerIgnore").wait_time *= 1.2 + randf()*0.2
-	#mission.get_node("TimerIgnore").wait_time *= 0.02
+	#mission.get_node("TimerIgnore").wait_time *= 0.2
 	mission.position.x = mission_starting_point.x + mission_offset.x
 	mission.position.y = mission_starting_point.y + mission_offset.y
 	$Audio.stream = load("res://Assets/music/type_writer.wav")
@@ -217,11 +222,9 @@ func _on_Mission_timeout(mission):
 			saveSequenceBool = true
 	if(len(missions) == 0 and saveSequenceBool):
 		if (nbSequence <= 6):
-			print("hoy")
 			save("res://save/save_sequence.dat")
 			$PauseRect.mode = 1
 			custom_pause(false,"Act " + str(nbSequence),"","")
-			#yield(self,"custom_finished")
 			pauseGame()
 			yield(self,"unPause")
 			reset_pause()
@@ -422,6 +425,14 @@ func gameover():
 	#_anim_player.play("fade")
 	#yield(_anim_player, "animation_finished")
 	GlobalLoad.loadBool = false
+	var save_seq = File.new()
+	var save_mis = File.new()
+	save_seq.open("res://save/save_sequence.dat", File.READ)
+	save_mis.open("res://save/save_mission.dat", File.WRITE)
+	var save_seq_str = save_seq.get_as_text()
+	save_mis.store_string(save_seq_str)
+	save_mis.close()
+	save_seq.close()
 	get_tree().change_scene("res://GameOver.tscn")
 
 func pauseGame():
@@ -462,6 +473,9 @@ func pauseGame():
 			emit_signal("unPause")
 			$PauseRect/disableGame.visible = false
 			get_tree().paused = false
+		3:
+			emit_signal("gameIsPaused",!get_tree().paused)
+			get_tree().paused = !get_tree().paused
 
 func save(file_name):
 	#print("SAVE")
@@ -476,9 +490,12 @@ func save(file_name):
 	saveFile.store_line(str(nextSequence))
 	saveFile.store_line(str(nbSequence))
 	var line = npcs_name[0]
+	var inter = str(int(npcs[0].available))
 	for i in range(1,len(npcs_name)):
 		line += ","+npcs_name[i]
+		inter += ","+str(int(npcs[i].available))
 	saveFile.store_line(line)
+	saveFile.store_line(inter)
 	if (len(missionQueue) > 0):
 		line = missionQueue[0]
 		for i in range(1,len(missionQueue)):
@@ -490,7 +507,8 @@ func save(file_name):
 	saveFile.store_line(line)
 	if len(missions)>0:
 		line = missions[0].file_name
-		for i in range(1,len(missions)):
+		var lim = min(4,len(missions))
+		for i in range(1,lim):
 			line += ","+missions[i].file_name
 	else:
 		line = ""
@@ -498,11 +516,10 @@ func save(file_name):
 	saveFile.close()
 	
 func load_save(file_name):
-	#print("LOAD")
+	$MissionTimer.set_paused(true)
 	clean_mission_board()
 	clean_NPC_board()
 	missionQueue = []
-	$MissionTimer.stop()
 	var loadedFile = File.new()
 	var err = loadedFile.open(file_name, File.READ)
 	if err != OK:
@@ -520,9 +537,15 @@ func load_save(file_name):
 	nbSequence = int(line)
 	line = loadedFile.get_line()
 	line = line.split(",")
-	for name in line:
+	for i in range(0,len(line)):
 		#load_NPC_without_animation(name)
-		load_NPC(name)
+		load_NPC(line[i])
+	yield(npcs[-1].get_node("AnimationPlayer"),"animation_finished")
+	line = loadedFile.get_line()
+	line = line.split(",")
+	for i in range(0,len(line)):
+		if(!bool(int(line[i]))):
+			npcs[i].make_not_available()
 	line = loadedFile.get_line()
 	line = line.split(",")
 	if (line[0] != ""):
@@ -539,7 +562,7 @@ func load_save(file_name):
 	if (line != ""):
 		line = line.split(",")
 		var t = Timer.new()
-		t.set_wait_time(2)
+		t.set_wait_time($MissionTimer.wait_time)
 		t.set_one_shot(true)
 		add_child(t)
 		for li in line:
@@ -547,7 +570,7 @@ func load_save(file_name):
 			t.start()
 			yield(t,"timeout")
 	update_GUI()
-	$MissionTimer.start()
+	$MissionTimer.set_paused(false)
 
 func clean_mission_board():
 	for mis in missions:
@@ -569,4 +592,3 @@ func custom_pause(shi, pause_text,load_text,skip_text):
 	$PauseRect/PauseLabel.text = pause_text
 	$PauseRect/Load.text = load_text
 	$PauseRect/Skip.text = skip_text
-	emit_signal("custom_finished")

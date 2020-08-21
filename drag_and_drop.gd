@@ -52,17 +52,17 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	$Outline.visible = true
 
 func make_not_available():
+	available = false
+	pickable = false
 	$pickableFilter.visible = true
 	$AnimationPlayer.play("unAvailable")
 	yield($AnimationPlayer,"animation_finished")
 	#$notAvailableTexture.visible = true
-	available = false
-	pickable = false
 	
 func make_available():
+	available = true
+	pickable = true
 	$pickableFilter.visible = false
 	$AnimationPlayer.play_backwards("unAvailable")
 	yield($AnimationPlayer,"animation_finished")
 	#$notAvailableTexture.visible = false
-	available = true
-	pickable = true

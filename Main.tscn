@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/icons/shaking-hands_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Assets/icons/money-stack_pixelized.png" type="Texture" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://MissionTimer.gd" type="Script" id=8]
 [ext_resource path="res://InfoBulleManager.gd" type="Script" id=9]
-[ext_resource path="res://Label.gd" type="Script" id=10]
+[ext_resource path="res://Skip2.gd" type="Script" id=10]
 [ext_resource path="res://PauseRect.gd" type="Script" id=11]
+[ext_resource path="res://PauseLabel.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -541,7 +542,7 @@ custom_fonts/font = SubResource( 18 )
 text = "PAUSE"
 align = 1
 valign = 1
-script = ExtResource( 10 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

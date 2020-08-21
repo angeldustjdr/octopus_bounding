@@ -121,8 +121,6 @@ func affect_npc(npc):
 	$Stapple.play()
 	if npc.NPC_name=="Johnathan":
 		$NeedJohnathan.visible=false
-	successChancePercent += modSuccess(npc)
-	$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
 	var l = len(npcList)
 	if(l < nb_npc):
 		if (l <= 2):
@@ -130,6 +128,8 @@ func affect_npc(npc):
 			npc.get_node("pickableFilter").visible = true
 			npcList.append(npc)
 			get_node("NPCRect/NPC"+str(l+1)).texture = load("res://Assets/portraits/"+npc.NPC_name.to_lower()+"_pixelized_mission.png")		
+			successChancePercent += modSuccess(npc)
+			$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
 			if needJohnathan:
 				for perso in npcList:
 					if perso.NPC_name=="Johnathan":

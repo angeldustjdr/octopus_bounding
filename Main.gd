@@ -36,6 +36,7 @@ signal mouse_button_released
 signal gameIsPaused(stat)
 signal inputKey
 signal unPause
+signal custom_finished
 var pauseFrameBefore = false
 var F2FrameBefore = false
 var loadFrameBefore = false
@@ -51,15 +52,15 @@ func _ready():
 	if (GlobalLoad.loadBool): #LOADGAME
 		load_save("res://save/save_mission.dat")
 	else: #NEWGAME
-		load_NPC("johnathan")
-		save("res://save/save_sequence.dat")
-		save("res://save/save_mission.dat")
 		$PauseRect.mode = 1
 		custom_pause(false,"Tutorial","","")
 		pauseGame()
 		yield(self,"unPause")
 		reset_pause()
 		$PauseRect.mode = 0
+		load_NPC("johnathan")
+		save("res://save/save_sequence.dat")
+		save("res://save/save_mission.dat")
 	$MissionTimer.start()
 	update_GUI()
 
@@ -218,6 +219,7 @@ func _on_Mission_timeout(mission):
 			save("res://save/save_sequence.dat")
 			$PauseRect.mode = 1
 			custom_pause(false,"Act " + str(nbSequence),"","")
+			#yield(self,"custom_finished")
 			pauseGame()
 			yield(self,"unPause")
 			reset_pause()
@@ -417,6 +419,7 @@ func gameover():
 	#var _anim_player = $SceneTranstion/AnimationPlayer
 	#_anim_player.play("fade")
 	#yield(_anim_player, "animation_finished")
+	GlobalLoad.loadBool = false
 	get_tree().change_scene("res://GameOver.tscn")
 
 func pauseGame():
@@ -534,7 +537,7 @@ func load_save(file_name):
 	if (line != ""):
 		line = line.split(",")
 		var t = Timer.new()
-		t.set_wait_time($MissionTimer.wait_time)
+		t.set_wait_time(2)
 		t.set_one_shot(true)
 		add_child(t)
 		for li in line:
@@ -564,3 +567,4 @@ func custom_pause(shi, pause_text,load_text,skip_text):
 	$PauseRect/PauseLabel.text = pause_text
 	$PauseRect/Load.text = load_text
 	$PauseRect/Skip.text = skip_text
+	emit_signal("custom_finished")

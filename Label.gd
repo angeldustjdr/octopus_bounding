@@ -8,10 +8,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (visible and shining) :
-		time += delta
-		modulate.a = 0.5+0.5*sin(3*time)
-
+	if (visible):
+		if(shining):
+			time += delta
+			modulate.a = 0.5+0.5*sin(3*time)
+		else:
+			modulate.a = 1
 
 func _on_Label_draw():
 	time = 0

@@ -134,12 +134,14 @@ func affect_npc(npc):
 				for perso in npcList:
 					if perso.NPC_name=="Johnathan":
 						missionAccepted = true
+						$TimerIgnore.stop()
 						$TimerMission.start()
 				if missionAccepted==false:
 					$NeedJohnathan.visible=true
 			else:
 				$NeedJohnathan.visible = false
 				missionAccepted = true
+				$TimerIgnore.stop()
 				$TimerMission.start()
 		else:
 			print("ERROR AFFECT_NPC")

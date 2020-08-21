@@ -93,7 +93,6 @@ __meta__ = {
 }
 
 [node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
-visible = false
 margin_left = -2.0
 margin_right = 1278.0
 [connection signal="pressed" from="NewGame" to="." method="_on_NewGame_pressed"]

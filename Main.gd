@@ -34,12 +34,15 @@ var current_npc = null
 var clicked = false
 signal mouse_button_released
 signal gameIsPaused(stat)
+signal inputKey
+signal unPause
 var pauseFrameBefore = false
 var F2FrameBefore = false
 var loadFrameBefore = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$PauseRect.mode = 0
 	connect("gameIsPaused",$InfoBulleManager,"manage_pause")
 	connect("gameIsPaused",get_node("/root/MusicPlayer"),"set_volume_for_pause")
 	var _anim_player = $SceneTranstion/AnimationPlayer
@@ -51,6 +54,12 @@ func _ready():
 		load_NPC("johnathan")
 		save("res://save/save_sequence.dat")
 		save("res://save/save_mission.dat")
+		$PauseRect.mode = 1
+		custom_pause(false,"Tutorial","","")
+		pauseGame()
+		yield(self,"unPause")
+		reset_pause()
+		$PauseRect.mode = 0
 	$MissionTimer.start()
 	update_GUI()
 
@@ -206,6 +215,12 @@ func _on_Mission_timeout(mission):
 	if(len(missions) == 0 and saveSequenceBool):
 		if (nbSequence <= 6):
 			save("res://save/save_sequence.dat")
+			$PauseRect.mode = 1
+			custom_pause(false,"Act " + str(nbSequence),"","")
+			pauseGame()
+			yield(self,"unPause")
+			reset_pause()
+			$PauseRect.mode = 0
 		saveSequenceBool = false
 	save("res://save/save_mission.dat")
 	update_GUI()
@@ -259,6 +274,7 @@ func unload_NPC_without_animation(num):
 
 func _input(event):
 	if(event is InputEventMouseButton):
+		emit_signal("inputKey")
 		if (event.button_index == BUTTON_LEFT and event.pressed):
 			clicked = true
 		elif(event.button_index == BUTTON_LEFT and !event.pressed):
@@ -266,6 +282,7 @@ func _input(event):
 				emit_signal("mouse_button_released")
 				clicked = false
 	elif(event is InputEventKey):
+		emit_signal("inputKey")
 		match event.scancode:
 			KEY_ESCAPE:
 				if(event.pressed):
@@ -375,26 +392,70 @@ func anminateOutcome(value,myString):
 			$GameArea/updateCompromised.visible=false
 
 func check_gameover():
+	$PauseRect.mode = 2
 	if (money < -100):
 		get_node("/root/MusicPlayer/Gunshot").play()
+		custom_pause(false,"You failed.","","You got shot by your creditors.")
+		pauseGame()
+		yield(self,"unPause")
 		gameover()
 	elif (reputation < 0):
 		get_node("/root/MusicPlayer/Gunshot").play()
+		custom_pause(false,"You failed.","","You got shot by the mafia because of your bad reputation.")
+		pauseGame()
+		yield(self,"unPause")
 		gameover()
 	elif (compromised > 100):
 		get_node("/root/MusicPlayer/Jaildoor").play()
+		custom_pause(false,"You failed.","","You got busted.")
+		pauseGame()
+		yield(self,"unPause")
 		gameover()
 
 func gameover():
-	var _anim_player = $SceneTranstion/AnimationPlayer
-	_anim_player.play("fade")
-	yield(_anim_player, "animation_finished")
+	#var _anim_player = $SceneTranstion/AnimationPlayer
+	#_anim_player.play("fade")
+	#yield(_anim_player, "animation_finished")
 	get_tree().change_scene("res://GameOver.tscn")
 
 func pauseGame():
-	$PauseRect.visible = !$PauseRect.visible
-	emit_signal("gameIsPaused",$PauseRect.visible)
-	get_tree().paused = !get_tree().paused
+	match $PauseRect.mode:
+		0:
+			emit_signal("gameIsPaused",!get_tree().paused)
+			if (!get_tree().paused):
+				$PauseRect/AnimationPlayer.play("appear")
+			else:
+				$PauseRect/AnimationPlayer.play_backwards("appear")
+			$PauseRect/disableGame.visible = !get_tree().paused
+			get_tree().paused = !get_tree().paused
+			yield($PauseRect/AnimationPlayer, "animation_finished")
+		1:
+			emit_signal("gameIsPaused",true)
+			$PauseRect/disableGame.visible = true
+			get_tree().paused = true
+			$PauseRect/AnimationPlayer.play("appear")
+			yield($PauseRect/AnimationPlayer, "animation_finished")
+			yield(self,"inputKey")
+			$PauseRect/AnimationPlayer.play_backwards("appear")
+			yield($PauseRect/AnimationPlayer, "animation_finished")
+			emit_signal("gameIsPaused",false)
+			emit_signal("unPause")
+			$PauseRect/disableGame.visible = false
+			get_tree().paused = false
+		2:
+			emit_signal("gameIsPaused",true)
+			$PauseRect/disableGame.visible = true
+			get_tree().paused = true
+			$PauseRect/AnimationPlayer.play("appear")
+			yield($PauseRect/AnimationPlayer, "animation_finished")
+			yield(self,"inputKey")
+			var _anim_player = $SceneTranstion/AnimationPlayer
+			_anim_player.play("fade")
+			yield(_anim_player, "animation_finished")
+			emit_signal("gameIsPaused",false)
+			emit_signal("unPause")
+			$PauseRect/disableGame.visible = false
+			get_tree().paused = false
 
 func save(file_name):
 	#print("SAVE")
@@ -490,3 +551,15 @@ func clean_mission_board():
 func clean_NPC_board():
 	for i in range(len(npcs)-1,-1,-1):
 		unload_NPC_without_animation(i)
+
+func reset_pause():
+	$PauseRect/PauseLabel.shining = true
+	$PauseRect/PauseLabel.text = "PAUSE"
+	$PauseRect/Load.text = "You can press F1 to load the previous act."
+	$PauseRect/Skip.text = "You can press F2 to skip the tutorial."
+
+func custom_pause(shi, pause_text,load_text,skip_text):
+	$PauseRect/PauseLabel.shining = shi
+	$PauseRect/PauseLabel.text = pause_text
+	$PauseRect/Load.text = load_text
+	$PauseRect/Skip.text = skip_text

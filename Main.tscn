@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/icons/shaking-hands_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Assets/icons/money-stack_pixelized.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://MissionTimer.gd" type="Script" id=8]
 [ext_resource path="res://InfoBulleManager.gd" type="Script" id=9]
 [ext_resource path="res://Label.gd" type="Script" id=10]
+[ext_resource path="res://PauseRect.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -155,6 +156,22 @@ size = 64
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=19]
+resource_name = "appear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Main" type="Node"]
 pause_mode = 2
@@ -490,15 +507,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
-visible = false
-
 [node name="PauseRect" type="ColorRect" parent="."]
 pause_mode = 2
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 1282.0
 margin_bottom = 720.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0.607843 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="disableGame" type="ColorRect" parent="PauseRect"]
+visible = false
+margin_left = -20.0
+margin_top = -14.0
+margin_right = 1290.0
+margin_bottom = 736.0
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -536,9 +563,14 @@ margin_right = 963.0
 margin_bottom = 288.0
 custom_fonts/font = SubResource( 17 )
 text = "You can press F2 to skip the tutorial."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PauseRect"]
+anims/appear = SubResource( 19 )
+
+[node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]
-[connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]
 [connection signal="timeout" from="MissionTimer" to="." method="_on_MissionTimer_timeout"]
+[connection signal="timeout" from="MissionTimer" to="MissionTimer" method="_on_MissionTimer_timeout"]
 [connection signal="mouse_entered" from="InfoBulleManager/InfoBulleMoney" to="InfoBulleManager" method="_on_InfoBulleMoney_mouse_entered"]
 [connection signal="mouse_exited" from="InfoBulleManager/InfoBulleMoney" to="InfoBulleManager" method="_on_InfoBulleMoney_mouse_exited"]
 [connection signal="mouse_entered" from="InfoBulleManager/InfoBulleReputation" to="InfoBulleManager" method="_on_InfoBulleReputation_mouse_entered"]

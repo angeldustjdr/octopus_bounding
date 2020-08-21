@@ -8,7 +8,7 @@ var successChancePercent = 0
 onready var initialTimerIgnore = $TimerIgnore.wait_time
 var isWin = 1
 var modifEquilibrage_money = [0.5,0.5]
-var modifEquilibrage_reputation = [0.4,0.4]
+var modifEquilibrage_reputation = [0.25,0.4]
 var modifEquilibrage_compromised = [0.25,0.25]
 
 export var file_name = ""
@@ -28,7 +28,7 @@ export var clear_board_on_complete = false
 export var prerequis_npc=""
 export var prerequis_reputation=-1
 
-var speed = -500
+var speed = -450
 
 signal disappear
 signal ignoreTimeOut(mission_id)
@@ -98,6 +98,9 @@ func _on_TimerMission_timeout():
 	emit_signal("missionTimeOut", self)
 
 func _on_TimerIgnore_timeout():
+	$AnimationPlayer.play("appear_failure")
+	yield($AnimationPlayer,"animation_finished")
+	isWin = 1
 	emit_signal("ignoreTimeOut",self)
 
 func _on_detection_npc_area_entered(area):
@@ -108,14 +111,17 @@ func _on_detection_npc_area_exited(area):
 	if(area.get_parent() is KinematicBody2D):
 		emit_signal("NPCExit", self)
 
+func modSuccess(npc):
+	var mod = 0.5
+	if npc.NPC_type==missionType or npc.NPC_type=="You":
+		mod =1
+	return round(mod * 80/nb_npc)
+	
 func affect_npc(npc):
 	$Stapple.play()
 	if npc.NPC_name=="Johnathan":
 		$NeedJohnathan.visible=false
-	var mod = 0.5
-	if npc.NPC_type==missionType or npc.NPC_type=="You":
-		mod =1
-	successChancePercent += round(mod * 80/nb_npc)
+	successChancePercent += modSuccess(npc)
 	$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
 	var l = len(npcList)
 	if(l < nb_npc):
@@ -177,13 +183,10 @@ func unaffect_npc(num):
 		var npc = npcList[num]
 		if l==1:
 			$SuccessChance.text = "Success chance: 0%"
-			successChancePercent=50
+			successChancePercent=0
 			$NeedJohnathan.visible = false
 		else:
-			var Sign = -1
-			if npc.NPC_type==missionType or npc.NPC_type=="You":
-				Sign=1
-			successChancePercent -= round(Sign*40/nb_npc)
+			successChancePercent += modSuccess(npc)
 			$SuccessChance.text="Success chance: "+str(successChancePercent)+"%"
 		npc.pickable = true
 		npc.get_node("pickableFilter").visible = false

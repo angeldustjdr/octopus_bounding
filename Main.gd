@@ -112,7 +112,7 @@ func instance_new_mission(myMission):
 	if missionAvailableNPC==false or missionAvailableReputation==false:
 		mission.get_node("UnavailableRect").visible = true
 		mission.get_node("detection_npc/CollisionShape2D2").disabled = true
-	mission.get_node("TimerIgnore").wait_time *= 1+randf()*0.4
+	mission.get_node("TimerIgnore").wait_time *= 1.2 + randf()*0.2
 	mission.position.x = mission_starting_point.x + mission_offset.x
 	mission.position.y = mission_starting_point.y + mission_offset.y
 	$Audio.stream = load("res://Assets/music/type_writer.wav")
@@ -149,15 +149,16 @@ func _on_MissionTimer_timeout():
 
 func _on_MissionIgnore_timeout(mission):
 	var index = missions.find(mission)
-	update_score(0,-1*(difficultyCurve[currentLevel]+1)*ignore_reputation_decrease_factor,0)
 	update_GUI()
 	$Audio.stream = load("res://Assets/music/burning.ogg")
 	$Audio.play()
 	missions.remove(index)
+	$MissionTimer.set_paused(true)
 	var anim = mission.get_node("AnimationPlayer")
 	anim.play("disappear")
 	yield(anim,"animation_finished")
-	mission.delete_on_ignoreTimeOut()
+	$MissionTimer.set_paused(false)
+	mission.delete_on_missionTimeOut()
 
 func _on_Mission_timeout(mission):
 	if mission.add_NPC_on_complete != "":

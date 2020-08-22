@@ -618,8 +618,8 @@ func custom_pause(shi, pause_text,load_text,skip_text):
 func save_mission_equal_save_sequence():
 	var save_seq = File.new()
 	var save_mis = File.new()
-	save_seq.open("res://save/save_sequence.dat", File.READ)
-	save_mis.open("res://save/save_mission.dat", File.WRITE)
+	save_seq.open("user://save/save_sequence.dat", File.READ)
+	save_mis.open("user://save/save_mission.dat", File.WRITE)
 	var save_seq_str = save_seq.get_as_text()
 	save_mis.store_string(save_seq_str)
 	save_mis.close()

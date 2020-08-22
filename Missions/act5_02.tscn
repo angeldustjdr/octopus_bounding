@@ -55,4 +55,4 @@ text = "Erica knows everything from almost the begining. She is the best person 
 [node name="PortraitAdam" parent="." index="19"]
 visible = false
 
-[node name="PortraitErica" parent="." index="22" instance=ExtResource( 2 )]
+[node name="PortraitErica" parent="." index="20" instance=ExtResource( 2 )]

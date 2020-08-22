@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/icons/handcuffs_pixelized_mission.png" type="Texture" id=1]
 [ext_resource path="res://Assets/portraits/PortraitAdam.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/icons/check-mark_pixelized.png" type="Texture" id=12]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Mission.gd" type="Script" id=14]
+[ext_resource path="res://Filter.tscn" type="PackedScene" id=15]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -632,3 +633,5 @@ __meta__ = {
 
 [node name="Stapple" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="Filter" parent="." instance=ExtResource( 15 )]

@@ -54,7 +54,8 @@ func _ready():
 	pauseGame()
 	$PauseRect.mode = 0
 	if (GlobalLoad.loadBool): #LOADGAME
-		load_save("res://save/save_mission.dat")
+		load_save("user://save_mission.txt")
+		#load_save("user://the_octopus/save/save_mission.dat")
 	else: #NEWGAME
 		$PauseRect.mode = 1
 		custom_pause(false,"Tutorial","","")
@@ -64,8 +65,24 @@ func _ready():
 		$PauseRect.mode = 0
 		missionQueue = ["tuto01"]
 		load_NPC("johnathan")
-		save("res://save/save_sequence.dat")
-		save("res://save/save_mission.dat")
+		#var dir = Directory.new()
+		#if !dir.file_exists("user://the_octopus"):
+		#	dir.open("user://")
+		#	dir.make_dir("the_octopus")
+		#	dir.open("user://the_octopus")
+		#	dir.make_dir("save")
+		#	dir.make_dir("config")
+		#else:
+		#	dir.open("user://the_octopus")
+		#	if !dir.file_exists("user://the_octopus/save"):
+		#		dir.make_dir("save")
+		#	if !dir.file_exists("user://the_octopus/config"):
+		#		dir.make_dir("config")
+		save_config()
+		#save("user://the_octopus/save/save_sequence.dat")
+		#save("user://the_octopus/save/save_mission.dat")
+		save("user://save_sequence.txt")
+		save("user://save_mission.txt")
 	$MissionTimer.start()
 	update_GUI()
 
@@ -225,7 +242,8 @@ func _on_Mission_timeout(mission):
 			saveSequenceBool = true
 	if(len(missions) == 0 and saveSequenceBool):
 		if (nbSequence <= 6):
-			save("res://save/save_sequence.dat")
+			#save("user://the_octopus/save/save_sequence.dat")
+			save("user://save_sequence.txt")
 			$PauseRect.mode = 1
 			custom_pause(false,"Act " + str(nbSequence),"","")
 			pauseGame()
@@ -233,7 +251,8 @@ func _on_Mission_timeout(mission):
 			reset_pause()
 			$PauseRect.mode = 0
 		saveSequenceBool = false
-	save("res://save/save_mission.dat")
+	#save("user://octopus/save/save_mission.dat")
+	save("user://save_mission.txt")
 	update_GUI()
 
 
@@ -316,7 +335,8 @@ func _input(event):
 					if (event.pressed):
 						if(!loadFrameBefore):
 							loadFrameBefore = true
-							load_save("res://save/save_sequence.dat")
+							#load_save("user://the_octopus/save/save_sequence.dat")
+							load_save("user://save_sequence.txt")
 							save_mission_equal_save_sequence()
 					else:
 						loadFrameBefore = false
@@ -325,7 +345,8 @@ func _input(event):
 						if (event.pressed):
 							if(!F2FrameBefore):
 								F2FrameBefore = true
-								load_save("res://config/after_tuto.dat")
+								#load_save("user://the_octopus/config/after_tuto.dat")
+								load_save("user://after_tuto.txt")
 						else:
 							F2FrameBefore = false
 
@@ -603,3 +624,20 @@ func save_mission_equal_save_sequence():
 	save_mis.store_string(save_seq_str)
 	save_mis.close()
 	save_seq.close()
+
+func save_config():
+	var config_save = "30,30,0,9\n"
+	config_save += "1\n"
+	config_save += "0\n"
+	config_save += "0\n"
+	config_save += "1\n"
+	config_save += "0\n"
+	config_save += "johnathan,mathias\n"
+	config_save += "1,1\n"
+	config_save += "random01,random02,random02,random03\n"
+	var configFile = File.new()
+	#configFile.open("user://the_octopus/config/after_tuto.dat", File.WRITE)
+	configFile.open("user://after_tuto.txt", File.WRITE)
+	configFile.store_string(config_save)
+	configFile.close()
+	

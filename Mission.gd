@@ -11,8 +11,8 @@ var successChancePercent = 0
 onready var initialTimerIgnore = $TimerIgnore.wait_time
 var isWin = 1
 var modifEquilibrage_money = [0.5,0.5]
-var modifEquilibrage_reputation = [0.2,0.4]
-var modifEquilibrage_compromised = [0.25,0.3]
+var modifEquilibrage_reputation = [0.2,0.3]
+var modifEquilibrage_compromised = [0.25,0.25]
 
 export var file_name = ""
 export var nb_npc = 1

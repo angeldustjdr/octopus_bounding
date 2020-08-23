@@ -9,6 +9,3 @@ text = "You have become Adam. You rule the mafia now.
 Was it all worth ?
 
 Congratulations, you finished the game."
-
-[node name="SceneTranstion" parent="." index="7"]
-visible = true

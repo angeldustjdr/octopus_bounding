@@ -73,4 +73,3 @@ flat = true
 [node name="Credit" parent="." instance=ExtResource( 6 )]
 
 [node name="SceneTranstion" parent="." instance=ExtResource( 5 )]
-visible = false

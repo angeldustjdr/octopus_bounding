@@ -10,6 +10,6 @@ clear_board_on_complete = true
 [node name="TimerMission" parent="." index="8"]
 wait_time = 5.0
 
-[node name="Text_label" parent="." index="19"]
+[node name="Text_label" parent="." index="16"]
 margin_bottom = 433.0
 text = "Another date with Erica. Things are going fast."

@@ -13,33 +13,33 @@
 [ext_resource path="res://PauseRect.gd" type="Script" id=11]
 [ext_resource path="res://PauseLabel.gd" type="Script" id=12]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=15]
 size = 48
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=16]
 size = 48
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=17]
 size = 25
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=18]
 size = 25
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=19]
 size = 25
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=20]
 resource_name = "moneyUpdate"
 tracks/0/type = "value"
 tracks/0/path = NodePath("updateMoney:modulate")
@@ -66,7 +66,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=21]
 resource_name = "reputationUpdate"
 tracks/0/type = "value"
 tracks/0/path = NodePath("updateReputation:modulate")
@@ -93,7 +93,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=22]
 resource_name = "compromisedUpdate"
 tracks/0/type = "value"
 tracks/0/path = NodePath("updateCompromised:modulate")
@@ -120,19 +120,19 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 128.652, 50.8537 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 134.565, 50.4331 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 122.16, 50.2521 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 102.98, 50.799 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=27]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -140,20 +140,19 @@ font_data = ExtResource( 7 )
 
 [sub_resource type="AudioStreamSample" id=14]
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=28]
 size = 31
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=29]
 size = 64
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=17]
-resource_name = "appear"
+[sub_resource type="Animation" id=30]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -238,7 +237,7 @@ anchor_left = 0.156
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 34.76
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 15 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -275,7 +274,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 34.072
 margin_right = -3.05176e-05
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 15 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -310,7 +309,7 @@ anchor_left = 0.156
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 34.072
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 15 )
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -334,7 +333,7 @@ margin_left = 20.0
 margin_top = 16.0
 margin_right = 196.0
 margin_bottom = 88.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 16 )
 text = "Day 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -347,7 +346,7 @@ margin_left = 95.064
 margin_top = 71.2719
 margin_right = 186.064
 margin_bottom = 108.272
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 17 )
 text = "XXXX"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -360,7 +359,7 @@ margin_left = 388.0
 margin_top = 71.2719
 margin_right = 460.0
 margin_bottom = 102.272
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 18 )
 text = "XXXX"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -373,20 +372,20 @@ margin_left = 696.0
 margin_top = 71.2719
 margin_right = 768.0
 margin_bottom = 102.272
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 19 )
 text = "XXXX"
 
 [node name="animationMoneyUpdate" type="AnimationPlayer" parent="GameArea"]
 pause_mode = 1
-anims/moneyUpdate = SubResource( 6 )
+anims/moneyUpdate = SubResource( 20 )
 
 [node name="animationReputationUpdate" type="AnimationPlayer" parent="GameArea"]
 pause_mode = 1
-anims/reputationUpdate = SubResource( 7 )
+anims/reputationUpdate = SubResource( 21 )
 
 [node name="animationCompromisedUpdate" type="AnimationPlayer" parent="GameArea"]
 pause_mode = 1
-anims/compromisedUpdate = SubResource( 8 )
+anims/compromisedUpdate = SubResource( 22 )
 
 [node name="MissionTimer" type="Timer" parent="."]
 pause_mode = 1
@@ -447,7 +446,7 @@ collision_mask = 16384
 
 [node name="InfoMoney" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleMoney"]
 position = Vector2( 144.223, 50.5154 )
-shape = SubResource( 9 )
+shape = SubResource( 23 )
 
 [node name="InfoBulleReputation" type="Area2D" parent="InfoBulleManager"]
 collision_layer = 16384
@@ -455,7 +454,7 @@ collision_mask = 16384
 
 [node name="InfoReputation" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleReputation"]
 position = Vector2( 448.693, 52.5955 )
-shape = SubResource( 10 )
+shape = SubResource( 24 )
 
 [node name="InfoBulleCompromised" type="Area2D" parent="InfoBulleManager"]
 collision_layer = 16384
@@ -463,7 +462,7 @@ collision_mask = 16384
 
 [node name="InfoCompromised" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleCompromised"]
 position = Vector2( 740.561, 52.5494 )
-shape = SubResource( 11 )
+shape = SubResource( 25 )
 
 [node name="InfoBulleDay" type="Area2D" parent="InfoBulleManager"]
 collision_layer = 16384
@@ -471,13 +470,13 @@ collision_mask = 16384
 
 [node name="InfoDay" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleDay"]
 position = Vector2( 1030.1, 52.6556 )
-shape = SubResource( 12 )
+shape = SubResource( 26 )
 
 [node name="InfoBulle" type="Label" parent="InfoBulleManager"]
 visible = false
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 27 )
 text = "xxxxxxxxx"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -494,7 +493,7 @@ margin_left = 813.0
 margin_top = 640.0
 margin_right = 1254.0
 margin_bottom = 680.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 28 )
 text = "Press F2 to skip the tutorial."
 script = ExtResource( 10 )
 __meta__ = {
@@ -530,7 +529,7 @@ margin_left = 522.0
 margin_top = 320.0
 margin_right = 758.0
 margin_bottom = 400.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 29 )
 text = "PAUSE"
 align = 1
 valign = 1
@@ -544,7 +543,7 @@ margin_left = 316.0
 margin_top = 177.0
 margin_right = 962.0
 margin_bottom = 217.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 28 )
 text = "You can press F1 to load the previous act."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -555,14 +554,14 @@ margin_left = 317.0
 margin_top = 248.0
 margin_right = 963.0
 margin_bottom = 288.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 28 )
 text = "You can press F2 to skip the tutorial."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PauseRect"]
-anims/appear = SubResource( 17 )
+anims/appear = SubResource( 30 )
 
 [node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]

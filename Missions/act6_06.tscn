@@ -1,35 +1,30 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/portraits/PortraitAdam.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Missions/act6_01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
-absorbent = true
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 3 )
 
 [node name="Mission" instance=ExtResource( 2 )]
-physics_material_override = SubResource( 1 )
 file_name = "act6_06"
 nextMission = [ "act6_07", "random21", "random14", "random22" ]
 
 [node name="Title_label" parent="." index="2"]
 margin_right = 201.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Adam's call"
 
-[node name="Text_label" parent="." index="18"]
-custom_fonts/normal_font = SubResource( 3 )
+[node name="Text_label" parent="." index="16"]
+custom_fonts/normal_font = SubResource( 2 )
 text = "\"Johnathan !?! What the fuck are you doing ? I though you were loyal to me. Someone told me you were up to some nasty things. We need to talk. Come to my mansion.\""
 
 [node name="PortraitAdam" parent="." index="19" instance=ExtResource( 1 )]

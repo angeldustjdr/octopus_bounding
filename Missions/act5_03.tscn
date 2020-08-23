@@ -7,16 +7,15 @@
 file_name = "act5_03"
 del_NPC_on_complete = "mathias"
 nextMission = [ "act5_04", "random03", "random23", "random11" ]
-clear_board_on_complete = true
 prerequis_npc = "Mathias"
 
 [node name="Title_label" parent="." index="2"]
 text = "Send Mathias"
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "Mathias is my best friend. I can trust him with my life. He is the best person to send. He is smart and can boost any of our activities."
 
-[node name="PortraitAdam" parent="." index="19"]
-visible = false
-
 [node name="PortraitMathias" parent="." index="20" instance=ExtResource( 2 )]
+
+[node name="PortraitAdam" parent="." index="21"]
+visible = false

@@ -19,5 +19,5 @@ text = "No news from Erica"
 [node name="SuccessChance" parent="." index="6"]
 custom_fonts/font = SubResource( 1 )
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "Still no news from Erica. I hope she is doing fine."

@@ -371,7 +371,7 @@ func affect_current_npc():
 			m = mission_collision_index[-1]
 		else:
 			m = mission_collision_index[0]
-		if(current_npc != null):
+		if(current_npc != null and !m.get_node("Filter").visible):
 			#print(current_npc.NPC_name)
 			m.affect_npc(current_npc)
 			for mis in missions:
@@ -379,8 +379,6 @@ func affect_current_npc():
 					var timeLeft = mis.get_node("TimerIgnore").time_left
 					if timeLeft>10:
 						changeTime(mis,timeLeft)
-		else:
-			print("ERROR MAGGLE")
 	current_npc = null
 
 func changeTime(mis,timeLeft):

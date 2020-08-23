@@ -18,5 +18,5 @@ text = "----"
 [node name="Lose" parent="." index="5"]
 visible = false
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "I need to recruit some gun holders. The more the better."

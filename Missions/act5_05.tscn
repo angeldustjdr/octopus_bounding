@@ -19,7 +19,7 @@ text = "News from Mathias"
 [node name="SuccessChance" parent="." index="6"]
 custom_fonts/font = SubResource( 1 )
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "While I was settling some business issues, I sent through the docks. There I saw Mathias. Or rather, his body...
 
 Oh Shit... He got killed and tossed into the river. Is this all Adam's fault ? Shit. Adam. You bastard. You got Mathias killed !"

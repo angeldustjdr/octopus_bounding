@@ -6,17 +6,18 @@
 [node name="Mission" instance=ExtResource( 1 )]
 file_name = "act5_04"
 nextMission = [ "act5_05", "random02", "random14", "random13" ]
+clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="2"]
 margin_left = 20.0
 margin_right = 216.0
 text = "Where's Mathias ?"
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "No news from Mathias. I hope he is doing fine..."
 
-[node name="PortraitAdam" parent="." index="19"]
+[node name="PortraitMathias" parent="." index="20" instance=ExtResource( 2 )]
+
+[node name="PortraitAdam" parent="." index="21"]
 visible = false
 position = Vector2( 240.342, 124.893 )
-
-[node name="PortraitMathias" parent="." index="20" instance=ExtResource( 2 )]

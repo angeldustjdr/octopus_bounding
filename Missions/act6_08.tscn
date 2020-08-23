@@ -9,5 +9,5 @@ nextMission = [ "act6_09", "random12", "random15", "random23" ]
 [node name="Title_label" parent="." index="2"]
 text = "Get some equipment"
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "Then I need to get some gear."

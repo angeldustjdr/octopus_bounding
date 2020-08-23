@@ -11,8 +11,7 @@ prerequis_npc = "Nina"
 [node name="Title_label" parent="." index="2"]
 text = "Nina's plan"
 
-[node name="Text_label" parent="." index="18"]
-margin_bottom = 362.0
+[node name="Text_label" parent="." index="16"]
 text = "Nina wants Marcus to witness her dealing drugs on Adam's territory. If the plan goes wrong, it's dangerous for her..."
 
 [node name="PortraitAlison" parent="." index="19"]

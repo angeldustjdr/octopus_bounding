@@ -1,36 +1,32 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Missions/act5_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
-absorbent = true
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 2 )
 
 [node name="Mission" instance=ExtResource( 1 )]
-physics_material_override = SubResource( 1 )
 file_name = "act5_06"
 nextMission = [ "act5_07", "random03", "random21", "random14" ]
+clear_board_on_complete = false
 
 [node name="Title_label" parent="." index="2"]
 margin_left = 38.0
 margin_right = 256.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Erica on duty"
 
-[node name="Text_label" parent="." index="18"]
-custom_fonts/normal_font = SubResource( 3 )
+[node name="Text_label" parent="." index="16"]
+custom_fonts/normal_font = SubResource( 2 )
 text = "Erica is now in Adam's lair. I hope she is doing fine."
 
-[node name="PortraitAdam" parent="." index="19"]
+[node name="PortraitAdam" parent="." index="20"]
 visible = false

@@ -105,6 +105,7 @@ func _on_TimerMission_timeout():
 	emit_signal("missionTimeOut", self)
 
 func _on_TimerIgnore_timeout():
+	$Filter.visible = true
 	$AnimationPlayer.play("appear_failure")
 	yield($AnimationPlayer,"animation_finished")
 	isWin = 1

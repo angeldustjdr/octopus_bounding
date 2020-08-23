@@ -46,7 +46,7 @@ shape = SubResource( 3 )
 [node name="TimerChangeLabel" parent="." index="14"]
 custom_fonts/font = SubResource( 4 )
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 margin_top = 209.26
 margin_bottom = 313.26
 text = "We need to secure this gun shipping. More guns = more power !"

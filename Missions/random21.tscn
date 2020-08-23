@@ -61,7 +61,7 @@ shape = SubResource( 3 )
 [node name="TimerChangeLabel" parent="." index="14"]
 custom_fonts/font = SubResource( 4 )
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "We need to secure the market. Remember kids: don't do drugs, except when we are the supplier."
 script = null
 

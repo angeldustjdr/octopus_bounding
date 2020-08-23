@@ -1,59 +1,62 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
-[ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
-[ext_resource path="res://Mission.gd" type="Script" id=2]
-[ext_resource path="res://Assets/icons/handcuffs_pixelized_mission.png" type="Texture" id=3]
-[ext_resource path="res://Assets/icons/shaking-hands_pixelized_mission.png" type="Texture" id=4]
-[ext_resource path="res://Assets/icons/money-stack_pixelized_mission.png" type="Texture" id=5]
-[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/icons/person_pixelized.png" type="Texture" id=7]
-[ext_resource path="res://Assets/icons/sands-of-time_pixelized.png" type="Texture" id=8]
-[ext_resource path="res://Assets/icons/cancel_pixelized.png" type="Texture" id=9]
-[ext_resource path="res://Assets/icons/check-mark_pixelized.png" type="Texture" id=10]
-[ext_resource path="res://Assets/failure_mission_pixelized.png" type="Texture" id=11]
-[ext_resource path="res://Assets/success_stamp_pixelized.png" type="Texture" id=12]
-[ext_resource path="res://Assets/music/staple.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Assets/icons/handcuffs_pixelized_mission.png" type="Texture" id=1]
+[ext_resource path="res://Assets/portraits/PortraitAdam.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/failure_mission_pixelized.png" type="Texture" id=3]
+[ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=4]
+[ext_resource path="res://Assets/success_stamp_pixelized.png" type="Texture" id=5]
+[ext_resource path="res://Assets/music/staple.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/icons/shaking-hands_pixelized_mission.png" type="Texture" id=7]
+[ext_resource path="res://Assets/icons/money-stack_pixelized_mission.png" type="Texture" id=8]
+[ext_resource path="res://Assets/icons/person_pixelized.png" type="Texture" id=9]
+[ext_resource path="res://Assets/icons/sands-of-time_pixelized.png" type="Texture" id=10]
+[ext_resource path="res://Assets/icons/cancel_pixelized.png" type="Texture" id=11]
+[ext_resource path="res://Assets/icons/check-mark_pixelized.png" type="Texture" id=12]
+[ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Mission.gd" type="Script" id=14]
+[ext_resource path="res://Filter.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 134, 276 )
 
 [sub_resource type="DynamicFont" id=2]
+resource_local_to_scene = true
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
 outline_size = 2
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=8]
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 32, 32 )
@@ -62,13 +65,13 @@ extents = Vector2( 32, 32 )
 size = 14
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="Animation" id=12]
 tracks/0/type = "value"
@@ -98,7 +101,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=13]
 resource_name = "appear_failure"
-length = 0.7
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Failure:modulate")
 tracks/0/interp = 1
@@ -106,27 +109,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 0.210224 ),
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Failure:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 0.064704, 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=14]
 resource_name = "appear_success"
-length = 0.7
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Success:modulate")
 tracks/0/interp = 1
@@ -134,26 +125,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 0.203063 ),
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Success:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 0.0625001, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 0.2 ), Vector2( 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=15]
-length = 0.7
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -161,7 +140,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -169,18 +148,27 @@ tracks/0/keys = {
 
 [sub_resource type="DynamicFont" id=16]
 size = 20
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=17]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 13 )
 
 [node name="Mission" type="Area2D"]
 pause_mode = 1
 position = Vector2( 82, -78.0339 )
-script = ExtResource( 2 )
+script = ExtResource( 14 )
+file_name = "act3_15"
+outcomeMoney = [ 40, 0 ]
+outcomeReputation = [ 40, 0 ]
+missionType = "Story"
+failable = false
+needJohnathan = true
+cantIgnore = true
+add_NPC_on_complete = "marcus"
+nextMission = [ "end_sequence", "", "", "" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 144, 360 )
@@ -188,17 +176,17 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 144, 360 )
-texture = ExtResource( 1 )
+texture = ExtResource( 4 )
 
 [node name="Title_label" type="Label" parent="."]
-margin_left = 40.0
+margin_left = 21.0
 margin_top = 112.0
-margin_right = 256.0
+margin_right = 206.0
 margin_bottom = 144.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Titre"
+text = "Job done"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -218,6 +206,7 @@ __meta__ = {
 }
 
 [node name="Won" type="ColorRect" parent="."]
+visible = false
 margin_left = 32.0
 margin_top = 336.0
 margin_right = 256.0
@@ -232,7 +221,7 @@ __meta__ = {
 margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 32.0
-texture = ExtResource( 5 )
+texture = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -254,7 +243,7 @@ __meta__ = {
 margin_left = 96.0
 margin_right = 128.0
 margin_bottom = 32.0
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -276,7 +265,7 @@ __meta__ = {
 margin_left = 160.0
 margin_right = 192.0
 margin_bottom = 32.0
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -297,13 +286,14 @@ __meta__ = {
 [node name="Tick" type="TextureRect" parent="Won"]
 margin_right = 24.0
 margin_bottom = 24.0
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Lose" type="ColorRect" parent="."]
+visible = false
 margin_left = 32.0
 margin_top = 392.0
 margin_right = 256.0
@@ -318,7 +308,7 @@ __meta__ = {
 margin_left = 32.0
 margin_right = 64.0
 margin_bottom = 32.0
-texture = ExtResource( 5 )
+texture = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -340,7 +330,7 @@ __meta__ = {
 margin_left = 96.0
 margin_right = 128.0
 margin_bottom = 32.0
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -362,7 +352,7 @@ __meta__ = {
 margin_left = 160.0
 margin_right = 192.0
 margin_bottom = 32.0
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -383,13 +373,14 @@ __meta__ = {
 [node name="Cross" type="TextureRect" parent="Lose"]
 margin_right = 24.0
 margin_bottom = 24.0
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SuccessChance" type="Label" parent="."]
+visible = false
 margin_left = 46.0
 margin_top = 527.47
 margin_right = 180.0
@@ -401,11 +392,11 @@ __meta__ = {
 }
 
 [node name="TimerIgnore" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 1e+08
 one_shot = true
 
 [node name="TimerMission" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -413,7 +404,7 @@ margin_left = 40.0
 margin_top = 560.0
 margin_right = 80.0
 margin_bottom = 600.0
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -469,7 +460,7 @@ margin_right = 72.08
 margin_bottom = 63.984
 rect_pivot_offset = Vector2( 128, 64 )
 mouse_filter = 2
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -493,7 +484,7 @@ margin_right = 144.08
 margin_bottom = 63.984
 rect_pivot_offset = Vector2( 128, 64 )
 mouse_filter = 2
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -518,7 +509,7 @@ margin_right = 216.08
 margin_bottom = 63.984
 rect_pivot_offset = Vector2( 128, 64 )
 mouse_filter = 2
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -552,7 +543,7 @@ margin_top = 555.03
 margin_right = 161.162
 margin_bottom = 580.03
 custom_fonts/font = SubResource( 11 )
-text = "-10"
+text = "-5"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -565,18 +556,6 @@ anims/appear_failure = SubResource( 13 )
 anims/appear_success = SubResource( 14 )
 anims/disappear = SubResource( 15 )
 
-[node name="Text_label" type="RichTextLabel" parent="."]
-margin_left = 40.0
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 312.0
-custom_fonts/normal_font = SubResource( 16 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "Random text for the test of the mighty mission etc. \\zq dzq dqzd qzdqzdqzd z zq"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Failure" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -30.0
@@ -584,8 +563,7 @@ margin_top = 442.034
 margin_right = 330.0
 margin_bottom = 526.034
 rect_rotation = -39.0
-rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
+texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -598,9 +576,25 @@ margin_top = 442.034
 margin_right = 330.0
 margin_bottom = 526.034
 rect_rotation = -39.0
-rect_scale = Vector2( 1, 0.2 )
-texture = ExtResource( 12 )
+texture = ExtResource( 5 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortraitAdam" parent="." instance=ExtResource( 2 )]
+
+[node name="Text_label" type="RichTextLabel" parent="."]
+margin_left = 40.0
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 406.0
+custom_fonts/normal_font = SubResource( 16 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Adam, the Boss, sent us a message:
+\"Good job Johnathan ! You have proven your loyalty. Here is your reward. And also, take Marcus with you. You can trust him (even though people call him the Flesh Eater... It's a joke ! haha !).
+
+Unfortunately, I'm out of town. Next time, I'll meet you in person. Until then, god bless you Johnathan\""
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -631,15 +625,6 @@ __meta__ = {
 }
 
 [node name="Stapple" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource( 6 )
 
-[node name="Filter" type="ColorRect" parent="."]
-visible = false
-margin_left = 10.0
-margin_top = 84.0
-margin_right = 278.0
-margin_bottom = 636.0
-color = Color( 1, 0, 0, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Filter" parent="." instance=ExtResource( 15 )]

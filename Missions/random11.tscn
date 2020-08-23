@@ -35,5 +35,5 @@ text = "+"
 [node name="TimerIgnore" parent="." index="7"]
 wait_time = 80.0
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 script = ExtResource( 2 )

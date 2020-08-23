@@ -32,5 +32,5 @@ text = "+"
 [node name="TimerIgnore" parent="." index="7"]
 wait_time = 100.0
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "These punks won't get away from my territory. I have to make them leave !"

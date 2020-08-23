@@ -324,14 +324,14 @@ func _input(event):
 					if(event.pressed):
 						if(!pauseFrameBefore):
 							pauseFrameBefore = true
-							pauseGame()
+							call_deferred("pauseGame")
 					else:
 						pauseFrameBefore = false
 				KEY_SPACE:
 					if(event.pressed):
 						if(!pauseFrameBefore):
 							pauseFrameBefore = true
-							pauseGame()
+							call_deferred("pauseGame")
 					else:
 						pauseFrameBefore = false
 		if(!get_tree().paused):
@@ -430,20 +430,22 @@ func anminateOutcome(value,myString):
 			$GameArea/updateCompromised.visible=false
 
 func check_gameover():
-	$PauseRect.mode = 2
 	if (money < -100):
+		$PauseRect.mode = 2
 		get_node("/root/MusicPlayer/Gunshot").play()
 		custom_pause(false,"You failed.","","You got shot by your creditors.")
 		pauseGame()
 		yield(self,"unPause")
 		gameover()
 	elif (reputation < 0):
+		$PauseRect.mode = 2
 		get_node("/root/MusicPlayer/Gunshot").play()
 		custom_pause(false,"You failed.","","You got shot by the mafia because of your bad reputation.")
 		pauseGame()
 		yield(self,"unPause")
 		gameover()
 	elif (compromised > 100):
+		$PauseRect.mode = 2
 		get_node("/root/MusicPlayer/Jaildoor").play()
 		custom_pause(false,"You failed.","","You got busted.")
 		pauseGame()
@@ -461,14 +463,18 @@ func gameover():
 func pauseGame():
 	match $PauseRect.mode:
 		0:
-			emit_signal("gameIsPaused",!get_tree().paused,$PauseRect.mode)
-			if (!get_tree().paused):
-				$PauseRect/AnimationPlayer.play("appear")
-			else:
-				$PauseRect/AnimationPlayer.play_backwards("appear")
-			$PauseRect/disableGame.visible = !get_tree().paused
 			get_tree().paused = !get_tree().paused
-			yield($PauseRect/AnimationPlayer, "animation_finished")
+			if (get_tree().paused):
+				$PauseRect/PauseLabel.time = 0
+				emit_signal("gameIsPaused",true,$PauseRect.mode)
+				$PauseRect/AnimationPlayer.play("appear")
+				yield($PauseRect/AnimationPlayer, "animation_finished")
+				$PauseRect/disableGame.visible = true
+			else:
+				emit_signal("gameIsPaused",false,$PauseRect.mode)
+				$PauseRect/AnimationPlayer.play_backwards("appear")
+				yield($PauseRect/AnimationPlayer, "animation_finished")
+				$PauseRect/disableGame.visible = false
 		1:
 			inTransition = true
 			emit_signal("gameIsPaused",true,$PauseRect.mode)
@@ -503,6 +509,7 @@ func pauseGame():
 		3:
 			emit_signal("gameIsPaused",!get_tree().paused,$PauseRect.mode)
 			get_tree().paused = !get_tree().paused
+
 
 func save(file_name):
 	#print("SAVE")
@@ -543,6 +550,7 @@ func save(file_name):
 	saveFile.close()
 	
 func load_save(file_name):
+	#$MissionTimer.set_paused(true)
 	$MissionTimer.set_paused(true)
 	clean_mission_board()
 	clean_NPC_board()
@@ -590,6 +598,7 @@ func load_save(file_name):
 	if (line != ""):
 		line = line.split(",")
 		var t = Timer.new()
+		t.pause_mode = Node.PAUSE_MODE_STOP
 		t.set_wait_time($MissionTimer.wait_time)
 		t.set_one_shot(true)
 		add_child(t)

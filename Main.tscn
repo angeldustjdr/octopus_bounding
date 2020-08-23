@@ -120,39 +120,39 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 128.652, 50.8537 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 134.565, 50.4331 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 122.16, 50.2521 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 102.98, 50.799 )
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=13]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="AudioStreamSample" id=16]
+[sub_resource type="AudioStreamSample" id=14]
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=15]
 size = 31
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=16]
 size = 64
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=17]
 resource_name = "appear"
 length = 0.2
 tracks/0/type = "value"
@@ -173,6 +173,7 @@ pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="MissionArea" type="TextureRect" parent="."]
+pause_mode = 1
 anchor_top = 0.1
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -185,6 +186,7 @@ __meta__ = {
 }
 
 [node name="GameArea" type="ColorRect" parent="."]
+pause_mode = 1
 anchor_left = 0.109
 anchor_right = 0.109
 margin_left = 4.47999
@@ -315,6 +317,7 @@ __meta__ = {
 }
 
 [node name="TimeArea" type="ColorRect" parent="GameArea"]
+pause_mode = 1
 anchor_left = 0.812
 anchor_right = 0.812
 margin_left = -1.67997
@@ -338,6 +341,7 @@ __meta__ = {
 }
 
 [node name="updateMoney" type="Label" parent="GameArea"]
+pause_mode = 1
 visible = false
 margin_left = 95.064
 margin_top = 71.2719
@@ -350,6 +354,7 @@ __meta__ = {
 }
 
 [node name="updateReputation" type="Label" parent="GameArea"]
+pause_mode = 1
 visible = false
 margin_left = 388.0
 margin_top = 71.2719
@@ -362,6 +367,7 @@ __meta__ = {
 }
 
 [node name="updateCompromised" type="Label" parent="GameArea"]
+pause_mode = 1
 visible = false
 margin_left = 696.0
 margin_top = 71.2719
@@ -371,12 +377,15 @@ custom_fonts/font = SubResource( 5 )
 text = "XXXX"
 
 [node name="animationMoneyUpdate" type="AnimationPlayer" parent="GameArea"]
+pause_mode = 1
 anims/moneyUpdate = SubResource( 6 )
 
 [node name="animationReputationUpdate" type="AnimationPlayer" parent="GameArea"]
+pause_mode = 1
 anims/reputationUpdate = SubResource( 7 )
 
 [node name="animationCompromisedUpdate" type="AnimationPlayer" parent="GameArea"]
+pause_mode = 1
 anims/compromisedUpdate = SubResource( 8 )
 
 [node name="MissionTimer" type="Timer" parent="."]
@@ -384,6 +393,7 @@ pause_mode = 1
 script = ExtResource( 8 )
 
 [node name="MissionRect" type="ColorRect" parent="."]
+pause_mode = 1
 margin_left = 176.0
 margin_top = 136.0
 margin_right = 1248.0
@@ -395,6 +405,7 @@ __meta__ = {
 }
 
 [node name="NPCArea" type="ColorRect" parent="."]
+pause_mode = 1
 anchor_right = 0.125
 anchor_bottom = 1.0
 margin_right = -16.0
@@ -426,6 +437,7 @@ position = Vector2( 72, 552 )
 position = Vector2( 72, 648 )
 
 [node name="InfoBulleManager" type="Node2D" parent="."]
+pause_mode = 1
 position = Vector2( 144, 0 )
 script = ExtResource( 9 )
 
@@ -435,7 +447,7 @@ collision_mask = 16384
 
 [node name="InfoMoney" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleMoney"]
 position = Vector2( 144.223, 50.5154 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="InfoBulleReputation" type="Area2D" parent="InfoBulleManager"]
 collision_layer = 16384
@@ -443,7 +455,7 @@ collision_mask = 16384
 
 [node name="InfoReputation" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleReputation"]
 position = Vector2( 448.693, 52.5955 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="InfoBulleCompromised" type="Area2D" parent="InfoBulleManager"]
 collision_layer = 16384
@@ -451,7 +463,7 @@ collision_mask = 16384
 
 [node name="InfoCompromised" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleCompromised"]
 position = Vector2( 740.561, 52.5494 )
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="InfoBulleDay" type="Area2D" parent="InfoBulleManager"]
 collision_layer = 16384
@@ -459,20 +471,20 @@ collision_mask = 16384
 
 [node name="InfoDay" type="CollisionShape2D" parent="InfoBulleManager/InfoBulleDay"]
 position = Vector2( 1030.1, 52.6556 )
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 
 [node name="InfoBulle" type="Label" parent="InfoBulleManager"]
 visible = false
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 13 )
 text = "xxxxxxxxx"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = SubResource( 16 )
+stream = SubResource( 14 )
 volume_db = -3.0
 
 [node name="Skip2" type="Label" parent="."]
@@ -482,7 +494,7 @@ margin_left = 813.0
 margin_top = 640.0
 margin_right = 1254.0
 margin_bottom = 680.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 15 )
 text = "Press F2 to skip the tutorial."
 script = ExtResource( 10 )
 __meta__ = {
@@ -518,7 +530,7 @@ margin_left = 522.0
 margin_top = 320.0
 margin_right = 758.0
 margin_bottom = 400.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 16 )
 text = "PAUSE"
 align = 1
 valign = 1
@@ -532,7 +544,7 @@ margin_left = 316.0
 margin_top = 177.0
 margin_right = 962.0
 margin_bottom = 217.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 15 )
 text = "You can press F1 to load the previous act."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -543,11 +555,14 @@ margin_left = 317.0
 margin_top = 248.0
 margin_right = 963.0
 margin_bottom = 288.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 15 )
 text = "You can press F2 to skip the tutorial."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PauseRect"]
-anims/appear = SubResource( 19 )
+anims/appear = SubResource( 17 )
 
 [node name="SceneTranstion" parent="." instance=ExtResource( 4 )]
 [connection signal="mouse_button_released" from="." to="." method="affect_current_npc"]

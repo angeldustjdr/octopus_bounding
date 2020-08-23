@@ -50,6 +50,7 @@ custom_fonts/font = SubResource( 4 )
 margin_top = 209.26
 margin_bottom = 313.26
 text = "We need to secure this gun shipping. More guns = more power !"
+script = null
 
 [node name="UnavailableRect" parent="." index="19"]
 color = Color( 0.54902, 0.54902, 0.54902, 0.698039 )

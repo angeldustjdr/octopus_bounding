@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/font/OldNewspaperTypes.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://FlickeringLabel.gd" type="Script" id=2]
-[ext_resource path="res://Assets/pre-main_pixelized.png" type="Texture" id=3]
+[ext_resource path="res://Assets/end_game_01.png" type="Texture" id=3]
 [ext_resource path="res://Missions/end_game_01.gd" type="Script" id=4]
 [ext_resource path="res://SceneTranstion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Credit.tscn" type="PackedScene" id=6]
@@ -53,7 +53,9 @@ margin_top = 123.678
 margin_right = 473.813
 margin_bottom = 210.678
 custom_fonts/font = SubResource( 1 )
-text = "You failed."
+text = "You failed to avenge your mother.
+
+You were shot by Adam gunslingers. "
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

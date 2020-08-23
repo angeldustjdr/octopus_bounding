@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/gameover_pixelized.png" type="Texture" id=1]
+[ext_resource path="res://Assets/end_game_04.png" type="Texture" id=1]
 [ext_resource path="res://Missions/end_game_01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Missions/end_game_02.gd" type="Script" id=3]
 
@@ -25,7 +25,8 @@ margin_left = 28.5411
 margin_top = 209.301
 margin_right = 1237.54
 margin_bottom = 466.301
-text = "You spared Adam. You did not become a monster.
+text = "You spared Adam. You did not become a monster but
+you live the rest of your life in fear of his revenge.
 
 Congratulations, you finished the game."
 align = 1

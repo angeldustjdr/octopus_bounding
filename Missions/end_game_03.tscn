@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Missions/end_game_02.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Missions/end_game_01.gd" type="Script" id=2]
+[ext_resource path="res://Assets/end_game_02.png" type="Texture" id=3]
 
 [node name="Node2D" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="FlickeringLabel" parent="." index="4"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
+position = Vector2( 640, 360 )
+texture = ExtResource( 3 )
+
+[node name="pre-main_pixelized" parent="." index="1"]
+visible = false
+
+[node name="FlickeringLabel" parent="." index="5"]
 text = "The mafia and Adam are no more.
 You win... But at what cost ?
 

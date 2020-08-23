@@ -12,5 +12,5 @@ prerequis_reputation = 50
 [node name="Title_label" parent="." index="2"]
 text = "Using our prestige"
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "With our newly gained reputation, people will surely give us information on Désiré."

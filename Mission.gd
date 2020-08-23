@@ -1,4 +1,7 @@
-extends RigidBody2D
+extends Area2D
+
+var xmin = 0
+var sizex = 268
 
 var rand = randomize()
 var missionAccepted = false
@@ -62,8 +65,11 @@ func _ready():
 	$NPCRect/NPC3/collision_NPC3.connect("input_event", self, "_on_collision_NPC3_input_event")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	linear_velocity.x = speed
+func _process(delta):
+	if(position.x > xmin):
+		position.x += speed*delta
+	else:
+		position.x = xmin
 #Timer 
 	if cantIgnore:
 		$TimerIgnore.wait_time=1

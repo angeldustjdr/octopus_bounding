@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/icons/shaking-hands_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Assets/icons/money-stack_pixelized.png" type="Texture" id=2]
@@ -119,12 +119,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 4, 292 )
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 838, 8 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 128.652, 50.8537 )
@@ -430,20 +424,6 @@ position = Vector2( 72, 552 )
 
 [node name="node_NPC7" type="Node2D" parent="NPCArea"]
 position = Vector2( 72, 648 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 172, 416 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1006, 128 )
-shape = SubResource( 10 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1006, 696 )
-shape = SubResource( 10 )
 
 [node name="InfoBulleManager" type="Node2D" parent="."]
 position = Vector2( 144, 0 )

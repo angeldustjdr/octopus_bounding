@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/mission_pixelized.png" type="Texture" id=1]
 [ext_resource path="res://Mission.gd" type="Script" id=2]
@@ -14,22 +14,24 @@
 [ext_resource path="res://Assets/success_stamp_pixelized.png" type="Texture" id=12]
 [ext_resource path="res://Assets/music/staple.ogg" type="AudioStream" id=13]
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
-absorbent = true
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 134, 276 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 22
 outline_size = 2
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -45,36 +47,30 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 20
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=8]
 size = 18
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 6 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 size = 14
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -100,7 +96,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 resource_name = "appear_failure"
 length = 0.7
 tracks/0/type = "value"
@@ -128,7 +124,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 resource_name = "appear_success"
 length = 0.7
 tracks/0/type = "value"
@@ -156,7 +152,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 0.2 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -171,27 +167,24 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=16]
 size = 20
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=17]
 size = 22
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[node name="Mission" type="RigidBody2D"]
+[node name="Mission" type="Area2D"]
 pause_mode = 1
 position = Vector2( 82, -78.0339 )
-mass = 0.00102041
-physics_material_override = SubResource( 1 )
-gravity_scale = 0.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 144, 360 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 144, 360 )
@@ -202,7 +195,7 @@ margin_left = 40.0
 margin_top = 112.0
 margin_right = 256.0
 margin_bottom = 144.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Titre"
@@ -216,7 +209,7 @@ margin_left = 40.0
 margin_top = 160.0
 margin_right = 256.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 align = 1
@@ -250,7 +243,7 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 align = 1
 valign = 1
 __meta__ = {
@@ -272,7 +265,7 @@ margin_left = 128.0
 margin_right = 160.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 align = 1
 valign = 1
 __meta__ = {
@@ -294,7 +287,7 @@ margin_left = 192.0
 margin_right = 224.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 valign = 1
 __meta__ = {
@@ -336,7 +329,7 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 __meta__ = {
@@ -358,7 +351,7 @@ margin_left = 128.0
 margin_right = 160.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 __meta__ = {
@@ -380,7 +373,7 @@ margin_left = 192.0
 margin_right = 224.0
 margin_bottom = 32.0
 rect_pivot_offset = Vector2( 24, 8 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 __meta__ = {
@@ -401,7 +394,7 @@ margin_left = 46.0
 margin_top = 527.47
 margin_right = 180.0
 margin_bottom = 550.47
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 text = "Success chance: 0%"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -431,7 +424,7 @@ margin_left = 88.0
 margin_top = 560.0
 margin_right = 256.0
 margin_bottom = 600.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 valign = 1
 __meta__ = {
@@ -451,7 +444,7 @@ __meta__ = {
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="detection_npc"]
 position = Vector2( 144, 360 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="NPCRect" type="ColorRect" parent="."]
 margin_left = 40.0
@@ -486,7 +479,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC1/collision_NPC1"]
 position = Vector2( 32, 32.0339 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="NPC2" type="TextureRect" parent="NPCRect"]
 visible = false
@@ -511,7 +504,7 @@ position = Vector2( -72, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC2/collision_NPC2"]
 position = Vector2( 104, 32.0339 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="NPC3" type="TextureRect" parent="NPCRect"]
 visible = false
@@ -536,7 +529,7 @@ position = Vector2( -144, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCRect/NPC3/collision_NPC3"]
 position = Vector2( 176, 32.0339 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="NeedJohnathan" type="Label" parent="."]
 visible = false
@@ -544,7 +537,7 @@ margin_left = 40.0
 margin_top = 424.0
 margin_right = 257.0
 margin_bottom = 463.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.992157, 0.729412, 0.00784314, 1 )
 text = "I need to do the job myself !
  (drag and drop Johnathan)"
@@ -558,19 +551,31 @@ margin_left = 121.162
 margin_top = 555.03
 margin_right = 161.162
 margin_bottom = 580.03
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "-10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TimerChangeLabel"]
-anims/timeChange = SubResource( 13 )
+anims/timeChange = SubResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/appear_failure = SubResource( 14 )
-anims/appear_success = SubResource( 15 )
-anims/disappear = SubResource( 16 )
+anims/appear_failure = SubResource( 13 )
+anims/appear_success = SubResource( 14 )
+anims/disappear = SubResource( 15 )
+
+[node name="Text_label" type="RichTextLabel" parent="."]
+margin_left = 40.0
+margin_top = 208.0
+margin_right = 256.0
+margin_bottom = 312.0
+custom_fonts/normal_font = SubResource( 16 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Random text for the test of the mighty mission etc. \\zq dzq dqzd qzdqzdqzd z zq"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Failure" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -600,18 +605,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text_label" type="RichTextLabel" parent="."]
-margin_left = 40.0
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 312.0
-custom_fonts/normal_font = SubResource( 17 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "Random text for the test of the mighty mission etc. \\zq dzq dqzd qzdqzdqzd z zq"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="UnavailableRect" type="ColorRect" parent="."]
 visible = false
 margin_left = 10.0
@@ -629,7 +622,7 @@ margin_top = 158.704
 margin_right = 342.0
 margin_bottom = 248.704
 rect_rotation = 42.9
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "Mission locked.
 Try to pick other choices 
 next time you play."

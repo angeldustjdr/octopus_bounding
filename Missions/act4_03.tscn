@@ -13,5 +13,5 @@ prerequis_npc = "Alison"
 [node name="Title_label" parent="." index="2"]
 text = "Alison"
 
-[node name="Text_label" parent="." index="18"]
+[node name="Text_label" parent="." index="16"]
 text = "Alison is a former cop. And her behaviour is strange. She is the mole !"

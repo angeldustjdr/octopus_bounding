@@ -150,6 +150,7 @@ func instance_new_mission(myMission):
 	mission.connect("NPCEnter", self, "set_current_mission_collision")
 	mission.connect("NPCExit", self, "reset_current_mission_collision")
 	mission.connect("missionAccomplished", self, "update_score")
+	mission.xmin = (len(missions)-1)*mission.sizex
 
 func _on_MissionTimer_timeout():
 	if inSequence==false:
@@ -185,6 +186,8 @@ func _on_MissionIgnore_timeout(mission):
 	yield(anim,"animation_finished")
 	$MissionTimer.set_paused(false)
 	mission.delete_on_missionTimeOut()
+	for i in range(0,len(missions)):
+		missions[i].xmin = i*missions[i].sizex
 
 func _on_Mission_timeout(mission):
 	if mission.add_NPC_on_complete != "":
@@ -254,6 +257,8 @@ func _on_Mission_timeout(mission):
 	#save("user://octopus/save/save_mission.dat")
 	save("user://save_mission.txt")
 	update_GUI()
+	for i in range(0,len(missions)):
+		missions[i].xmin = i*missions[i].sizex
 
 
 func load_NPC(name):
@@ -618,8 +623,9 @@ func custom_pause(shi, pause_text,load_text,skip_text):
 func save_mission_equal_save_sequence():
 	var save_seq = File.new()
 	var save_mis = File.new()
-	save_seq.open("user://save/save_sequence.dat", File.READ)
-	save_mis.open("user://save/save_mission.dat", File.WRITE)
+	save_seq.open("user://save_sequence.txt", File.READ)
+	save_mis.open("user://save_mission.txt", File.WRITE)
+	save_mis.open("user://save_mission.txt", File.WRITE)
 	var save_seq_str = save_seq.get_as_text()
 	save_mis.store_string(save_seq_str)
 	save_mis.close()
